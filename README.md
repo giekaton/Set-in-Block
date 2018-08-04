@@ -10,6 +10,11 @@ There is no back-end code and no database, all logic is on the front-end.
 
 To launch the app download the repository package and open index.html in your browser.
 
+## To do
+
+* Message reader that would accept tx hash from the url: `setinblock.com/read/tx_hash`
+* Integrate Bitcoin blockchain
+
 ## Issues
 
 Report issues in [issue tracker](https://github.com/dziungles/set-in-block/issues).
