@@ -8,7 +8,7 @@
     <div style="float:right;padding-top:2px;font-size:14px;" class="sans-serif"><router-link to="/">New message</router-link></div>
 
     <div class="read-content">
-      <!-- <br><br><br> -->
+
       <span class="pre-formatted serif">{{ tempstr }}</span>
 
       <div v-if="tempstr != 'Message is not available. Try a different tx hash.'">
@@ -72,7 +72,7 @@ export default {
         axios.get(etherscan + '/api?module=proxy&action=eth_getBlockByNumber&tag='+self.blockNumber+'&boolean=true')
           .then (
             function (response) {
-              console.log(response);
+              // console.log(response);
 
               if (typeof response["data"]["error"] === 'undefined') {
                   let timestamp = response["data"]["result"]["timestamp"];
@@ -82,7 +82,6 @@ export default {
               else {
                   self.timestamp = "Processing..."
               }
-              // jQuery("#reader-content").html("Added on: "+ timestamp +"<br><br>" + decoded.substring(2));
             }
           )
           .catch (
@@ -112,26 +111,8 @@ export default {
       }            
     },
     convert: function(unixtimestamp) {
-      // Months array
-      var months_arr = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-      // Convert timestamp to milliseconds
-      var date = new Date(unixtimestamp*1000);
-      // Year
-      var year = date.getFullYear();
-      // Month
-      var month = months_arr[date.getMonth()];
-      // Day
-      var day = date.getDate();
-      // Hours
-      var hours = date.getHours();
-      // Minutes
-      var minutes = "0" + date.getMinutes();
-      // Seconds
-      var seconds = "0" + date.getSeconds();
-      // Display date time in MM-dd-yyyy h:m:s format
-      this.timestamp = month+'-'+day+'-'+year+' '+hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+      this.timestamp = new Date(new Date(unixtimestamp*1000)).toUTCString();
     }
-    
   }
 }
 </script>
