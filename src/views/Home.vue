@@ -136,7 +136,6 @@
 </template>
 
 <script>
-import ReaderComponent from '../components/ReaderComponent.vue';
 
 export default {
   name: 'home',
@@ -145,10 +144,8 @@ export default {
       message: '',
       messageInput: '',
       feedback: '',
+      url: ''
     }
-  },
-  components: {
-    ReaderComponent
   },
   mounted () {
     document.getElementById('splashScreen').style.display = 'none';
@@ -170,7 +167,8 @@ export default {
       let handleReceipt = (error, receipt) => {
         if (error) console.error(error);
         else {
-          this.feedback = '<span style="cursor:text;font-size:13px;">Tx hash: '+receipt+'</span><br>Transaction broadcasted<br><br>Read the message on Set in Block:<br><a v-bind:href="'/'+receipt" style="font-size:13px;">https://setinblock.com/'+receipt+'</a></span>';
+          this.url = '/'+receipt;
+          this.feedback = 'Message recorded<br><span style="cursor:text;font-size:12px;">Transaction hash: '+ receipt +'</span><br><br>Read the message on Set in Block:<br><a href="'+this.url+'" style="font-size:12px;" target="_blank">https://setinblock.com/'+receipt+'</a>';
         }
       }
 
@@ -285,6 +283,7 @@ export default {
     height:220px;
     resize: vertical;
     border-color:1px solid rgb(145, 145, 145);
+    padding: 4px;
   }
 
   .feedback {
