@@ -9,7 +9,7 @@
 
     <div class="read-content">
 
-      <span class="pre-formatted serif">{{ tempstr }}</span>
+      <span class="pre-formatted serif" v-html="tempstr"></span>
 
       <div v-if="tempstr != 'Message is not available. Try a different tx hash.'">
         <div style="border-top:1px solid #cccccc;width:100%;margin-top: 80px;padding-top:10px;"></div>

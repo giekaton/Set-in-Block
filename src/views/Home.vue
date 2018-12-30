@@ -102,6 +102,8 @@
           <br>
           <a href="/0x77ed505f790493db0e47a0379e8455843bb5ecac9d03ba88602696e346d84828" target="_blank">Archived software licence</a>
           <br>
+          <a href="/0x450120b8114b71d9fc2013e3eb0d768373b9a2b396705fb70cb870137a662325" target="_blank">SVG image added directly to the blockchain</a>
+          <br>
           <a href="/0x2d6a7b0f6adeff38423d4c62cd8b6ccb708ddad85da5d3d06756ad4d8a04a6a2" target="_blank">An open letter to China's Peking University</a>
         </div>
         <br>
