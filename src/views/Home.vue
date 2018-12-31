@@ -98,11 +98,11 @@
           Check the examples
         </h2>
         <div style="line-height:24px;">
-          <a href="/0x4716c347636d9b345a227e031588312882d8e7a06e23e73b5d6da3e0d1597696" target="_blank">File hash for the intellectual property protection</a>
+          <a href="/0xddfa3b28394d52d0e2c168c42d0f853179b3e482ee4bf507851c95da6d68d1c1" target="_blank">File hash for the intellectual property protection</a>
           <br>
           <a href="/0x77ed505f790493db0e47a0379e8455843bb5ecac9d03ba88602696e346d84828" target="_blank">Archived software licence</a>
           <br>
-          <a href="/0x450120b8114b71d9fc2013e3eb0d768373b9a2b396705fb70cb870137a662325" target="_blank">SVG image added directly to the blockchain</a>
+          <a href="/0xc8a7249826e78349bbe63652d80747118f7927f10884cd2ccf0ae344a5b13a1f" target="_blank">SVG image added directly to the blockchain</a>
           <br>
           <a href="/0x2d6a7b0f6adeff38423d4c62cd8b6ccb708ddad85da5d3d06756ad4d8a04a6a2" target="_blank">An open letter to China's Peking University</a>
         </div>
@@ -126,8 +126,8 @@
     <div class="reader-footer">
       <div class="width">
         <a href="https://github.com/giekaton/set-in-block" target="_blank" title="GitHub" class="sans-serif" style="margin-right:2px;">
-          Set in Block v0.7
-        </a>
+          <!-- Set in Block v0.7 -->
+          GitHub</a>&nbsp;|&nbsp;<a href="https://twitter.com/setinblock" target="_blank">Twitter</a>
         <div style="float:right;" class="sans-serif">
           <router-link to="/reader">Reader</router-link>
         </div>

@@ -16,7 +16,7 @@ export default new Router({
       name: 'home',
       component: Home,
       meta: {
-        title: 'Set in Block - Immutable and Indestructible Message on the Blockchain',
+        title: 'Set in Block - Immutable and Indestructible Messages on the Blockchain',
         metaTags: [
           {
             name: 'description',
