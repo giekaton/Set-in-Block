@@ -2,9 +2,11 @@
   <div class="reader">
 
     <!-- Header -->
-    <div style="float:left;height:20px;width:20px;background-color:#767676;"></div>
-    <div style="float:left;padding-left:7px;font-size:18px;font-family:'Arapey',serif;color:black;">Set in Block</div>
-    <div style="float:left;padding-left:6px;font-size:9px;padding-top:3px;color:#bebebe;" class="sans-serif">Reader</div>
+    <router-link to="/reader">
+      <div style="float:left;height:20px;width:20px;background-color:#767676;"></div>
+      <div style="float:left;padding-left:7px;font-size:18px;font-family:'Arapey',serif;color:black;">Set in Block</div>
+      <div style="float:left;padding-left:6px;font-size:9px;padding-top:3px;color:#bebebe;" class="sans-serif">Reader</div>
+    </router-link>
     <div style="float:right;padding-top:2px;font-size:14px;" class="sans-serif"><router-link to="/">New message</router-link></div>
 
     <div class="read-content">

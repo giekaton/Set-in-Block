@@ -5,29 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
 
-    <title>Set in Block - Immutable and Indestructible Messages on the Blockchain</title>
-
-    <meta name="description" content="Create and read everlasting messages on the blockchain. Make a permanent promise, create a proof of fact, bypass censorship. Enter a message and 'set in stone' it on the blockchain.">
     <meta name="image" content="https://setinblock.com/img/social.png?v=001">
 
     <!-- Schema.org for Google -->
-    <meta itemprop="name" content="Set in Block - Immutable and Indestructible Messages on the Blockchain">
-    <meta itemprop="description" content="Create and read everlasting messages on the blockchain. Make a permanent promise, create a proof of fact, bypass censorship. Enter a message and 'set in stone' it on the blockchain.">
     <meta itemprop="image" content="https://setinblock.com/img/social.png?v=001">
 
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Set in Block - Immutable and Indestructible Messages on the Blockchain">
-    <meta name="twitter:description" content="Create and read everlasting messages on the blockchain. Make a permanent promise, create a proof of fact, bypass censorship. Enter a message and 'set in stone' it on the blockchain.">
     <meta name="twitter:site" content="@setinblock">
     <meta name="twitter:image:src" content="https://setinblock.com/img/social.png?v=001">
 
     <!-- Open Graph general (Facebook, Pinterest & Google+) -->
-    <meta name="og:title" content="Set in Block - Immutable and Indestructible Messages on the Blockchain">
-    <meta name="og:description" content="Create and read everlasting messages on the blockchain. Make a permanent promise, create a proof of fact, bypass censorship. Enter a message and 'set in stone' it on the blockchain.">
     <meta name="og:image" content="https://setinblock.com/img/social_fb.png?v=001">
-    <meta name="og:url" content="https://setinblock.com">
-    <meta name="og:site_name" content="Set in Block">
     <meta name="og:type" content="website">
 
     <!-- Favicon -->
@@ -54,12 +42,14 @@
       // // TESTNET
       // infura = "https://ropsten.infura.io";
       // etherscan = "https://ropsten.etherscan.io";
-      // address = "0x30a4C68192c14677F81CDb672a177658c5ca7079";
+      // // generate a random Ethereum address
+      // address = Eth.keccak256(Math.random().toString()).substring(0, 42);
     
       // MAINNET
       infura = "https://mainnet.infura.io";
       etherscan = "https://api.etherscan.io";
-      address = "0x30a4C68192c14677F81CDb672a177658c5ca7079";
+      // generate a random Ethereum address
+      address = Eth.keccak256(Math.random().toString()).substring(0, 42);
 
       const eth = new Eth(new Eth.HttpProvider(infura));
 

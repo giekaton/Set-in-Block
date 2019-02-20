@@ -25,10 +25,10 @@
           </svg>
         </div>
 
-        <h1 style="margin-top:20px;margin-bottom:7px;">
+        <h1 style="margin-top:20px;margin-bottom:7px;font-size:18px;">
           <!-- <b>Create and Read Immutable Messages on the Blockchain</b> -->
           <!-- <b>Create and Read Indestructible Blockchain-based Messages</b> -->
-          Create and Read Everlasting Messages on the Blockchain
+          Write and Read Everlasting Messages on the Blockchain
         </h1>
 
         Make a permanent promise, create a proof of fact, bypass censorship...
@@ -69,7 +69,7 @@
         <br><br>
         <!-- You can also download the application package from GitHub and launch it from your local disk by opening index.html in your browser.
         <br><br> -->
-        The message submission is anonymous. Besides Google Analytics with IP anonymization, we do not use any trackers or cookies. We do not use a database and do not 
+        The message submission is anonymous and for every message a new random receiving Ethereum address is generated. Besides Google Analytics with IP anonymization, we do not use any trackers or cookies. We do not use a database and do not 
         collect any information about the website users.
         <br><br>
         For updates, follow Set in Block on <a href="https://twitter.com/setinblock" target="_blank">Twitter</a>.
@@ -126,8 +126,8 @@
     <div class="reader-footer">
       <div class="width">
         <a href="https://github.com/giekaton/set-in-block" target="_blank" title="GitHub" class="sans-serif" style="margin-right:2px;">
-          <!-- Set in Block v0.7 -->
-          GitHub</a>&nbsp;|&nbsp;<a href="https://twitter.com/setinblock" target="_blank">Twitter</a>
+          Set in Block v0.7</a>
+          <!-- GitHub</a>&nbsp;|&nbsp;<a href="https://twitter.com/setinblock" target="_blank">Twitter</a> -->
         <div style="float:right;" class="sans-serif">
           <router-link to="/reader">Reader</router-link>
         </div>
