@@ -12,7 +12,7 @@ html {
 
 body {
   margin: 0 0 50px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Noto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #181818;
@@ -31,6 +31,16 @@ a {
 }
 
 a:hover {
+  border-bottom: 1px solid #4289b9;
+}
+
+.link {
+  text-decoration: none;
+  color: #4289b9;
+  cursor: pointer;
+}
+
+.link:hover {
   border-bottom: 1px solid #4289b9;
 }
 

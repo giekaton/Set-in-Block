@@ -2,14 +2,18 @@
   <div class="home">
 
     <!-- Header -->
-    <div style="float:left;height:20px;width:20px;background-color:#767676;"></div>
-    <div style="float:left;padding-left:7px;font-size:18px;font-family:'Arapey',serif;color:black;">Set in Block</div>
+    <div class="header">
+      <div class="header-inner">
+        <div style="float:left;height:20px;width:20px;background-color:#767676;"></div>
+        <div style="float:left;padding-left:7px;font-size:18px;font-family:'Arapey',serif;color:black;">Set in Block</div>
 
-    <!-- <div style="float:left;height:23px;width:23px;background-color:#767676;"></div>
-    <div style="float:left;padding-left:8px;padding-top:1px;font-size:19px;font-family:'Arapey'">Set in Block</div> -->
+        <!-- <div style="float:left;height:23px;width:23px;background-color:#767676;"></div>
+        <div style="float:left;padding-left:8px;padding-top:1px;font-size:19px;font-family:'Arapey'">Set in Block</div> -->
 
-    <div style="float:right;padding-top:2px;font-size:14px;" class="sans-serif">
-      <router-link to="/reader">Reader</router-link>
+        <div style="float:right;padding-top:2px;font-size:14px;" class="sans-serif">
+          <router-link to="/reader">Reader</router-link>
+        </div>
+      </div>
     </div>
 
     <div class="home-content">
@@ -25,37 +29,172 @@
           </svg>
         </div>
 
-        <h1 style="margin-top:20px;margin-bottom:7px;font-size:18px;">
+        <h1>
           <!-- <b>Create and Read Immutable Messages on the Blockchain</b> -->
           <!-- <b>Create and Read Indestructible Blockchain-based Messages</b> -->
           Write and Read Everlasting Messages on the Blockchain
         </h1>
 
-        Make a permanent promise, create a proof of fact, bypass censorship...
-    
-        <div style="margin-top:70px;">
+        <h3>
+          Make a permanent promise, create a proof of existence, bypass censorship, set an immutable and indestructible archive, protect intellectual property, make a public statement and more. Enter a message and "set in stone" it on the blockchain.
+        </h3>
 
-          <h3 style="margin-bottom:5px;text-align:center;">
-            Enter a message and "set in stone" it on the blockchain:
-          </h3>
+        <div style="margin-top:100px;">
 
-          <div style="max-width:590px;margin:0 auto;">
-            <textarea class="message-input" v-model="messageInput"></textarea>
+          <div style="max-width:620px;margin:0 auto;margin-top:20px;">
+            <h1 style="text-align:left;">New message</h1>
+            <div style="float:left;margin-top:15px;margin-bottom:15px;text-align:left;">
+              Message type: 
+              <select v-model="msgType" @change="msgSwitch">
+                <option value="msgPlainText">Plain text</option>
+                <option value="msgIpProtection">Intellectual property protection</option>
+              </select>
+
+              <span v-if="msgType == 'msgPlainText'" style="font-size:13px;">
+                <div style="height:10px;"></div>
+                Enter your plain text message below or select a different message type/template.
+              </span>
+              <span v-if="msgType == 'msgIpProtection'" style="font-size:13px;">
+                <br><br>
+                You can create a proof of existence for your authentic work, e.g. design, musical composition, code, movie script or anything else that can be considered as intellectual property and protected under copyright laws.
+                <br><br>
+                The best practice is to mention the ID of the authentic work in the Set in Block message. The ID is unique to that work, and being written on the blockchain it mathematically proves that the work existed at the time of the Set in Block message creation. You can also mention the authorship, ownership. For more details, see this blog post.
+                <br><br>
+                Select a file to generate its ID. The file will not be uploaded to the internet or the blockchain, only the file ID with the meta information will be provided below. You need to paste this data into the message manually. Keep the copy of the original file in your archive.
+                <br><br>
+                <file-input @file-data="fileData" />
+                <br>
+                <div style="padding-left: 15px;margin-top:-5px;" class="overflow-dots">
+                  File name: {{ fileName }}
+                  <br>
+                  File size: {{ fileSize }} bytes
+                  <br>
+                  SHA-256 hash: <span style="overflow-wrap: break-word;word-break: break-all;">{{ fileHash }}</span>
+                </div>
+                <br>
+                Below is an example template, used for the <a href="/reader/0x35dbf0e5c933db547022fbb61ed06458e028d34e388d253ab14a2b686582dd6c" target="_blank">example message</a>. You can modify the message as you wish. Replace the example data with your details.
+              </span>
+            </div>
+
+            <textarea v-if="msgType == 'msgPlainText'" class="message-input" v-model="messageInput"></textarea>
+            <textarea v-if="msgType == 'msgIpProtection'" class="message-input" style="min-height:300px;" v-model="messageInputIp"></textarea>
+
+            <div style="float:left;margin-top:5px;text-align:left;line-height:18px;font-size:13px;">
+              <span v-if="msgType == 'msgPlainText'">
+                Message size: {{ bytesCalc }} bytes<br>
+                Max tx fee: {{ txFeeCalc }} ETH
+              </span>
+              <span v-if="msgType == 'msgIpProtection'">
+                Message size: {{ bytesCalcIp }} bytes<br>
+                Max tx fee: {{ txFeeCalcIp }} ETH                
+              </span>
+            </div>
+            <br>
+
+            <button style="float:right;" @click="set">Set</button>
+
+            <div class="link" style="float:right;margin-right:15px;margin-top:13px;font-size:12px;" @click="content = true;">Preview</div>
           </div>
-          <button @click="set">SET</button><br>
+
+          <div style="height:50px;"></div>
+
+
+          <!-- <div v-if="payment" class="reader-msg serif" style="min-height:55px;margin:0 auto;top:50px;margin-bottom:40px;max-width:620px;">      
+            <div style="position:absolute;top:3px;right:45px;font-size:13px;color:red;" class="sans-serif">
+              Message preview
+            </div>
+            <div style="position:absolute;top:11px;right:13px;cursor:pointer;font-size:20px;" @click="content = false">✕</div>
+            {{ messageInputIp }}
+            <div v-if="message != 'Message is not available. Try a different tx hash.'">
+              <div style="border-top:1px solid #cccccc;width:100%;margin-top:50px;padding-top:0px;"></div>
+              <div class="reader-tx-details sans-serif" style="line-height:18px;margin-bottom:20px;margin-top:-7px;">
+                The above message is stored permanently on the blockchain. It cannot be edited or deleted.<br>
+                Message created: Timestamp (available after the message is recorded)
+                Ethereum transaction hash: Unique transaction hash (available after the message is recorded)
+              </div>
+            </div>
+            <div v-else style="height:40px;"></div>
+          </div> -->
+
+          <div v-if="content" class="reader-msg serif" style="min-height:55px;margin:0 auto;top:50px;margin-bottom:40px;max-width:620px;">      
+            <div style="position:absolute;top:3px;right:45px;font-size:13px;color:red;" class="sans-serif">
+              Message preview
+            </div>
+            <div style="position:absolute;top:11px;right:13px;cursor:pointer;font-size:20px;" @click="content = false">✕</div>
+            <span v-if="msgType == 'msgPlainText'">
+              {{ messageInput }}
+            </span>
+            <span v-if="msgType == 'msgIpProtection'">
+              {{ messageInputIp }}                
+            </span>
+            <div v-if="message != 'Message is not available. Try a different tx hash.'">
+              <div style="border-top:1px solid #cccccc;width:100%;margin-top:50px;padding-top:0px;"></div>
+              <div class="reader-tx-details sans-serif" style="line-height:18px;margin-bottom:20px;margin-top:-7px;">
+                The above message is stored permanently on the blockchain. It cannot be edited or deleted.<br>
+                Message created: Timestamp (available after the message is recorded)
+                Ethereum transaction hash: Unique transaction hash (available after the message is recorded)
+              </div>
+            </div>
+            <div v-else style="height:40px;"></div>
+          </div>
+          
         </div>
 
         <div v-if="feedback != ''" v-html="feedback" class="feedback"></div>
            
       </div>
 
+      <div style="height:110px;"></div>
+
+      <div style="position:absolute;width:100%;border-bottom:1px dashed grey;left:0px;"></div>
+
+      <div class="content-block" style="margin-top:70px;">
+        <h2>
+          Blockchain message reader
+        </h2>
+        To read a message:
+        <ul>
+          <li>
+            Open it in the <router-link to="/reader">Set in Block Reader</router-link><br>
+          </li>
+          <li style="margin-top:7px;">
+              Or use a direct link (https://setinblock.com/reader/tx_hash) as in this example: <div class="overflow-dots" style="padding-bottom:1px;"><a href="/reader/0x52fcfb8b25daa9a6ea2c99a26cba4a4104ba21cb83fe670a3d296a317b98f097" style="font-size:13px;line-height:130%;" target="_blank">https://setinblock.com/reader/0x52fcfb8b25daa9a6ea2c99a26cba4a4104ba21cb83fe670a3d296a317b98f097</a><br>
+            </div>
+          </li>
+        </ul>
+      </div>
+
       <div class="content-block">
+        <h2>
+          Examples
+        </h2>
+        <div style="line-height:24px;">
+          <a href="/reader/0xddfa3b28394d52d0e2c168c42d0f853179b3e482ee4bf507851c95da6d68d1c1" target="_blank">File hash for intellectual property protection</a>
+          <br>
+          <a href="/reader/0x77ed505f790493db0e47a0379e8455843bb5ecac9d03ba88602696e346d84828" target="_blank">Archived software licence</a>
+          <br>
+          <a href="/reader/0xc8a7249826e78349bbe63652d80747118f7927f10884cd2ccf0ae344a5b13a1f" target="_blank">SVG image added directly to the blockchain</a>
+          <br>
+          <a href="/reader/0x2d6a7b0f6adeff38423d4c62cd8b6ccb708ddad85da5d3d06756ad4d8a04a6a2" target="_blank">An open letter to China's Peking University</a>
+          <br>
+          <a href="/reader/0x8006d703a45663cab96a85a4ef3e6ab94a1410d6e70119139eea807a63ecb79e" target="_blank">What If Linus Torvalds Gets Hit by a Bus?</a>
+        </div>
+      </div>
+
+      <div style="height:90px;"></div>
+      <div style="position:absolute;width:100%;border-bottom:1px dashed grey;left:0px;"></div>
+
+      <div class="content-block" style="margin-top:70px;">
         <h2 style="text-align:left;margin-bottom:20px;">How it works</h2>
 
-        The message you enter above will be encoded into a hexadecimal format and then included in the data field of the Ethereum transaction.
+        Your message, written on the blockchain, is immutable and incorruptible - no one can modify or delete it. It also never expires, it will stay there indefinitely. 
+        By having the message on the blockchain, you have a mathematically-based proof that your message is authentic and existed prior to a 
+        specific date.
         <br><br>
-        To add this message to the blockchain, you will be asked to confirm the transaction with your <a href="https://metamask.io/" target="_blank">MetaMask</a> 
-        browser extension. You only need to pay the transaction fee, as the value of the transaction is 0.
+        The message you enter in this app is encoded into a hexadecimal format and then included in the data field of the Ethereum blockchain transaction.
+        <br><br>
+        To add this message to the blockchain, you will be asked to confirm the transaction with your <a href="https://medium.com/publicaio/a-complete-guide-to-using-metamask-updated-version-cd0d6f8c338f" target="_blank">MetaMask</a> 
+        browser extension. You only need to pay the transaction fee (few usd cents), as the value of the transaction is 0.
         <br><br>
         The longer is your message, the bigger is the transaction fee. Gas Limit is calculated automatically, according to the size of your message, so do not change it. 
         Gas Price is set to 3 Gwei, but you can change it freely, depending on the network conditions.
@@ -72,43 +211,10 @@
         The message submission is anonymous and for every message a new random receiving Ethereum address is generated. Besides Google Analytics with IP anonymization, we do not use any trackers or cookies. We do not use a database and do not 
         collect any information about the website users.
         <br><br>
-        For updates, follow Set in Block on <a href="https://twitter.com/setinblock" target="_blank">Twitter</a>.
-      </div>
-
-      <!-- <reader-component class="content-block"></reader-component> -->
-      <div class="content-block">
-        <h2>
-          Blockchain message reader
-        </h2>
-        To read the message:
-        <ul>
-          <li>
-            Open it in the <router-link to="/reader">Set in Block Reader</router-link><br>
-          </li>
-          <li style="margin-top:7px;">
-            
-              Or use a direct link (https://setinblock.com/tx_hash) as in this example: <div class="overflow-dots" style="padding-bottom:1px;"><a href="/0x52fcfb8b25daa9a6ea2c99a26cba4a4104ba21cb83fe670a3d296a317b98f097" style="font-size:13px;line-height:130%;" target="_blank">https://setinblock.com/0x52fcfb8b25daa9a6ea2c99a26cba4a4104ba21cb83fe670a3d296a317b98f097</a><br>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <div class="content-block">
-        <h2>
-          Check the examples
-        </h2>
-        <div style="line-height:24px;">
-          <a href="/0xddfa3b28394d52d0e2c168c42d0f853179b3e482ee4bf507851c95da6d68d1c1" target="_blank">File hash for the intellectual property protection</a>
-          <br>
-          <a href="/0x77ed505f790493db0e47a0379e8455843bb5ecac9d03ba88602696e346d84828" target="_blank">Archived software licence</a>
-          <br>
-          <a href="/0xc8a7249826e78349bbe63652d80747118f7927f10884cd2ccf0ae344a5b13a1f" target="_blank">SVG image added directly to the blockchain</a>
-          <br>
-          <a href="/0x2d6a7b0f6adeff38423d4c62cd8b6ccb708ddad85da5d3d06756ad4d8a04a6a2" target="_blank">An open letter to China's Peking University</a>
-        </div>
-        <br>
-        Have other interesting examples? Tweet the tx hash with the #setinblock hashtag or send it to &#x68;i&#x40;s&#x65;&#116;i&#x6e;b&#x6c;o&#x63;&#107;&#46;&#x63;o&#x6d; - 
-        if it's an interesting use case, we will put it near the other examples.
+        If you want to announce your blockchain message publicly, you can tweet its link with the #setinblock hashtag.
+        <br><br>
+        <br><br>
+        For updates, follow Set in Block on <a href="https://twitter.com/setinblock" target="_blank">Twitter</a> and <a href="https://github.com/giekaton/set-in-block" target="_blank">GitHub</a>.
       </div>
 
       <!-- @todo -->
@@ -138,6 +244,8 @@
 </template>
 
 <script>
+// import MsgIpProtection from '../components/MsgIpProtection.vue';
+import FileInput from '../components/FileInput.vue';
 
 export default {
   name: 'home',
@@ -145,15 +253,55 @@ export default {
     return {
       message: '',
       messageInput: '',
+      messageInputIp: "Type of work: Logo design\nAuthor: Milton Rand\nOwner: Milton Rand\nWork created: 2018-06-16\nStatus: For sale\n\nThe work is presented in the file available at the Author's archive, referenced below, identifiable by its unique ID which is a SHA-256 hash.\n\nFile name: logo.eps\nFile size: 132954 bytes\nSHA-256 hash: b6f8758418ca2d28510543717d51cc9a0a81ad152409415bcb07f526862bd6f0",
       feedback: '',
-      url: ''
+      url: '',
+      msgType: 'msgPlainText',
+      content: false,
+      fileName: 'Waiting for the file',
+      fileSize: 0,
+      fileHash: 'Waiting for the file'
+    }
+  },
+  components: {
+    FileInput
+    // MsgIpProtection
+  },
+  computed: {
+    bytesCalc: function () {
+      return encodeURI(this.messageInput).split(/%..|./).length - 1;
+    },
+    txFeeCalc: function () {
+      return (((this.bytesCalc * 68) + 30000) * 3) / 1000000000;
+    },
+    bytesCalcIp: function () {
+      return encodeURI(this.messageInputIp).split(/%..|./).length - 1;
+    },
+    txFeeCalcIp: function () {
+      return (((this.bytesCalcIp * 68) + 30000) * 3) / 1000000000;
+    },
+  },
+  beforeMount () {
+    if (this.$route.name == 'msgIpProtection') {
+      this.msgType = 'msgIpProtection';
+      // this.messageInput = this.messageInputIp;
     }
   },
   mounted () {
+    console.log('home');
     document.getElementById('splashScreen').style.display = 'none';
     window.scrollTo(0, 0);
   },
   methods: {
+    fileData: function(el) {
+      this.fileName = el.fileName;
+      this.fileSize = el.fileSize;
+      this.fileHash = el.fileHash;
+    },
+    msgSwitch: function (el) {
+      this.msgType = el.target.value;
+      this.$router.push({ name: el.target.value });
+    },
     set: function () {
       if (typeof window.web3 === 'undefined') {
         this.feedback = '<span class="notice">To broadcast messages, first install <b><a href="https://metamask.io/" target="_blank" class="notice underlined">MetaMask</a></b> browser extension.</span>';
@@ -169,12 +317,19 @@ export default {
       let handleReceipt = (error, receipt) => {
         if (error) console.error(error);
         else {
-          this.url = '/'+receipt;
-          this.feedback = 'Message recorded<br><span style="cursor:text;font-size:12px;">Transaction hash: '+ receipt +'</span><br><br>Read the message on Set in Block:<br><a href="'+this.url+'" style="font-size:12px;" target="_blank">https://setinblock.com/'+receipt+'</a>';
+          this.url = '/reader/'+receipt;
+          this.feedback = 'Message recorded<br><span style="cursor:text;font-size:12px;">Transaction hash: '+ receipt +'</span><br><br>Read the message on Set in Block:<br><a href="'+this.url+'" style="font-size:12px;" target="_blank">https://setinblock.com/reader/'+receipt+'</a>';
         }
       }
 
-      let message = this.messageInput;
+      let message = '';
+      if (this.msgType == 'msgIpProtection') {
+        message = this.messageInputIp;
+      }
+      else if (this.msgType == 'msgPlainText') {
+        message = this.messageInput;
+      }
+      
       message = this.rstr2utf8(message);
       message = this.str2hex(message);
       eth.sendTransaction({
@@ -227,6 +382,19 @@ export default {
 </script>
 
 <style>
+  h1 {
+    margin-top:20px;
+    margin-bottom:7px;
+    font-size:18px;
+  }
+
+  h3 {
+    margin-top:10px;
+    font-size:15px;
+    text-align: center;
+    font-weight:normal;
+  }
+
   .home {
     max-width: 1032px;
     height: 100%;
@@ -234,11 +402,34 @@ export default {
     margin-top: 20px;
   }
 
+  .header {
+    position:fixed;
+    width: 100%;
+    height:60px;
+    top:0px;
+    left: 0px;
+    padding-top: 20px;
+    border-bottom: 1px solid rgb(221, 221, 221);
+    background-color:white;
+  }
+
+  .header-inner {
+    max-width:1032px;
+    margin:0 auto;
+    padding:0 10px 0 10px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .header-inner {
+      padding:0 20px 0 20px;
+    }
+  }
+
   .home-content {
     max-width: 700px;
     margin: 0 auto;
     clear:both;
-    padding-top: 40px;
+    padding-top: 80px;
     padding-bottom: 120px;
     text-align: left;
     font-size: 14px; 

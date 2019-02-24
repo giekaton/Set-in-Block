@@ -7,7 +7,7 @@
       <div style="float:left;padding-left:7px;font-size:18px;font-family:'Arapey',serif;color:black;">Set in Block</div>
       <div style="float:left;padding-left:6px;font-size:9px;padding-top:3px;color:#bebebe;" class="sans-serif">Reader</div>
     </router-link>
-    <div style="float:right;padding-top:2px;font-size:14px;" class="sans-serif"><router-link to="/">New message</router-link></div>
+    <div style="float:right;padding-top:2px;font-size:14px;" class="sans-serif"><router-link to="/">Home</router-link></div>
 
     <div class="read-content">
 
@@ -46,7 +46,6 @@
 <script>
 export default {
   props: ['txHash'],
-  name: 'home',
   components: {
     
   },
@@ -57,7 +56,6 @@ export default {
       decoded: '',
       blockNumber: '',
       timestamp: 'Loading...',
-      title: 'asd'
     }
   },
   mounted () {
@@ -104,7 +102,7 @@ export default {
     hex2utf8: function(pStr) {
       try {
         this.tempstr = decodeURIComponent(pStr.replace(/\s+/g, '').replace(/[0-9a-f]{2}/g, '%$&')).substring(2);
-        console.log(this.tempstr);
+        // console.log(this.tempstr);
       }
       catch (err) {
         for (b = 0; b < pStr.length; b = b + 2) {
@@ -185,6 +183,6 @@ export default {
 }
 
 .sans-serif {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Noto', sans-serif;
 }
 </style>

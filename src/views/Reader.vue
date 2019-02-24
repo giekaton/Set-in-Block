@@ -5,7 +5,7 @@
     <div style="float:left;height:20px;width:20px;background-color:#767676;"></div>
     <div style="float:left;padding-left:7px;font-size:18px;font-family:'Arapey',serif;color:black;" class="serif">Set in Block</div>
     <div style="float:left;padding-left:6px;font-size:9px;padding-top:3px;color:#bebebe;" class="sans-serif">Reader</div>
-    <div style="float:right;padding-top:2px;font-size:14px;" class="sans-serif"><router-link to="/">New message</router-link></div>
+    <div style="float:right;padding-top:2px;font-size:14px;" class="sans-serif"><router-link to="/">Home</router-link></div>
     
     <div class="reader-content">
       <reader-component style="margin-top:30px;"></reader-component>
@@ -31,7 +31,6 @@ import ReaderComponent from '../components/ReaderComponent.vue';
 
 export default {
   props: ['txHash'],
-  name: 'home',
   components: {
     ReaderComponent
   },

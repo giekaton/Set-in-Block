@@ -13,7 +13,7 @@
     # Handle Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+    RewriteRule ^ /redirect/index.php [L]
 
     RewriteCond %{SERVER_PORT} 80
     RewriteRule ^(.*)$ https://setinblock.com/$1 [R,L]
