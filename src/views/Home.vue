@@ -1,191 +1,77 @@
 <template>
   <div class="home">
 
-    <!-- Header -->
-    <div class="header">
-      <div class="header-inner">
-        <div style="float:left;height:20px;width:20px;background-color:#767676;"></div>
-        <div style="float:left;padding-left:7px;font-size:18px;font-family:'Arapey',serif;color:black;">Set in Block</div>
 
-        <!-- <div style="float:left;height:23px;width:23px;background-color:#767676;"></div>
-        <div style="float:left;padding-left:8px;padding-top:1px;font-size:19px;font-family:'Arapey'">Set in Block</div> -->
-
-        <div style="float:right;padding-top:2px;font-size:14px;" class="sans-serif">
-          <router-link to="/reader">Reader</router-link>
-        </div>
-      </div>
-    </div>
 
     <div class="home-content">
 
-      <div class="centered">
+      <div v-if="$route.name != 'about'">
 
-        <div style="width:120px;margin:0 auto;margin-top:20px;">
-          <svg viewBox="0 0 190.8 190.8">
-            <title>Logo</title>
-            <polygon class="logo-container" points="0 0 190.8 0 190.8 190.8 0 190.8 0 0 0 0" style="fill:#606062;fill-rule:evenodd;"/>
-            <path class="logo-text" d="M243.69,369.78a17.43,17.43,0,0,1-5.91-1,15.62,15.62,0,0,1-5.27-3.18l3.42-4.1a17.25,17.25,0,0,0,3.71,2.33,9.92,9.92,0,0,0,4.16.87,5.06,5.06,0,0,0,2.8-.66,2.07,2.07,0,0,0,1-1.82V362.1a2.29,2.29,0,0,0-.21-1,2.09,2.09,0,0,0-.79-0.81,8.6,8.6,0,0,0-1.62-.75c-0.69-.25-1.59-0.51-2.7-0.79a33,33,0,0,1-3.62-1.09,10.19,10.19,0,0,1-2.75-1.49,6,6,0,0,1-1.76-2.2,7.67,7.67,0,0,1-.62-3.27v-0.07a7.68,7.68,0,0,1,.67-3.25,7.45,7.45,0,0,1,1.89-2.5,8.5,8.5,0,0,1,2.9-1.62,11.64,11.64,0,0,1,3.72-.56,15.75,15.75,0,0,1,5.32.87,15.42,15.42,0,0,1,4.46,2.48l-3,4.36a19,19,0,0,0-3.46-1.9,8.84,8.84,0,0,0-3.38-.7,4.09,4.09,0,0,0-2.54.66,2,2,0,0,0-.85,1.64v0.08a2.37,2.37,0,0,0,.24,1.11,2.22,2.22,0,0,0,.88.85,8.49,8.49,0,0,0,1.75.71c0.75,0.23,1.68.49,2.81,0.79a26.64,26.64,0,0,1,3.57,1.19,10,10,0,0,1,2.64,1.58,6,6,0,0,1,1.62,2.16,7.36,7.36,0,0,1,.55,3v0.08a8.19,8.19,0,0,1-.71,3.48,7.18,7.18,0,0,1-2,2.56,8.94,8.94,0,0,1-3,1.58,13.16,13.16,0,0,1-3.91.55h0Zm14.67-26.71h19.83v5.15H264.08v5.34h12.41v5.15H264.08v5.53h14.29v5.15h-20V343.07h0Zm31.34,5.34h-8v-5.34H303.5v5.34h-8v21h-5.79v-21h0Zm-55.15,36.23h5.79V411h-5.79V384.64h0Zm12.38,0h5.34l12.34,16.21V384.64h5.72V411h-4.93l-12.75-16.74V411h-5.72V384.64h0Zm-0.11,62.82a5.56,5.56,0,0,0,3-.7,2.38,2.38,0,0,0,1.09-2.16v-0.08a2.48,2.48,0,0,0-1-2.09,5.47,5.47,0,0,0-3.27-.77h-6.7v5.79h6.88Zm-1.54-10.61a6,6,0,0,0,3-.66,2.27,2.27,0,0,0,1.13-2.13V434a2.32,2.32,0,0,0-1-2,4.83,4.83,0,0,0-2.82-.7h-5.72v5.57h5.34Zm-11-10.65h12.21q4.54,0,6.87,2.33a6.1,6.1,0,0,1,1.8,4.48v0.08a6.45,6.45,0,0,1-.28,2,6.18,6.18,0,0,1-.75,1.56,6,6,0,0,1-1.08,1.22,7.27,7.27,0,0,1-1.32.9,8.89,8.89,0,0,1,3.59,2.35,6,6,0,0,1,1.31,4.12v0.08a6.81,6.81,0,0,1-.7,3.16,6.18,6.18,0,0,1-2,2.26,9.37,9.37,0,0,1-3.12,1.35,16.85,16.85,0,0,1-4,.45H234.28V426.2h0Zm27.16,0h5.79v21.1h13.13v5.23H261.44V426.2h0Zm36.15,21.44a7.91,7.91,0,0,0,3.2-.64,7.3,7.3,0,0,0,2.5-1.77,8.3,8.3,0,0,0,1.62-2.61,8.6,8.6,0,0,0,.58-3.18v-0.08a8.75,8.75,0,0,0-.58-3.2,7.88,7.88,0,0,0-4.19-4.42,7.72,7.72,0,0,0-3.2-.66,7.88,7.88,0,0,0-3.22.64,7.35,7.35,0,0,0-2.48,1.77,8.32,8.32,0,0,0-1.62,2.61,8.63,8.63,0,0,0-.58,3.18v0.08a8.77,8.77,0,0,0,.58,3.2,7.93,7.93,0,0,0,1.66,2.63,8,8,0,0,0,2.52,1.79,7.68,7.68,0,0,0,3.22.66h0ZM297.52,453a14.36,14.36,0,0,1-5.61-1.07,13.93,13.93,0,0,1-4.42-2.9,13,13,0,0,1-2.9-4.29,13.52,13.52,0,0,1-1-5.29v-0.08a13.32,13.32,0,0,1,1.05-5.29,13.47,13.47,0,0,1,7.36-7.26,15.24,15.24,0,0,1,11.23,0,13.93,13.93,0,0,1,4.42,2.9,12.94,12.94,0,0,1,2.9,4.29,13.5,13.5,0,0,1,1,5.29v0.08a13.29,13.29,0,0,1-1.05,5.29,13.46,13.46,0,0,1-7.35,7.26,14.49,14.49,0,0,1-5.62,1.07h0ZM329,453a13.63,13.63,0,0,1-5.38-1.05,13,13,0,0,1-7.11-7.19,13.88,13.88,0,0,1-1-5.3v-0.08a13.68,13.68,0,0,1,3.84-9.61,13.09,13.09,0,0,1,4.33-2.93,14.09,14.09,0,0,1,5.57-1.07,17.41,17.41,0,0,1,3.37.3,14.05,14.05,0,0,1,2.76.83,12,12,0,0,1,2.29,1.28,15.43,15.43,0,0,1,2,1.66L336,434.07a14,14,0,0,0-3.14-2.18,8,8,0,0,0-3.59-.79,7.29,7.29,0,0,0-5.49,2.41,8.25,8.25,0,0,0-1.58,2.61,8.88,8.88,0,0,0-.56,3.18v0.08a9,9,0,0,0,.56,3.2,8.35,8.35,0,0,0,1.56,2.63,7.23,7.23,0,0,0,5.51,2.45,8.07,8.07,0,0,0,3.82-.83,14.81,14.81,0,0,0,3.1-2.26l3.69,3.72a19,19,0,0,1-2.11,2,12.29,12.29,0,0,1-5.23,2.43A17.12,17.12,0,0,1,329,453h0Zm15.42-26.78h5.79v11.51l10.68-11.51h7l-10.72,11.17,11.21,15.16h-7l-8.16-11.21-3,3.16v8.05h-5.79V426.2h0Z" 
-            transform="translate(-210 -301)" style="fill:#fefefe;"/>
-          </svg>
+        <div class="centered" v-if="!content">
+
+          <span>
+            <div style="width:95px;margin:0 auto;">
+              <svg viewBox="0 0 190.8 190.8">
+                <title>Logo</title>
+                <polygon class="logo-container" points="0 0 190.8 0 190.8 190.8 0 190.8 0 0 0 0" style="fill:#606062;fill-rule:evenodd;"/>
+                <path class="logo-text" d="M243.69,369.78a17.43,17.43,0,0,1-5.91-1,15.62,15.62,0,0,1-5.27-3.18l3.42-4.1a17.25,17.25,0,0,0,3.71,2.33,9.92,9.92,0,0,0,4.16.87,5.06,5.06,0,0,0,2.8-.66,2.07,2.07,0,0,0,1-1.82V362.1a2.29,2.29,0,0,0-.21-1,2.09,2.09,0,0,0-.79-0.81,8.6,8.6,0,0,0-1.62-.75c-0.69-.25-1.59-0.51-2.7-0.79a33,33,0,0,1-3.62-1.09,10.19,10.19,0,0,1-2.75-1.49,6,6,0,0,1-1.76-2.2,7.67,7.67,0,0,1-.62-3.27v-0.07a7.68,7.68,0,0,1,.67-3.25,7.45,7.45,0,0,1,1.89-2.5,8.5,8.5,0,0,1,2.9-1.62,11.64,11.64,0,0,1,3.72-.56,15.75,15.75,0,0,1,5.32.87,15.42,15.42,0,0,1,4.46,2.48l-3,4.36a19,19,0,0,0-3.46-1.9,8.84,8.84,0,0,0-3.38-.7,4.09,4.09,0,0,0-2.54.66,2,2,0,0,0-.85,1.64v0.08a2.37,2.37,0,0,0,.24,1.11,2.22,2.22,0,0,0,.88.85,8.49,8.49,0,0,0,1.75.71c0.75,0.23,1.68.49,2.81,0.79a26.64,26.64,0,0,1,3.57,1.19,10,10,0,0,1,2.64,1.58,6,6,0,0,1,1.62,2.16,7.36,7.36,0,0,1,.55,3v0.08a8.19,8.19,0,0,1-.71,3.48,7.18,7.18,0,0,1-2,2.56,8.94,8.94,0,0,1-3,1.58,13.16,13.16,0,0,1-3.91.55h0Zm14.67-26.71h19.83v5.15H264.08v5.34h12.41v5.15H264.08v5.53h14.29v5.15h-20V343.07h0Zm31.34,5.34h-8v-5.34H303.5v5.34h-8v21h-5.79v-21h0Zm-55.15,36.23h5.79V411h-5.79V384.64h0Zm12.38,0h5.34l12.34,16.21V384.64h5.72V411h-4.93l-12.75-16.74V411h-5.72V384.64h0Zm-0.11,62.82a5.56,5.56,0,0,0,3-.7,2.38,2.38,0,0,0,1.09-2.16v-0.08a2.48,2.48,0,0,0-1-2.09,5.47,5.47,0,0,0-3.27-.77h-6.7v5.79h6.88Zm-1.54-10.61a6,6,0,0,0,3-.66,2.27,2.27,0,0,0,1.13-2.13V434a2.32,2.32,0,0,0-1-2,4.83,4.83,0,0,0-2.82-.7h-5.72v5.57h5.34Zm-11-10.65h12.21q4.54,0,6.87,2.33a6.1,6.1,0,0,1,1.8,4.48v0.08a6.45,6.45,0,0,1-.28,2,6.18,6.18,0,0,1-.75,1.56,6,6,0,0,1-1.08,1.22,7.27,7.27,0,0,1-1.32.9,8.89,8.89,0,0,1,3.59,2.35,6,6,0,0,1,1.31,4.12v0.08a6.81,6.81,0,0,1-.7,3.16,6.18,6.18,0,0,1-2,2.26,9.37,9.37,0,0,1-3.12,1.35,16.85,16.85,0,0,1-4,.45H234.28V426.2h0Zm27.16,0h5.79v21.1h13.13v5.23H261.44V426.2h0Zm36.15,21.44a7.91,7.91,0,0,0,3.2-.64,7.3,7.3,0,0,0,2.5-1.77,8.3,8.3,0,0,0,1.62-2.61,8.6,8.6,0,0,0,.58-3.18v-0.08a8.75,8.75,0,0,0-.58-3.2,7.88,7.88,0,0,0-4.19-4.42,7.72,7.72,0,0,0-3.2-.66,7.88,7.88,0,0,0-3.22.64,7.35,7.35,0,0,0-2.48,1.77,8.32,8.32,0,0,0-1.62,2.61,8.63,8.63,0,0,0-.58,3.18v0.08a8.77,8.77,0,0,0,.58,3.2,7.93,7.93,0,0,0,1.66,2.63,8,8,0,0,0,2.52,1.79,7.68,7.68,0,0,0,3.22.66h0ZM297.52,453a14.36,14.36,0,0,1-5.61-1.07,13.93,13.93,0,0,1-4.42-2.9,13,13,0,0,1-2.9-4.29,13.52,13.52,0,0,1-1-5.29v-0.08a13.32,13.32,0,0,1,1.05-5.29,13.47,13.47,0,0,1,7.36-7.26,15.24,15.24,0,0,1,11.23,0,13.93,13.93,0,0,1,4.42,2.9,12.94,12.94,0,0,1,2.9,4.29,13.5,13.5,0,0,1,1,5.29v0.08a13.29,13.29,0,0,1-1.05,5.29,13.46,13.46,0,0,1-7.35,7.26,14.49,14.49,0,0,1-5.62,1.07h0ZM329,453a13.63,13.63,0,0,1-5.38-1.05,13,13,0,0,1-7.11-7.19,13.88,13.88,0,0,1-1-5.3v-0.08a13.68,13.68,0,0,1,3.84-9.61,13.09,13.09,0,0,1,4.33-2.93,14.09,14.09,0,0,1,5.57-1.07,17.41,17.41,0,0,1,3.37.3,14.05,14.05,0,0,1,2.76.83,12,12,0,0,1,2.29,1.28,15.43,15.43,0,0,1,2,1.66L336,434.07a14,14,0,0,0-3.14-2.18,8,8,0,0,0-3.59-.79,7.29,7.29,0,0,0-5.49,2.41,8.25,8.25,0,0,0-1.58,2.61,8.88,8.88,0,0,0-.56,3.18v0.08a9,9,0,0,0,.56,3.2,8.35,8.35,0,0,0,1.56,2.63,7.23,7.23,0,0,0,5.51,2.45,8.07,8.07,0,0,0,3.82-.83,14.81,14.81,0,0,0,3.1-2.26l3.69,3.72a19,19,0,0,1-2.11,2,12.29,12.29,0,0,1-5.23,2.43A17.12,17.12,0,0,1,329,453h0Zm15.42-26.78h5.79v11.51l10.68-11.51h7l-10.72,11.17,11.21,15.16h-7l-8.16-11.21-3,3.16v8.05h-5.79V426.2h0Z" 
+                transform="translate(-210 -301)" style="fill:#fefefe;"/>
+              </svg>
+            </div>
+
+            <h1>
+              <!-- Permanent Messages on The Ethereum -->
+              <!-- Read and Write Everlasting Messages -->
+              Permanent Messages
+            </h1>
+
+            <h3 style="line-height:130%;">
+              <!-- Permanently archived on the Ethereum blockchain -->
+              Set in Ethereum Blockchain
+            </h3>
+          </span>
+            
         </div>
 
-        <h1>
-          <!-- <b>Create and Read Immutable Messages on the Blockchain</b> -->
-          <!-- <b>Create and Read Indestructible Blockchain-based Messages</b> -->
-          Write and Read Everlasting Messages on the Blockchain
-        </h1>
+        <div class="content-block" style="margin-top:0px;">
+        
+          <reader-component @isContent="isContent"/>
 
-        <h3>
-          Make a permanent promise, create a proof of existence, bypass censorship, set an immutable and indestructible archive, protect intellectual property, make a public statement and more. Enter a message and "set in stone" it on the blockchain.
-        </h3>
-
-        <div style="margin-top:100px;">
-
-          <div style="max-width:620px;margin:0 auto;margin-top:20px;">
-            <h1 style="text-align:left;">New message</h1>
-            <div style="float:left;margin-top:15px;margin-bottom:15px;text-align:left;">
-              Message type: 
-              <select v-model="msgType" @change="msgSwitch">
-                <option value="msgPlainText">Plain text</option>
-                <option value="msgIpProtection">Intellectual property protection</option>
-              </select>
-
-              <span v-if="msgType == 'msgPlainText'" style="font-size:13px;">
-                <div style="height:10px;"></div>
-                Enter your plain text message below or select a different message type/template.
-              </span>
-              <span v-if="msgType == 'msgIpProtection'" style="font-size:13px;">
-                <br><br>
-                You can create a proof of existence for your authentic work, e.g. design, musical composition, code, movie script or anything else that can be considered as intellectual property and protected under copyright laws.
-                <br><br>
-                The best practice is to mention the ID of the authentic work in the Set in Block message. The ID is unique to that work, and being written on the blockchain it mathematically proves that the work existed at the time of the Set in Block message creation. You can also mention the authorship, ownership. For more details, see this blog post.
-                <br><br>
-                Select a file to generate its ID. The file will not be uploaded to the internet or the blockchain, only the file ID with the meta information will be provided below. You need to paste this data into the message manually. Keep the copy of the original file in your archive.
-                <br><br>
-                <file-input @file-data="fileData" />
-                <br>
-                <div style="padding-left: 15px;margin-top:-5px;" class="overflow-dots">
-                  File name: {{ fileName }}
-                  <br>
-                  File size: {{ fileSize }} bytes
-                  <br>
-                  SHA-256 hash: <span style="overflow-wrap: break-word;word-break: break-all;">{{ fileHash }}</span>
-                </div>
-                <br>
-                Below is an example template, used for the <a href="/reader/0x35dbf0e5c933db547022fbb61ed06458e028d34e388d253ab14a2b686582dd6c" target="_blank">example message</a>. You can modify the message as you wish. Replace the example data with your details.
-              </span>
-            </div>
-
-            <textarea v-if="msgType == 'msgPlainText'" class="message-input" v-model="messageInput"></textarea>
-            <textarea v-if="msgType == 'msgIpProtection'" class="message-input" style="min-height:300px;" v-model="messageInputIp"></textarea>
-
-            <div style="float:left;margin-top:5px;text-align:left;line-height:18px;font-size:13px;">
-              <span v-if="msgType == 'msgPlainText'">
-                Message size: {{ bytesCalc }} bytes<br>
-                Max tx fee: {{ txFeeCalc }} ETH
-              </span>
-              <span v-if="msgType == 'msgIpProtection'">
-                Message size: {{ bytesCalcIp }} bytes<br>
-                Max tx fee: {{ txFeeCalcIp }} ETH                
-              </span>
-            </div>
-            <br>
-
-            <button style="float:right;" @click="set">Set</button>
-
-            <div class="link" style="float:right;margin-right:15px;margin-top:13px;font-size:12px;" @click="content = true;">Preview</div>
-          </div>
-
-          <div style="height:50px;"></div>
-
-
-          <!-- <div v-if="payment" class="reader-msg serif" style="min-height:55px;margin:0 auto;top:50px;margin-bottom:40px;max-width:620px;">      
-            <div style="position:absolute;top:3px;right:45px;font-size:13px;color:red;" class="sans-serif">
-              Message preview
-            </div>
-            <div style="position:absolute;top:11px;right:13px;cursor:pointer;font-size:20px;" @click="content = false">✕</div>
-            {{ messageInputIp }}
-            <div v-if="message != 'Message is not available. Try a different tx hash.'">
-              <div style="border-top:1px solid #cccccc;width:100%;margin-top:50px;padding-top:0px;"></div>
-              <div class="reader-tx-details sans-serif" style="line-height:18px;margin-bottom:20px;margin-top:-7px;">
-                The above message is stored permanently on the blockchain. It cannot be edited or deleted.<br>
-                Message created: Timestamp (available after the message is recorded)
-                Ethereum transaction hash: Unique transaction hash (available after the message is recorded)
-              </div>
-            </div>
-            <div v-else style="height:40px;"></div>
-          </div> -->
-
-          <div v-if="content" class="reader-msg serif" style="min-height:55px;margin:0 auto;top:50px;margin-bottom:40px;max-width:620px;">      
-            <div style="position:absolute;top:3px;right:45px;font-size:13px;color:red;" class="sans-serif">
-              Message preview
-            </div>
-            <div style="position:absolute;top:11px;right:13px;cursor:pointer;font-size:20px;" @click="content = false">✕</div>
-            <span v-if="msgType == 'msgPlainText'">
-              {{ messageInput }}
-            </span>
-            <span v-if="msgType == 'msgIpProtection'">
-              {{ messageInputIp }}                
-            </span>
-            <div v-if="message != 'Message is not available. Try a different tx hash.'">
-              <div style="border-top:1px solid #cccccc;width:100%;margin-top:50px;padding-top:0px;"></div>
-              <div class="reader-tx-details sans-serif" style="line-height:18px;margin-bottom:20px;margin-top:-7px;">
-                The above message is stored permanently on the blockchain. It cannot be edited or deleted.<br>
-                Message created: Timestamp (available after the message is recorded)
-                Ethereum transaction hash: Unique transaction hash (available after the message is recorded)
-              </div>
-            </div>
-            <div v-else style="height:40px;"></div>
-          </div>
-          
         </div>
 
-        <div v-if="feedback != ''" v-html="feedback" class="feedback"></div>
-           
       </div>
 
-      <div style="height:110px;"></div>
+      <div v-if="$route.name == 'about'">
 
-      <div style="position:absolute;width:100%;border-bottom:1px dashed grey;left:0px;"></div>
+      <div class="content-block" style="margin-top:0px;">
+        <h2 style="text-align:left;margin-bottom:40px;">How it works</h2>
 
-      <div class="content-block" style="margin-top:70px;">
-        <h2>
-          Blockchain message reader
-        </h2>
         To read a message:
         <ul>
           <li>
-            Open it in the <router-link to="/reader">Set in Block Reader</router-link><br>
+            Open it in the <router-link to="/">Set in Block Reader</router-link><br>
           </li>
           <li style="margin-top:7px;">
-              Or use a direct link (https://setinblock.com/reader/tx_hash) as in this example: <div class="overflow-dots" style="padding-bottom:1px;"><a href="/reader/0x52fcfb8b25daa9a6ea2c99a26cba4a4104ba21cb83fe670a3d296a317b98f097" style="font-size:13px;line-height:130%;" target="_blank">https://setinblock.com/reader/0x52fcfb8b25daa9a6ea2c99a26cba4a4104ba21cb83fe670a3d296a317b98f097</a><br>
+              Use a direct link (https://setinblock.com/your_transaction_hash) as in this example: <div class="overflow-dots" style="padding-bottom:1px;"><a href="/0x52fcfb8b25daa9a6ea2c99a26cba4a4104ba21cb83fe670a3d296a317b98f097" style="font-size:13px;line-height:130%;" target="_blank">https://setinblock.com/0x52fcfb8b25daa9a6ea2c99a26cba4a4104ba21cb83fe670a3d296a317b98f097</a><br>
             </div>
           </li>
         </ul>
-      </div>
 
-      <div class="content-block">
-        <h2>
-          Examples
-        </h2>
-        <div style="line-height:24px;">
-          <a href="/reader/0xddfa3b28394d52d0e2c168c42d0f853179b3e482ee4bf507851c95da6d68d1c1" target="_blank">File hash for intellectual property protection</a>
-          <br>
-          <a href="/reader/0x77ed505f790493db0e47a0379e8455843bb5ecac9d03ba88602696e346d84828" target="_blank">Archived software licence</a>
-          <br>
-          <a href="/reader/0xc8a7249826e78349bbe63652d80747118f7927f10884cd2ccf0ae344a5b13a1f" target="_blank">SVG image added directly to the blockchain</a>
-          <br>
-          <a href="/reader/0x2d6a7b0f6adeff38423d4c62cd8b6ccb708ddad85da5d3d06756ad4d8a04a6a2" target="_blank">An open letter to China's Peking University</a>
-          <br>
-          <a href="/reader/0x8006d703a45663cab96a85a4ef3e6ab94a1410d6e70119139eea807a63ecb79e" target="_blank">What If Linus Torvalds Gets Hit by a Bus?</a>
-        </div>
-      </div>
+        <br>
+        <br>
+        
+        To write a message:
+        <ul>
+          <li>
+            Users can use the Set in Block <router-link to="new-message">submission interface</router-link> to create Ethereum blockchain messages and broadcast them with their MetaMask wallets. The submission is done on the client side. For privacy reasons, every new Set in Block message is sent to a randomly generated Ethereum address.
+          </li>
+        </ul>
 
-      <div style="height:90px;"></div>
-      <div style="position:absolute;width:100%;border-bottom:1px dashed grey;left:0px;"></div>
+        <br>
+        <br>
+        <br>
 
-      <div class="content-block" style="margin-top:70px;">
-        <h2 style="text-align:left;margin-bottom:20px;">How it works</h2>
+        <h2 style="text-align:left;margin-bottom:40px;">About</h2>
 
         Your message, written on the blockchain, is immutable and incorruptible - no one can modify or delete it. It also never expires, it will stay there indefinitely. 
         By having the message on the blockchain, you have a mathematically-based proof that your message is authentic and existed prior to a 
@@ -206,36 +92,29 @@
         cannot be changed. The unique quality of the blockchain is that it is immutable and incorruptible, and because of its decentralized nature, 
         the data you add to the blockchain stays there forever.
         <br><br>
-        <!-- You can also download the application package from GitHub and launch it from your local disk by opening index.html in your browser.
-        <br><br> -->
         The message submission is anonymous and for every message a new random receiving Ethereum address is generated. Besides Google Analytics with IP anonymization, we do not use any trackers or cookies. We do not use a database and do not 
         collect any information about the website users.
-        <br><br>
-        If you want to announce your blockchain message publicly, you can tweet its link with the #setinblock hashtag.
-        <br><br>
-        <br><br>
-        For updates, follow Set in Block on <a href="https://twitter.com/setinblock" target="_blank">Twitter</a> and <a href="https://github.com/giekaton/set-in-block" target="_blank">GitHub</a>.
+        <br><br><br>
+        To announce your blockchain message publicly, tweet its link with the #setinblock hashtag.
+        <br><br><br>
+        "I'm feeling lucky" is a random list of Ethereum transactions with messages. You can browse through them by repeatedly clicking the lucky button. Email us a link to your blockchain message so we will inlude it in the lucky list.
+        <br><br><br>
+        Follow and fork on <a href="https://twitter.com/setinblock" target="_blank">Twitter</a> and <a href="https://github.com/giekaton/set-in-block" target="_blank">GitHub</a>.
       </div>
 
-      <!-- @todo -->
-      <!-- <div class="content-block">
-        <h2>
-          Add Set in Block Reader to your website
-        </h2>
-        Include the following JavaScript code into your page.
-        <br><br>
-        Pass placeholder parameter...
-      </div> -->
+
+      </div>
+
 
     </div>
 
     <div class="reader-footer">
       <div class="width">
+        <!-- Set in Block v0.3.1 |  -->
         <a href="https://github.com/giekaton/set-in-block" target="_blank" title="GitHub" class="sans-serif" style="margin-right:2px;">
-          Set in Block v0.7</a>
-          <!-- GitHub</a>&nbsp;|&nbsp;<a href="https://twitter.com/setinblock" target="_blank">Twitter</a> -->
+          GitHub</a> | <a href="https://twitter.com/setinblock" target="_blank">Twitter</a>
         <div style="float:right;" class="sans-serif">
-          <router-link to="/reader">Reader</router-link>
+          <router-link to="/about">About</router-link>
         </div>
       </div>
     </div>
@@ -245,137 +124,52 @@
 
 <script>
 // import MsgIpProtection from '../components/MsgIpProtection.vue';
-import FileInput from '../components/FileInput.vue';
+// import FileInput from '../components/FileInput.vue';
+import ReaderComponent from '../components/ReaderComponent.vue';
 
 export default {
   name: 'home',
   data: function() {
     return {
-      message: '',
-      messageInput: '',
-      messageInputIp: "Type of work: Logo design\nAuthor: Milton Rand\nOwner: Milton Rand\nWork created: 2018-06-16\nStatus: For sale\n\nThe work is presented in the file available at the Author's archive, referenced below, identifiable by its unique ID which is a SHA-256 hash.\n\nFile name: logo.eps\nFile size: 132954 bytes\nSHA-256 hash: b6f8758418ca2d28510543717d51cc9a0a81ad152409415bcb07f526862bd6f0",
-      feedback: '',
-      url: '',
-      msgType: 'msgPlainText',
       content: false,
-      fileName: 'Waiting for the file',
-      fileSize: 0,
-      fileHash: 'Waiting for the file'
     }
   },
   components: {
-    FileInput
+    // FileInput,
+    ReaderComponent
     // MsgIpProtection
   },
-  computed: {
-    bytesCalc: function () {
-      return encodeURI(this.messageInput).split(/%..|./).length - 1;
-    },
-    txFeeCalc: function () {
-      return (((this.bytesCalc * 68) + 30000) * 3) / 1000000000;
-    },
-    bytesCalcIp: function () {
-      return encodeURI(this.messageInputIp).split(/%..|./).length - 1;
-    },
-    txFeeCalcIp: function () {
-      return (((this.bytesCalcIp * 68) + 30000) * 3) / 1000000000;
-    },
-  },
+
   beforeMount () {
-    if (this.$route.name == 'msgIpProtection') {
-      this.msgType = 'msgIpProtection';
-      // this.messageInput = this.messageInputIp;
-    }
+    // if (this.$route.name == 'msgIpProtection') {
+    //   this.msgType = 'msgIpProtection';
+    //   // this.messageInput = this.messageInputIp;
+    // }
   },
   mounted () {
-    console.log('home');
+    // console.log('home');
     document.getElementById('splashScreen').style.display = 'none';
     window.scrollTo(0, 0);
   },
+  rendered () {
+    window.scrollTo(0, 0);
+  },
   methods: {
+
+    isContent: function(boo) {
+      if(boo) { this.content = true; }
+      else { this.content = false; }
+    },
+
+    toTop: function() {
+      window.scrollTo(0, 0);
+    },
+
     fileData: function(el) {
       this.fileName = el.fileName;
       this.fileSize = el.fileSize;
       this.fileHash = el.fileHash;
     },
-    msgSwitch: function (el) {
-      this.msgType = el.target.value;
-      this.$router.push({ name: el.target.value });
-    },
-    set: function () {
-      if (typeof window.web3 === 'undefined') {
-        this.feedback = '<span class="notice">To broadcast messages, first install <b><a href="https://metamask.io/" target="_blank" class="notice underlined">MetaMask</a></b> browser extension.</span>';
-        return;
-      }
-      else if (typeof web3.currentProvider.publicConfigStore._state.selectedAddress === 'undefined') {
-        this.feedback = '<span class="notice">To broadcast the message, first login to your MetaMask wallet.</span>';
-        return;
-      }
-      
-      this.feedback = '<span class="notice-good">Confirm the transaction in the MetaMask popup window.</span>';
-
-      let handleReceipt = (error, receipt) => {
-        if (error) console.error(error);
-        else {
-          this.url = '/reader/'+receipt;
-          this.feedback = 'Message recorded<br><span style="cursor:text;font-size:12px;">Transaction hash: '+ receipt +'</span><br><br>Read the message on Set in Block:<br><a href="'+this.url+'" style="font-size:12px;" target="_blank">https://setinblock.com/reader/'+receipt+'</a>';
-        }
-      }
-
-      let message = '';
-      if (this.msgType == 'msgIpProtection') {
-        message = this.messageInputIp;
-      }
-      else if (this.msgType == 'msgPlainText') {
-        message = this.messageInput;
-      }
-      
-      message = this.rstr2utf8(message);
-      message = this.str2hex(message);
-      eth.sendTransaction({
-        from: web3.currentProvider.publicConfigStore._state.selectedAddress,
-        to: address,
-        value: 0,
-        gas: gasCount(message) + 30000,
-        gasPrice: 3000000000,
-        data: message,
-      }, handleReceipt);
-    },
-
-    // Converts a raw javascript string into a string of single byte characters using utf8 encoding.
-    // This makes it easier to perform other encoding operations on the string.
-    rstr2utf8: function(input) {
-      let output = "";
-      for (let n = 0; n < input.length; n++) {
-        let c = input.charCodeAt(n);
-        if (c < 128) {
-            output += String.fromCharCode(c);
-        } else if ((c > 127) && (c < 2048)) {
-            output += String.fromCharCode((c >> 6) | 192);
-            output += String.fromCharCode((c & 63) | 128);
-        } else {
-            output += String.fromCharCode((c >> 12) | 224);
-            output += String.fromCharCode(((c >> 6) & 63) | 128);
-            output += String.fromCharCode((c & 63) | 128);
-        }
-      }
-      return output;
-    },
-
-    str2hex: function(str) {
-      let output = "";
-      for (let i = 0; i < str.length; i++) {
-        output += this.strlpad(str.charCodeAt(i).toString(16), "0", 2).toUpperCase();
-      }
-      return output;
-    },
-
-    strlpad: function(str, pad, len) {
-      while (str.length < len) {
-        str = pad + str;
-      }
-      return str;
-    }
     
   }
 }
@@ -385,7 +179,7 @@ export default {
   h1 {
     margin-top:20px;
     margin-bottom:7px;
-    font-size:18px;
+    font-size:20px;
   }
 
   h3 {
@@ -402,8 +196,21 @@ export default {
     margin-top: 20px;
   }
 
-  .header {
+  /* .header {
     position:fixed;
+    width: 100%;
+    height:60px;
+    top:0px;
+    left: 0px;
+    padding-top: 20px;
+    border-bottom: 1px solid rgb(221, 221, 221);
+    background-color:white;
+  } */
+
+  .header {
+    position:sticky;
+    /* margin: 0 auto; */
+    z-index: 10;
     width: 100%;
     height:60px;
     top:0px;

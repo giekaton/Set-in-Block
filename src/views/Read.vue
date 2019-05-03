@@ -1,14 +1,6 @@
 <template>
   <div class="reader">
 
-    <!-- Header -->
-    <router-link to="/reader">
-      <div style="float:left;height:20px;width:20px;background-color:#767676;"></div>
-      <div style="float:left;padding-left:7px;font-size:18px;font-family:'Arapey',serif;color:black;">Set in Block</div>
-      <div style="float:left;padding-left:6px;font-size:9px;padding-top:3px;color:#bebebe;" class="sans-serif">Reader</div>
-    </router-link>
-    <div style="float:right;padding-top:2px;font-size:14px;" class="sans-serif"><router-link to="/">Home</router-link></div>
-
     <div class="read-content">
 
       <span class="pre-formatted serif" v-html="tempstr"></span>
@@ -33,7 +25,7 @@
     <div class="reader-footer">
       <div class="width">
         <a href="https://github.com/giekaton/set-in-block" target="_blank" title="GitHub" class="sans-serif" style="margin-right:2px;color:#828282;">
-          Set in Block v0.7</a>
+          Set in Block v0.8</a>
         <div style="float:right;" class="sans-serif">
           <router-link to="/" style="color:#828282;">Home</router-link>
         </div>
@@ -122,7 +114,7 @@ export default {
   max-width: 1032px;
   height: 100%;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .read-content {
