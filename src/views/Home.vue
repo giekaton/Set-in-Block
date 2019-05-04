@@ -7,10 +7,10 @@
 
       <div v-if="$route.name != 'about'">
 
-        <div class="centered" v-if="!content">
+        <div class="centered" v-if="!$parent.content">
 
           <span>
-            <div style="width:95px;margin:0 auto;">
+            <div style="width:100px;margin:0 auto;margin-top:-10px;">
               <svg viewBox="0 0 190.8 190.8">
                 <title>Logo</title>
                 <polygon class="logo-container" points="0 0 190.8 0 190.8 190.8 0 190.8 0 0 0 0" style="fill:#606062;fill-rule:evenodd;"/>
@@ -25,10 +25,12 @@
               Permanent Messages
             </h1>
 
-            <h3 style="line-height:130%;">
+            <h3 style="margin-top:10px;margin-bottom:30px;font-size:14px;">
               <!-- Permanently archived on the Ethereum blockchain -->
-              Set in Ethereum Blockchain
+              Set in the Ethereum Blockchain
             </h3>
+
+            <div style="height:3px;"></div>
           </span>
             
         </div>
@@ -73,31 +75,30 @@
 
         <h2 style="text-align:left;margin-bottom:40px;">About</h2>
 
-        Your message, written on the blockchain, is immutable and incorruptible - no one can modify or delete it. It also never expires, it will stay there indefinitely. 
-        By having the message on the blockchain, you have a mathematically-based proof that your message is authentic and existed prior to a 
+        Your message, written in the blockchain, is immutable and incorruptible - no one can delete or modify it. It also never expires - it is permanent. 
+        <br><br>
+        By having a message archived on the blockchain, you have a mathematically-based proof that your message is authentic and that it existed prior to a 
         specific date.
         <br><br>
         The message you enter in this app is encoded into a hexadecimal format and then included in the data field of the Ethereum blockchain transaction.
         <br><br>
         To add this message to the blockchain, you will be asked to confirm the transaction with your <a href="https://medium.com/publicaio/a-complete-guide-to-using-metamask-updated-version-cd0d6f8c338f" target="_blank">MetaMask</a> 
-        browser extension. You only need to pay the transaction fee (few usd cents), as the value of the transaction is 0.
+        browser extension. Set in Block message submission interface only encodes and prepares the message, then the user broadcasts the message to the network.
         <br><br>
-        The longer is your message, the bigger is the transaction fee. Gas Limit is calculated automatically, according to the size of your message, so do not change it. 
-        Gas Price is set to 3 Gwei, but you can change it freely, depending on the network conditions.
+        You will only need to pay the transaction fee (few usd cents), as the value of the transaction is 0. The longer is your message, the bigger is the transaction fee. Gas Limit is calculated automatically, according to the size of your message, so do not change it. 
+        Gas Price is set to 3 Gwei, but you can change it, depending on the network conditions.
         <br><br>
         We never see your private key or any other sensitive data, as the transaction is executed on the client side, through the MetaMask extension. You can inspect 
         the code of our website by looking into its source and visiting its <a href="https://github.com/giekaton/set-in-block" target="_blank">GitHub</a> repository.
         <br><br>
         After the message is added to the blockchain, it is no longer possible to change or delete it. Also, the time and the date of the message creation 
-        cannot be changed. The unique quality of the blockchain is that it is immutable and incorruptible, and because of its decentralized nature, 
+        is impossible to change. The unique quality of the blockchain is that it is immutable and incorruptible, and because of its decentralized nature, 
         the data you add to the blockchain stays there forever.
         <br><br>
         The message submission is anonymous and for every message a new random receiving Ethereum address is generated. Besides Google Analytics with IP anonymization, we do not use any trackers or cookies. We do not use a database and do not 
         collect any information about the website users.
         <br><br><br>
-        To announce your blockchain message publicly, tweet its link with the #setinblock hashtag.
-        <br><br><br>
-        "I'm feeling lucky" is a random list of Ethereum transactions with messages. You can browse through them by repeatedly clicking the lucky button. Email us a link to your blockchain message so we will inlude it in the lucky list.
+        "I'm feeling lucky" is a random list of Ethereum transactions with messages. You can browse through them by repeatedly clicking the lucky button. Tweet your blockchain message link with the #setinblock hashtag - we will include the message in the lucky list.
         <br><br><br>
         Follow and fork on <a href="https://twitter.com/setinblock" target="_blank">Twitter</a> and <a href="https://github.com/giekaton/set-in-block" target="_blank">GitHub</a>.
       </div>
@@ -110,7 +111,6 @@
 
     <div class="reader-footer">
       <div class="width">
-        <!-- Set in Block v0.3.1 |  -->
         <a href="https://github.com/giekaton/set-in-block" target="_blank" title="GitHub" class="sans-serif" style="margin-right:2px;">
           GitHub</a> | <a href="https://twitter.com/setinblock" target="_blank">Twitter</a>
         <div style="float:right;" class="sans-serif">
@@ -131,7 +131,7 @@ export default {
   name: 'home',
   data: function() {
     return {
-      content: false,
+      
     }
   },
   components: {
@@ -154,11 +154,14 @@ export default {
   rendered () {
     window.scrollTo(0, 0);
   },
+  updated () {
+    window.scrollTo(0, 0);
+  },
   methods: {
 
     isContent: function(boo) {
-      if(boo) { this.content = true; }
-      else { this.content = false; }
+      if(boo) { this.$parent.content = true; }
+      else { this.$parent.content = false; }
     },
 
     toTop: function() {
@@ -230,16 +233,21 @@ export default {
     .header-inner {
       padding:0 20px 0 20px;
     }
+    .home {
+      margin-top:0px;
+    }
   }
 
   .home-content {
-    max-width: 700px;
+    max-width: 740px;
     margin: 0 auto;
     clear:both;
     padding-top: 80px;
     padding-bottom: 120px;
     text-align: left;
-    font-size: 14px; 
+    font-size: 14px;
+    padding-left:20px;
+    padding-right:20px;
   }
 
   .content-block {

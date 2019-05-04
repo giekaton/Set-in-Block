@@ -1,7 +1,7 @@
 <template>
   <div class="reader">
 
-    <div class="read-content">
+    <div class="read-content" style="margin-top:-20px;">
 
       <span class="pre-formatted serif" v-html="tempstr"></span>
 
@@ -25,7 +25,8 @@
     <div class="reader-footer">
       <div class="width">
         <a href="https://github.com/giekaton/set-in-block" target="_blank" title="GitHub" class="sans-serif" style="margin-right:2px;color:#828282;">
-          Set in Block v0.8</a>
+          Set in Block v0.8
+        </a>
         <div style="float:right;" class="sans-serif">
           <router-link to="/" style="color:#828282;">Home</router-link>
         </div>
@@ -118,11 +119,13 @@ export default {
 }
 
 .read-content {
-  max-width: 700px;
+  max-width: 740px;
   margin: 0 auto;
   clear:both;
   padding-bottom: 120px;
   padding-top:140px;
+  padding-left:20px;
+  padding-right:20px;
 }
 
 @media only screen and (max-width: 600px) {

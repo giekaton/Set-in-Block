@@ -17,7 +17,7 @@
     <button @click="read('lucky')" style="margin:5px;display:inline;padding-left:25px;padding-right:25px;">I'm feeling lucky</button>
 
 
-    <div v-if="content" class="reader-msg serif" style="min-height:55px;">      
+    <div v-if="$parent.$parent.content" class="reader-msg serif" style="min-height:55px;">      
       <div style="position:absolute;top:11px;right:13px;cursor:pointer;font-size:20px;" @click="close()">✕</div>
       {{ message }}
       <div v-if="message != 'Message is not available. Try a different tx hash.'">
@@ -30,15 +30,15 @@
       </div>
     </div>
 
-    <div v-if="content" style="margin-top:-20px;">
-      <div style="font-size:12px;" class="overflow-dots">
+    <div v-if="$parent.$parent.content" style="margin-top:-20px;">
+      <div style="font-size:12px;height:20px;" class="overflow-dots">
         <a v-bind:href="'/'+txHash" target="_blank" style="font-size:12px;">https://setinblock.com/{{txHash}}</a>
       </div>
       <br>
       <br>
       <!-- <button>Link</button>&nbsp;&nbsp; -->
-      <button @click="embed()">Embed</button>
-      <br><br>
+      <!-- <button @click="embed()">Embed</button> -->
+      <!-- <br><br> -->
     </div>
     
 
@@ -53,11 +53,22 @@ export default {
       txHash: '',
       txHashArray: [
         '0x52fcfb8b25daa9a6ea2c99a26cba4a4104ba21cb83fe670a3d296a317b98f097',
-        // '0xc8a7249826e78349bbe63652d80747118f7927f10884cd2ccf0ae344a5b13a1f',
+        '0x35dbf0e5c933db547022fbb61ed06458e028d34e388d253ab14a2b686582dd6c',
         '0x2d6a7b0f6adeff38423d4c62cd8b6ccb708ddad85da5d3d06756ad4d8a04a6a2',
         '0x8006d703a45663cab96a85a4ef3e6ab94a1410d6e70119139eea807a63ecb79e',
         '0xddfa3b28394d52d0e2c168c42d0f853179b3e482ee4bf507851c95da6d68d1c1',
         '0x77ed505f790493db0e47a0379e8455843bb5ecac9d03ba88602696e346d84828',
+        '0xeff50e090d8490266b9b122c75fb661b5967bc5789a51540875ca7d2554f7e01',
+        '0x3ce1ef698a5fe2e505014d5468f80b10e10a150929b9ea52ce79d466ba158b62',
+        '0x6361ac23362b8761490addad58636f1f3d5748451fcc9b4f8182b9776809e710',
+        // '0xc8a7249826e78349bbe63652d80747118f7927f10884cd2ccf0ae344a5b13a1f',
+        '0xcc1f5ee8e08b38adee27f397565690fdd882f295492ded96fb6d9e6b81000a6a',
+        '0xcd98780f0f4d21835f24781eabffdfad3369c7e10ad4cf97cd81e14283a8c48e',
+        '0xca8836d2e9ac00053a4549b7f2dfa48c3c9eea60296b658e8bc95a3926ded010',
+        '0xd065be0f5777e4a16e2c9e2750bde15c27ab5a4ab866736f3cb6041b450f6ee6',
+        '0xc7377190e9c0b40d3e5e7d434430ffeff5df3394dd4e6b56581802ee125185de',
+
+
       ],
       message: 'Loading...',
       content: false,
@@ -69,8 +80,8 @@ export default {
       alert("This feature is coming soon. Please come back in a few days.")
     },
     close: function() {
-      this.content = false;
-      this.$emit('isContent', false);
+      this.$parent.$parent.content = false;
+      // this.$emit('isContent', false);
     },
     read: function(lucky) {
       if (lucky == 'lucky') {
@@ -84,7 +95,7 @@ export default {
       this.$emit('isContent', true);
 
       this.message = "Loading...";
-      this.content = true;
+      this.$parent.$parent.content = true;
       let self = this;
 
       axios.get(etherscan + '/api?module=proxy&action=eth_getTransactionByHash&txhash=' + this.txHash)

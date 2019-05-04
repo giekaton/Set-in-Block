@@ -1,5 +1,5 @@
 <template>
-  <div class="reader">
+  <div class="reader" style="padding-left:20px;padding-right:20px;">
     
     <!-- New message -->
     <div style="max-width:620px;margin:0 auto;margin-top:100px;">
@@ -19,10 +19,11 @@
         <button style="float:right;" @click="set()">Set</button>
         <div class="link" style="float:right;margin-right:20px;margin-top:13px;font-size:12px;" @click="content = true;">Preview</div>
       </div>
+
     </div>
 
     <!-- Feedback -->
-    <div v-if="feedback != ''" v-html="feedback" class="feedback" style="text-align:center;padding-top:100px;"></div>
+    <div v-if="feedback != ''" v-html="feedback" class="feedback" style="text-align:center;padding-top:100px;margin-bottom:-50px;"></div>
 
     <!-- Preview -->
     <div v-if="content" class="reader-msg serif" style="min-height:55px;margin:0 auto;max-width:620px;margin-top:140px;margin-bottom:100px;box-shadow: #e9e9e9 0px 4px 8px 3px;">  
@@ -47,10 +48,12 @@
       <div v-else style="height:40px;"></div>
     </div>
 
+    <div v-else style="clear:both;display:block;height:100px;"></div>
+    
     <div class="reader-footer">
       <div class="width">
         <a href="https://github.com/giekaton/set-in-block" target="_blank" title="GitHub" class="sans-serif" style="margin-right:2px;color:#828282;">
-          Set in Block v0.3.1</a>
+          Set in Block v0.8</a>
         <div style="float:right;" class="sans-serif">
           <router-link to="/about" style="color:#828282;">
             About
@@ -128,8 +131,8 @@ export default {
       let handleReceipt = (error, receipt) => {
         if (error) console.error(error);
         else {
-          this.url = '/reader/'+receipt;
-          this.feedback = 'Message recorded<br><span style="cursor:text;font-size:12px;">Transaction hash: '+ receipt +'</span><br><br>Read the message on Set in Block:<br><a href="'+this.url+'" style="font-size:12px;" target="_blank">https://setinblock.com/reader/'+receipt+'</a>';
+          this.url = '/'+receipt;
+          this.feedback = 'Message recorded<br><span style="cursor:text;font-size:12px;">Transaction hash: '+ receipt +'</span><br><br>Read the message on Set in Block<br><a href="'+this.url+'" style="font-size:12px;" target="_blank">https://setinblock.com/'+receipt+'</a><br><br><br><br><br><br>';
         }
       }
 
@@ -207,6 +210,8 @@ export default {
   padding-top: 70px;
   font-size: 19px;
   padding-bottom: 120px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 </style>

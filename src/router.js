@@ -23,11 +23,11 @@ export default new Router({
         metaTags: [
           {
             name: 'description',
-            content: 'Immutable and Indestructible Messages on the Blockchain. Create and read everlasting messages on the blockchain. Make a permanent promise, create a proof of fact, bypass censorship. Enter a message and "set in stone" it on the blockchain.'
+            content: 'Write and read everlasting messages on the blockchain. Make a permanent promise, create a proof of fact, bypass censorship. Enter a message and "set in stone" it on the blockchain.'
           },
           {
             property: 'og:description',
-            content: 'Immutable and Indestructible Messages on the Blockchain. Create and read everlasting messages on the blockchain. Make a permanent promise, create a proof of fact, bypass censorship. Enter a message and "set in stone" it on the blockchain.'
+            content: 'Write and read everlasting messages on the blockchain. Make a permanent promise, create a proof of fact, bypass censorship. Enter a message and "set in stone" it on the blockchain.'
           }
         ]
       }
@@ -38,7 +38,7 @@ export default new Router({
       component: Home,
       meta: {
         // title: 'Set in Block - Immutable and Indestructible Messages on the Blockchain',
-        title: 'Set in Block - Immutable and Indestructible Messages',
+        title: 'Set in Block - How to Read and Write Blockchain Messages',
         metaTags: [
           {
             property: 'og:description',
@@ -58,7 +58,7 @@ export default new Router({
       component: NewMessage,
       meta: {
         // title: 'Set in Block - Blockchain Message Reader',
-        title: 'Set in Block - Write a New Permanent Message',
+        title: 'Set in Block - Create a New Permanent Message',
         metaTags: [
           {
             name: 'description',
@@ -77,7 +77,7 @@ export default new Router({
       component: Read,
       props: true,
       meta: {
-        title: 'Set in Block - Immutable message, permanently recorded on the blockchain',
+        title: 'Set in Block - Everlasting Message',
       }
     }
     // {
