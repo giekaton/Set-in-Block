@@ -95,9 +95,10 @@ export default {
     hex2utf8: function(pStr) {
       try {
         this.tempstr = decodeURIComponent(pStr.replace(/\s+/g, '').replace(/[0-9a-f]{2}/g, '%$&')).substring(2);
-        // console.log(this.tempstr);
+        console.log(this.tempstr);
       }
       catch (err) {
+        console.log(err);
         for (b = 0; b < pStr.length; b = b + 2) {
           this.tempstr = this.tempstr + String.fromCharCode(parseInt(pStr.substr(b, 2), 16));
         }

@@ -62,7 +62,7 @@
         <br>
         <br>
         
-        To write a message:
+        To record a message:
         <ul>
           <li>
             Users can use the Set in Block <router-link to="new-message">submission interface</router-link> to create Ethereum blockchain messages and broadcast them with their MetaMask wallets. The submission is done on the client side. For privacy reasons, every new Set in Block message is sent to a randomly generated Ethereum address.
@@ -75,32 +75,35 @@
 
         <h2 style="text-align:left;margin-bottom:40px;">About</h2>
 
-        Your message, written in the blockchain, is immutable and incorruptible - no one can delete or modify it. It also never expires - it is permanent. 
+        Your message, recorded on the blockchain, is immutable and incorruptible - no one can delete or modify it. It also never expires - it is a <a href="https://setinblock.com/new-message/" target="_blank">permanent record</a>. 
         <br><br>
-        By having a message archived on the blockchain, you have a mathematically-based proof that your message is authentic and that it existed prior to a 
+        By having a message archived on the blockchain, you have a mathematically-based proof of existence that your message is authentic and that it existed prior to a 
         specific date.
         <br><br>
         The message you enter in this app is encoded into a hexadecimal format and then included in the data field of the Ethereum blockchain transaction.
         <br><br>
-        To add this message to the blockchain, you will be asked to confirm the transaction with your <a href="https://medium.com/publicaio/a-complete-guide-to-using-metamask-updated-version-cd0d6f8c338f" target="_blank">MetaMask</a> 
-        browser extension. Set in Block message submission interface only encodes and prepares the message, then the user broadcasts the message to the network.
+        Set in Block message submission interface only encodes and prepares the message. After you click the submit button, you will be asked to confirm the transaction with your <a href="https://medium.com/publicaio/a-complete-guide-to-using-metamask-updated-version-cd0d6f8c338f" target="_blank">MetaMask</a> wallet and by doing this, to create a permanent record that will serve as a proof of existence.
         <br><br>
-        You will only need to pay the transaction fee (few usd cents), as the value of the transaction is 0. The longer is your message, the bigger is the transaction fee. Gas Limit is calculated automatically, according to the size of your message, so do not change it. 
+        You will only need to pay the transaction fee (few USD cents), as the value of the transaction is 0. The longer is your message, the bigger is the transaction fee. Gas Limit is calculated automatically, according to the size of your message, so do not change it. 
         Gas Price is set to 3 Gwei, but you can change it, depending on the network conditions.
         <br><br>
         We never see your private key or any other sensitive data, as the transaction is executed on the client side, through the MetaMask extension. You can inspect 
         the code of our website by looking into its source and visiting its <a href="https://github.com/giekaton/set-in-block" target="_blank">GitHub</a> repository.
         <br><br>
         After the message is added to the blockchain, it is no longer possible to change or delete it. Also, the time and the date of the message creation 
-        is impossible to change. The unique quality of the blockchain is that it is immutable and incorruptible, and because of its decentralized nature, 
+        is impossible to change - that's the proof of existence. The unique quality of the blockchain is that it is immutable and incorruptible, and because of its decentralized nature, 
         the data you add to the blockchain stays there forever.
         <br><br>
-        The message submission is anonymous and for every message a new random receiving Ethereum address is generated. Besides Google Analytics with IP anonymization, we do not use any trackers or cookies. We do not use a database and do not 
+        The message submission is anonymous and for every message, a new random receiving Ethereum address is generated. Besides Google Analytics with IP anonymization, we do not use any trackers or cookies. We do not use a database and do not 
         collect any information about the website users.
         <br><br><br>
         "I'm feeling lucky" is a random list of Ethereum transactions with messages. You can browse through them by repeatedly clicking the lucky button. Tweet your blockchain message link with the #setinblock hashtag - we will include the message in the lucky list.
         <br><br><br>
         Follow and fork on <a href="https://twitter.com/setinblock" target="_blank">Twitter</a> and <a href="https://github.com/giekaton/set-in-block" target="_blank">GitHub</a>.
+        <br><br><br>
+        <a href="https://commerce.coinbase.com/checkout/27cfef00-226b-43dc-bf2c-6f85e045624f" target="_blank">Donate</a> to support the further development of Set in Block. Thank you!
+        <br><br><br>
+        Contact: i&#110;&#102;&#x6f;&#x40;&#x73;&#x65;t&#105;&#110;&#98;&#x6c;&#x6f;&#x63;k&#46;&#99;&#111;&#x6d;
       </div>
 
 

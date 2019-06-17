@@ -3,7 +3,7 @@
     
     <!-- New message -->
     <div style="max-width:620px;margin:0 auto;margin-top:100px;">
-      <h1 style="font-size:14px;">Enter a message and "set in stone" it on the blockchain</h1>
+      <h1 style="font-size:14px;margin-bottom:30px;">To create a new permanent record, enter a message and "set in stone" it on the blockchain</h1>
 
       <textarea class="message-input" v-model="messageInput"></textarea>
 
@@ -136,13 +136,7 @@ export default {
         }
       }
 
-      let message = '';
-      if (this.msgType == 'msgIpProtection') {
-        message = this.messageInputIp;
-      }
-      else if (this.msgType == 'msgPlainText') {
-        message = this.messageInput;
-      }
+      let message = this.messageInput;
       
       message = this.rstr2utf8(message);
       message = this.str2hex(message);
@@ -158,22 +152,26 @@ export default {
 
     // Converts a raw javascript string into a string of single byte characters using utf8 encoding.
     // This makes it easier to perform other encoding operations on the string.
+    // rstr2utf8: function(input) {
+    //   let output = "";
+    //   for (let n = 0; n < input.length; n++) {
+    //     let c = input.charCodeAt(n);
+    //     if (c < 128) {
+    //         output += String.fromCharCode(c);
+    //     } else if ((c > 127) && (c < 2048)) {
+    //         output += String.fromCharCode((c >> 6) | 192);
+    //         output += String.fromCharCode((c & 63) | 128);
+    //     } else {
+    //         output += String.fromCharCode((c >> 12) | 224);
+    //         output += String.fromCharCode(((c >> 6) & 63) | 128);
+    //         output += String.fromCharCode((c & 63) | 128);
+    //     }
+    //   }
+    //   return output;
+    // },
+
     rstr2utf8: function(input) {
-      let output = "";
-      for (let n = 0; n < input.length; n++) {
-        let c = input.charCodeAt(n);
-        if (c < 128) {
-            output += String.fromCharCode(c);
-        } else if ((c > 127) && (c < 2048)) {
-            output += String.fromCharCode((c >> 6) | 192);
-            output += String.fromCharCode((c & 63) | 128);
-        } else {
-            output += String.fromCharCode((c >> 12) | 224);
-            output += String.fromCharCode(((c >> 6) & 63) | 128);
-            output += String.fromCharCode((c & 63) | 128);
-        }
-      }
-      return output;
+      return unescape( encodeURIComponent( input ) );
     },
 
     str2hex: function(str) {

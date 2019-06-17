@@ -63,11 +63,12 @@ export default {
         '0x6361ac23362b8761490addad58636f1f3d5748451fcc9b4f8182b9776809e710',
         // '0xc8a7249826e78349bbe63652d80747118f7927f10884cd2ccf0ae344a5b13a1f',
         '0xcc1f5ee8e08b38adee27f397565690fdd882f295492ded96fb6d9e6b81000a6a',
+        '0xdad229813cdcb0b26d0dd824fcd820b1f4c4c9b1b37347f369496b9fc990ea54',
         '0xcd98780f0f4d21835f24781eabffdfad3369c7e10ad4cf97cd81e14283a8c48e',
         '0xca8836d2e9ac00053a4549b7f2dfa48c3c9eea60296b658e8bc95a3926ded010',
         '0xd065be0f5777e4a16e2c9e2750bde15c27ab5a4ab866736f3cb6041b450f6ee6',
         '0xc7377190e9c0b40d3e5e7d434430ffeff5df3394dd4e6b56581802ee125185de',
-
+        '0x98f619c174b21b28a5820f9be61cd4f86b51d7889b0eb38840028df34a6ac2c7',
 
       ],
       message: 'Loading...',
@@ -132,7 +133,7 @@ export default {
       )
       .catch (
         function (error) {
-          // console.log (error);
+          console.log (error);
           self.message = "Message is not available. Try a different tx hash.";
         }
       );

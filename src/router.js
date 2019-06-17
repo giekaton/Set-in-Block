@@ -19,7 +19,8 @@ export default new Router({
       component: Home,
       meta: {
         // title: 'Set in Block - Immutable and Indestructible Messages on the Blockchain',
-        title: 'Set in Block - Immutable and Indestructible Messages on the Blockchain',
+        // title: 'Set in Block - Immutable and Indestructible Messages on the Blockchain',
+        title: 'Set in Block - Immutable and Indestructible Blockchain Messages',
         metaTags: [
           {
             name: 'description',
@@ -38,11 +39,12 @@ export default new Router({
       component: Home,
       meta: {
         // title: 'Set in Block - Immutable and Indestructible Messages on the Blockchain',
-        title: 'Set in Block - How to Read and Write Blockchain Messages',
+        // title: 'Set in Block - How to Read and Write Blockchain Messages',
+        title: 'Make a Proof of Existence on the Ethereum Blockchain - Set in Block',
         metaTags: [
           {
             property: 'og:description',
-            content: 'Immutable and Indestructible Messages on the Blockchain. Create and read everlasting messages on the blockchain. Make a permanent promise, create a proof of fact, bypass censorship. Enter a message and "set in stone" it on the blockchain.'
+            content: 'Immutable and Indestructible Proof of Existence on the Ethereum Blockchain. Create and read everlasting messages on the blockchain. Make a permanent promise, create a proof of fact, bypass censorship. Enter a message and "set in stone" it on the blockchain.'
           }
         ]
       }
@@ -58,15 +60,15 @@ export default new Router({
       component: NewMessage,
       meta: {
         // title: 'Set in Block - Blockchain Message Reader',
-        title: 'Set in Block - Create a New Permanent Message',
+        title: 'Set in Stone: A Permanent Record on the Blockchain - Set in Block',
         metaTags: [
           {
             name: 'description',
-            content: 'Enter a message and "set in stone" it on the Ethereum blockchain.'
+            content: 'Enter the message and "set in stone" it on the Ethereum blockchain. You will create a permanent record, which is message permanently recorded in the Ethereum blockchain.'
           },
           {
             property: 'og:description',
-            content: 'Enter a message and "set in stone" it on the Ethereum blockchain.'
+            content: 'Enter the message and "set in stone" it on the Ethereum blockchain. You will create a permanent record, which is message permanently recorded in the Ethereum blockchain.'
           }
         ],
       }
