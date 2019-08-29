@@ -20,7 +20,7 @@ export default new Router({
       meta: {
         // title: 'Set in Block - Immutable and Indestructible Messages on the Blockchain',
         // title: 'Set in Block - Immutable and Indestructible Messages on the Blockchain',
-        title: 'Set in Block - Immutable and Indestructible Blockchain Messages',
+        title: 'Set in Block - Permanent Records in the Blockchain Archive',
         metaTags: [
           {
             name: 'description',
@@ -60,7 +60,7 @@ export default new Router({
       component: NewMessage,
       meta: {
         // title: 'Set in Block - Blockchain Message Reader',
-        title: 'Set in Stone: A Permanent Record on the Blockchain - Set in Block',
+        title: 'Create a New Immutable and Indestructible Blockchain Message',
         metaTags: [
           {
             name: 'description',

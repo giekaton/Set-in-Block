@@ -1,7 +1,8 @@
 .DS_Store
 node_modules
-# /dist
+/dist
 /dist-backup
+/public/php-metamask-user-login
 
 # local env files
 .env.local

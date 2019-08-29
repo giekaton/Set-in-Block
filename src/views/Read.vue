@@ -12,7 +12,7 @@
             Message creation date: 
             <a v-bind:href="'https://etherscan.io/tx/'+txHash" target="_blank"><span class="sans-serif" title="Link to Etherscan">{{ timestamp }}</span>
           </a>
-          <br>    
+          <br> 
           <div class="overflow-dots">
             Ethereum transaction hash: 
             <a v-bind:href="'https://etherscan.io/tx/'+txHash" target="_blank" title="Link to Etherscan">{{ txHash }}</a>

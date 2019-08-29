@@ -2,9 +2,23 @@
   <div class="reader" style="padding-left:20px;padding-right:20px;">
     
     <!-- New message -->
-    <div style="max-width:620px;margin:0 auto;margin-top:100px;">
-      <h1 style="font-size:14px;margin-bottom:30px;">To create a new permanent record, enter a message and "set in stone" it on the blockchain</h1>
+    <div style="max-width:620px;margin:0 auto;margin-top:60px;">
+      <b>To create a new permanent record, enter a message and "set in stone" it on the blockchain.</b>
 
+      <br><br><br>
+
+      <span style="font-size:14px;">
+        Optional: Is the message private, or a file? Then hash the file (.txt or other) client-side, and submit only the SHA-256 hash. Keep the original file in your archive.
+      </span>
+
+      <br><br>
+
+      <file-input style="font-size:14px;" v-on:file-data="fileData" />
+
+      <br><br>
+
+      <span style="font-size:14px;">Enter your message below:</span>
+      <div style="height:7px;"></div>
       <textarea class="message-input" v-model="messageInput"></textarea>
 
       <div style="float:left;margin-top:5px;text-align:left;line-height:18px;font-size:13px;">
@@ -15,18 +29,20 @@
       </div>
       <br>
 
-      <div style="width:180px;float:right;">
-        <button style="float:right;" @click="set()">Set</button>
-        <div class="link" style="float:right;margin-right:20px;margin-top:13px;font-size:12px;" @click="content = true;">Preview</div>
+      <div class="set-controls">
+        <button class="link-set" @click="set()">Set</button>
+        <div class="link-preview" @click="content = true;">Preview</div>
       </div>
 
     </div>
 
+    <div style="height:30px;"></div>
+
     <!-- Feedback -->
-    <div v-if="feedback != ''" v-html="feedback" class="feedback" style="text-align:center;padding-top:100px;margin-bottom:-50px;"></div>
+    <div v-if="feedback != ''" v-html="feedback" class="feedback" style="text-align:center;padding-top:80px;font-weight:bold;"></div>
 
     <!-- Preview -->
-    <div v-if="content" class="reader-msg serif" style="min-height:55px;margin:0 auto;max-width:620px;margin-top:140px;margin-bottom:100px;box-shadow: #e9e9e9 0px 4px 8px 3px;">  
+    <div v-if="content" class="reader-msg serif" style="min-height:55px;margin:0 auto;max-width:620px;margin-top:100px;margin-bottom:100px;box-shadow: #e9e9e9 0px 4px 8px 3px;">  
       <div style="position:absolute;top:3px;right:45px;font-size:13px;color:red;" class="sans-serif">
         Message preview
       </div>
@@ -53,11 +69,9 @@
     <div class="reader-footer">
       <div class="width">
         <a href="https://github.com/giekaton/set-in-block" target="_blank" title="GitHub" class="sans-serif" style="margin-right:2px;color:#828282;">
-          Set in Block v0.8</a>
+          GitHub</a> | <a href="https://twitter.com/setinblock" target="_blank" style="color:#828282;">Twitter</a>
         <div style="float:right;" class="sans-serif">
-          <router-link to="/about" style="color:#828282;">
-            About
-          </router-link>
+          <router-link to="/about" style="color:#828282;">About</router-link>
         </div>
       </div>
     </div>
@@ -67,12 +81,14 @@
 
 <script>
 import ReaderComponent from '../components/ReaderComponent.vue';
+import FileInput from '../components/FileInput.vue';
 
 export default {
   props: ['txHash'],
   
   components: {
-    ReaderComponent
+    ReaderComponent,
+    FileInput
   },
 
   data: function() {
@@ -116,6 +132,9 @@ export default {
   },
 
   methods: {
+    fileData: function (data) {
+      this.messageInput += '\n\nFile: '+data.fileName+' ('+data.fileSize+' bytes)\nSHA-256 #: '+data.fileHash;
+    },
     set: function () {
       if (typeof window.web3 === 'undefined') {
         this.feedback = '<span class="notice">To broadcast messages, first install <b><a href="https://metamask.io/" target="_blank" class="notice underlined">MetaMask</a></b> browser extension.</span>';
@@ -210,6 +229,48 @@ export default {
   padding-bottom: 120px;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+.link-preview {
+  float:right;
+  margin-right:19px;
+  margin-top:13px;
+  font-size:12px;
+  text-decoration: none;
+  color: #4289b9;
+  cursor: pointer;
+}
+
+.link-set {
+  float:right;
+}
+
+.set-controls {
+  width:140px;
+  float:right;
+}
+
+@media only screen and (max-width: 440px) {
+  .set-controls {
+    clear:both;
+    float:left;
+    max-width: 100%;
+  }
+
+  .link-preview {
+    float:left;
+    margin-right:0px;
+    margin-left: 10px;
+    padding-top: 10px;
+  }
+
+  .link-set {
+    clear:both;
+    float:left;
+    margin-top: 15px;
+  }
+
+
 }
 
 </style>
