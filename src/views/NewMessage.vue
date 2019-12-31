@@ -2,22 +2,26 @@
   <div class="reader" style="padding-left:20px;padding-right:20px;">
     
     <!-- New message -->
-    <div style="max-width:620px;margin:0 auto;margin-top:60px;">
-      <b>To create a new permanent record, enter a message and "set in stone" it on the blockchain.</b>
+    <div style="max-width:620px;margin:0 auto;padding-top:50px;">
+
+      <h1><b>Create a New Permanent Record</b></h1>
+
+
+      <br><br>
+
+      <div style="text-align:left;font-size:13px;border:1px solid #cacaca;border-radius:5px;background-color:#f9f9f9;padding:20px;">
+          Enter a message and permanently record it in the Ethereum blockchain.
+          <br><br>
+          Set in Block message submission interface only encodes and prepares the message. After the submit button is pressed, you will be asked to confirm the transaction with your MetaMask wallet and by doing this, to create the permanent record. Currently, it works only with the desktop version of MetaMask.
+          <br><br><br>
+          Optional: Is the message private, or a file? Hash the file (.txt or other) client-side, and submit only the SHA-256 hash. Keep the original file in your archive.
+          <br><br>
+          <file-input style="font-size:14px;" v-on:file-data="fileData" />
+      </div>
 
       <br><br><br>
 
-      <span style="font-size:14px;">
-        Optional: Is the message private, or a file? Then hash the file (.txt or other) client-side, and submit only the SHA-256 hash. Keep the original file in your archive.
-      </span>
-
-      <br><br>
-
-      <file-input style="font-size:14px;" v-on:file-data="fileData" />
-
-      <br><br>
-
-      <span style="font-size:14px;">Enter your message below:</span>
+      <h1>Your permanent message</h1>
       <div style="height:7px;"></div>
       <textarea class="message-input" v-model="messageInput"></textarea>
 
@@ -36,13 +40,17 @@
 
     </div>
 
-    <div style="height:30px;"></div>
+    <div style="height:80px;"></div>
 
     <!-- Feedback -->
-    <div v-if="feedback != ''" v-html="feedback" class="feedback" style="text-align:center;padding-top:80px;font-weight:bold;"></div>
+    <div v-if="feedback != ''" v-html="feedback" class="feedback" style="text-align:center;font-weight:bold;"></div>
+
+    <div v-if="feedback != ''" style="height:40px;"></div>
+
+    <div style="height:40px;"></div>
 
     <!-- Preview -->
-    <div v-if="content" class="reader-msg serif" style="min-height:55px;margin:0 auto;max-width:620px;margin-top:100px;margin-bottom:100px;box-shadow: #e9e9e9 0px 4px 8px 3px;">  
+    <div v-if="content" class="reader-msg serif" style="min-height:55px;margin:0 auto;max-width:620px;box-shadow: #e9e9e9 0px 4px 8px 3px;">
       <div style="position:absolute;top:3px;right:45px;font-size:13px;color:red;" class="sans-serif">
         Message preview
       </div>
@@ -61,11 +69,12 @@
           Ethereum transaction hash: Unique transaction hash (available after the message is recorded)
         </div>
       </div>
-      <div v-else style="height:40px;"></div>
     </div>
-
-    <div v-else style="clear:both;display:block;height:100px;"></div>
     
+    <div v-if="content" style="height:40px;"></div>
+
+    <div style="height:40px;"></div>
+
     <div class="reader-footer">
       <div class="width">
         <a href="https://github.com/giekaton/set-in-block" target="_blank" title="GitHub" class="sans-serif" style="margin-right:2px;color:#828282;">
@@ -100,7 +109,6 @@ export default {
       timestamp: 'Loading...',
       message: '',
       messageInput: '',
-      feedback: '',
       url: '',
       msgType: 'msgPlainText',
       fileName: 'Waiting for the file',
@@ -135,15 +143,44 @@ export default {
     fileData: function (data) {
       this.messageInput += '\n\nFile: '+data.fileName+' ('+data.fileSize+' bytes)\nSHA-256 #: '+data.fileHash;
     },
-    set: function () {
-      if (typeof window.web3 === 'undefined') {
-        this.feedback = '<span class="notice">To broadcast messages, first install <b><a href="https://metamask.io/" target="_blank" class="notice underlined">MetaMask</a></b> browser extension.</span>';
+    set: async function() {
+
+      // Modern dapp browsers...
+      if (window.ethereum) {
+        window.web3 = new Web3(ethereum);
+        try {
+          const accounts = await ethereum.enable();
+          web3.currentProvider.publicConfigStore._state.selectedAddress = accounts[0];
+          this.setGo();
+        } catch (error) {
+          console.log(error);
+          self.feedback = '<span class="notice">To broadcast the message, first log in to your MetaMask wallet.</span>';
+          return;
+        }
+      }
+      // Legacy dapp browsers...
+      else if (window.web3) {
+          window.web3 = new Web3(web3.currentProvider);
+          this.setGo();
+      }
+      // Non-dapp browsers...
+      else {
+        self.feedback = '<span class="notice">To broadcast the message, first install <b><a href="https://metamask.io/" target="_blank" class="notice underlined">MetaMask</a></b> browser extension.</span>';
         return;
       }
-      else if (typeof web3.currentProvider.publicConfigStore._state.selectedAddress === 'undefined') {
-        this.feedback = '<span class="notice">To broadcast the message, first log in to your MetaMask wallet.</span>';
-        return;
-      }
+
+
+    },
+
+    setGo: function () {
+      // if (typeof window.web3 === 'undefined') {
+      //   this.feedback = '<span class="notice">To broadcast messages, first install <b><a href="https://metamask.io/" target="_blank" class="notice underlined">MetaMask</a></b> browser extension.</span>';
+      //   return;
+      // }
+      // else if (typeof web3.currentProvider.publicConfigStore._state.selectedAddress === 'undefined') {
+      //   this.feedback = '<span class="notice">To broadcast the message, first log in to your MetaMask wallet.</span>';
+      //   return;
+      // }
       
       this.feedback = '<span class="notice-good">Confirm the transaction in the MetaMask popup window.</span>';
 
@@ -151,7 +188,7 @@ export default {
         if (error) console.error(error);
         else {
           this.url = '/'+receipt;
-          this.feedback = 'Message recorded<br><span style="cursor:text;font-size:12px;">Transaction hash: '+ receipt +'</span><br><br>Read the message on Set in Block<br><a href="'+this.url+'" style="font-size:12px;" target="_blank">https://setinblock.com/'+receipt+'</a><br><br><br><br><br><br>';
+          this.feedback = 'Message recorded<br><span style="cursor:text;font-size:12px;">Transaction hash: '+ receipt +'</span><br><br>Read the message on Set in Block<br><a href="'+this.url+'" style="font-size:12px;" target="_blank">https://setinblock.com/'+receipt+'</a><br><br><br>';
         }
       }
 
@@ -159,7 +196,7 @@ export default {
       
       message = this.rstr2utf8(message);
       message = this.str2hex(message);
-      eth.sendTransaction({
+      web3.eth.sendTransaction({
         from: web3.currentProvider.publicConfigStore._state.selectedAddress,
         to: address,
         value: 0,
@@ -167,6 +204,7 @@ export default {
         gasPrice: 3000000000,
         data: message,
       }, handleReceipt);
+      
     },
 
     // Converts a raw javascript string into a string of single byte characters using utf8 encoding.

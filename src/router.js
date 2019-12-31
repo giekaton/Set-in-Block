@@ -4,7 +4,7 @@ import Home from './views/Home.vue'
 import NewMessage from './views/NewMessage.vue'
 import Read from './views/Read.vue'
 import Redirect from './views/Redirect.vue'
-// import MsgIpProtection from './components/MsgIpProtection.vue';
+import IPProtection from './components/IPProtection.vue'
 
 
 Vue.use(Router)
@@ -18,9 +18,7 @@ export default new Router({
       name: 'home',
       component: Home,
       meta: {
-        // title: 'Set in Block - Immutable and Indestructible Messages on the Blockchain',
-        // title: 'Set in Block - Immutable and Indestructible Messages on the Blockchain',
-        title: 'Set in Block - Permanent Records in the Blockchain Archive',
+        title: 'Set in Block - Immutable and Indestructible Records in the Ethereum Blockchain Archive',
         metaTags: [
           {
             name: 'description',
@@ -38,9 +36,7 @@ export default new Router({
       name: 'about',
       component: Home,
       meta: {
-        // title: 'Set in Block - Immutable and Indestructible Messages on the Blockchain',
-        // title: 'Set in Block - How to Read and Write Blockchain Messages',
-        title: 'Make a Proof of Existence on the Ethereum Blockchain - Set in Block',
+        title: 'Set in Block - Hidden Messages in the Ethereum, Proof-of-Existence',
         metaTags: [
           {
             property: 'og:description',
@@ -59,8 +55,7 @@ export default new Router({
       name: 'NewMessage',
       component: NewMessage,
       meta: {
-        // title: 'Set in Block - Blockchain Message Reader',
-        title: 'Create a New Immutable and Indestructible Blockchain Message',
+        title: 'Set in Block - Record a New Permanent Message',
         metaTags: [
           {
             name: 'description',
@@ -74,6 +69,24 @@ export default new Router({
       }
     },
     {
+      path: '/intellectual-property-protection',
+      name: 'IPProtection',
+      component: IPProtection,
+      meta: {
+        title: 'Set in Block - Intellectual Property Protection with Blockchain',
+        // metaTags: [
+        //   {
+        //     name: 'description',
+        //     content: 'Enter the message and "set in stone" it on the Ethereum blockchain. You will create a permanent record, which is message permanently recorded in the Ethereum blockchain.'
+        //   },
+        //   {
+        //     property: 'og:description',
+        //     content: 'Enter the message and "set in stone" it on the Ethereum blockchain. You will create a permanent record, which is message permanently recorded in the Ethereum blockchain.'
+        //   }
+        // ],
+      }
+    },
+    {
       path: '/:txHash',
       name: 'read2',
       component: Read,
@@ -82,52 +95,12 @@ export default new Router({
         title: 'Set in Block - Everlasting Message',
       }
     }
-    // {
-    //   path: '/reader/:txHash',
-    //   name: 'read',
-    //   component: Read,
-    //   props: true,
-    //   meta: {
-    //     title: 'Set in Block - Immutable message, permanently recorded on the blockchain',
-    //   }
-    // },
-    // {
-    //   path: '/intellectual-property-copyright-protection',
-    //   name: 'msgIpProtection',
-    //   component: Home,
-    //   props: true,
-    //   meta: {
-    //     title: 'Set in Block - Intellectual Property and Copyright Protection',
-    //     metaTags: [
-    //       {
-    //         name: 'description',
-    //         content: 'You can create a proof of existence for your authentic work, e.g. design, musical composition, code, movie script or anything else that can be considered as intellectual property.'
-    //       },
-    //       {
-    //         property: 'og:description',
-    //         content: 'You can create a proof of existence for your authentic work, e.g. design, musical composition, code, movie script or anything else that can be considered as intellectual property.'
-    //       }
-    //     ]
-    //   }
-    // },
-    // {
-    //   path: '/permanent-text-message-on-the-blockchain',
-    //   name: 'msgPlainText',
-    //   component: Home,
-    //   props: true,
-    //   meta: {
-    //     title: 'Set in Block - Write a permanent text message on the Ethereum blockchain',
-    //     metaTags: [
-    //       {
-    //         name: 'description',
-    //         content: 'A message you add to the Ethereum blockchain will stay there permanently.'
-    //       },
-    //       {
-    //         property: 'og:description',
-    //         content: 'A message you add to the Ethereum blockchain will stay there permanently.'
-    //       }
-    //     ]
-    //   }
-    // },
+
+    // Set in Block - Immutable and Indestructible Messages on the Blockchain
+    // Set in Block - How to Read and Write Blockchain Messages
+    // Set in Block - Immutable message, permanently recorded on the blockchain
+    // Set in Block - Blockchain Message Reader
+
+
   ]
 })

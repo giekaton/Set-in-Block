@@ -51,13 +51,13 @@
       // generate a random Ethereum address
       address = Eth.keccak256(Math.random().toString()).substring(0, 42);
 
-      const eth = new Eth(new Eth.HttpProvider(infura));
+      // const eth = new Eth(new Eth.HttpProvider(infura));
 
-      window.addEventListener('load', function() {
-        if (typeof window.web3 !== 'undefined' && typeof window.web3.currentProvider !== 'undefined') {
-          eth.setProvider(window.web3.currentProvider);
-        }
-      });
+      // window.addEventListener('load', function() {
+      //   if (typeof window.web3 !== 'undefined' && typeof window.web3.currentProvider !== 'undefined') {
+      //     eth.setProvider(window.web3.currentProvider);
+      //   }
+      // });
 
       const gasPerByte = 68;
 
@@ -94,14 +94,6 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
-
-  <script>
-    const nimAddress = 'NQ13 KX0N A3H0 QNNC Q9D8 6J92 FDB0 CYB3 B2PG';
-    const nimAddressLabel = 'Set in Block';
-  </script>
-  
-  <script src="https://nimipay.com/np.0.1.min.dev-sb.js"></script>
-  <link href="https://nimipay.com/np.0.1.min.dev-sb.css" rel="stylesheet">
 
   <script src="/lib/sha256.js"></script>
   <script src="/lib/lib-typedarrays-min.js"></script>
