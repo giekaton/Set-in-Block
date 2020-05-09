@@ -40,21 +40,15 @@
         <div class="reader-tx-details sans-serif" style="line-height:130%;margin-bottom:20px;margin-top:-7px;">
           The above message is stored permanently on the blockchain. It cannot be edited or deleted.
           <div style="height:15px;"></div>
-          Message created: <a v-bind:href="'https://etherscan.io/tx/'+txHash" target="_blank"><span class="sans-serif" title="Link to Etherscan">{{ timestamp }}</span></a>
+          Message created: <span style="color:#222;">{{ timestamp }}</span>
           <div style="height:0px;"></div>
           Ethereum transaction hash: <a v-bind:href="'https://etherscan.io/tx/'+txHash" target="_blank" title="Link to Etherscan">{{ txHash }}</a>
+          <div style="height:0px;"></div>
+          Set in Block: <a v-bind:href="'/'+txHash" target="_blank" style="font-size:12px;">https://setinblock.com/{{txHash}}</a>
           <div style="height:0px;"></div>
         </div>
       </div>
       <div v-else style="height:45px;"></div>
-    </div>
-    
-    <div  v-if="$parent.$parent.content">
-      Share the above message using its unique link:
-      <div style="height:5px;"></div>
-      <a v-bind:href="'/'+txHash" target="_blank" style="font-size:12px;">https://setinblock.com/{{txHash}}</a>
-        
-      <div style="height:25px;"></div>
     </div>
 
   </div>
@@ -91,7 +85,8 @@ export default {
       ],
       message: 'Loading...',
       content: false,
-      timestamp: ''
+      timestamp: '',
+      apiKey: 'RCQRV7SVG3MWCWZ9W1INYXTSVSGKBQTPAX',
     }
   },
   methods: {
@@ -124,17 +119,18 @@ export default {
       this.$parent.$parent.content = true;
       let self = this;
 
-      axios.get(etherscan + '/api?module=proxy&action=eth_getTransactionByHash&txhash=' + this.txHash)
+      axios.get(etherscan + '/api?module=proxy&action=eth_getTransactionByHash&txhash=' + this.txHash + '&apikey=' + this.apiKey)
       .then(
         function (response) {
           // console.log(response);
           if (typeof(response["data"]["result"]["input"]) == 'undefined') {
-            self.message = "NO";
+            self.message = "Error. Please try again.";
             return;
           }
+          console.log(response["data"]);
           self.hex2utf8(response["data"]["result"]["input"]);
           self.blockNumber = response["data"]["result"]["blockNumber"];
-          axios.get(etherscan + '/api?module=proxy&action=eth_getBlockByNumber&tag='+self.blockNumber+'&boolean=true')
+          axios.get(etherscan + '/api?module=proxy&action=eth_getBlockByNumber&tag='+self.blockNumber+'&boolean=true' + '&apikey=' + self.apiKey)
             .then (
               function (response) {
                 console.log(response);

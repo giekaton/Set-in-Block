@@ -16,6 +16,8 @@
           <br><br><br>
           Optional: Is the message private, or a file? Hash the file (.txt or other) client-side, and submit only the SHA-256 hash. Keep the original file in your archive.
           <br><br>
+          <router-link to="/intellectual-property-copyright-protection">Protect intellectual property rights</router-link> with Set in Block.
+          <br><br>
           <file-input style="font-size:14px;" v-on:file-data="fileData" />
       </div>
 
@@ -75,7 +77,7 @@
 
     <div style="height:40px;"></div>
 
-    <div class="reader-footer">
+    <!-- <div class="reader-footer">
       <div class="width">
         <a href="https://github.com/giekaton/set-in-block" target="_blank" title="GitHub" class="sans-serif" style="margin-right:2px;color:#828282;">
           GitHub</a> | <a href="https://twitter.com/setinblock" target="_blank" style="color:#828282;">Twitter</a>
@@ -83,7 +85,9 @@
           <router-link to="/about" style="color:#828282;">About</router-link>
         </div>
       </div>
-    </div>
+    </div> -->
+    
+    <footer-component />
 
   </div>
 </template>
@@ -91,13 +95,15 @@
 <script>
 import ReaderComponent from '../components/ReaderComponent.vue';
 import FileInput from '../components/FileInput.vue';
+import FooterComponent from '../components/Footer.vue';
 
 export default {
   props: ['txHash'],
   
   components: {
     ReaderComponent,
-    FileInput
+    FileInput,
+    FooterComponent
   },
 
   data: function() {

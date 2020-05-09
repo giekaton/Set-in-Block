@@ -9,9 +9,8 @@
         <div style="border-top:1px solid #cccccc;width:100%;margin-top: 80px;padding-top:10px;"></div>
           <div class="reader-tx-details sans-serif" style="line-height:18px;">
             The above message is stored permanently on the blockchain. It cannot be edited or deleted.<br><br>
-            Message creation date: 
-            <a v-bind:href="'https://etherscan.io/tx/'+txHash" target="_blank"><span class="sans-serif" title="Link to Etherscan">{{ timestamp }}</span>
-          </a>
+            Message created: 
+            <span class="sans-serif" title="Link to Etherscan" style="color:#222;">{{ timestamp }}</span>
           <br> 
           <div class="overflow-dots">
             Ethereum transaction hash: 
@@ -20,23 +19,15 @@
           <br><br>
         </div>
       </div>
+
     </div>
 
-    <div class="reader-footer">
-      <div class="width">
-        <a href="https://github.com/giekaton/set-in-block" target="_blank" title="GitHub" class="sans-serif" style="margin-right:2px;color:#828282;">
-          Set in Block v0.8
-        </a>
-        <div style="float:right;" class="sans-serif">
-          <router-link to="/" style="color:#828282;">Home</router-link>
-        </div>
-      </div>
-    </div>
-    
+
   </div>
 </template>
 
 <script>
+
 export default {
   props: ['txHash'],
   components: {
@@ -49,6 +40,7 @@ export default {
       decoded: '',
       blockNumber: '',
       timestamp: 'Loading...',
+      apiKey: 'RCQRV7SVG3MWCWZ9W1INYXTSVSGKBQTPAX',
     }
   },
   mounted () {
@@ -56,16 +48,18 @@ export default {
     window.scrollTo(0, 0);
     let self = this;
     
-    axios.get(etherscan + '/api?module=proxy&action=eth_getTransactionByHash&txhash=' + this.txHash)
+    axios.get(etherscan + '/api?module=proxy&action=eth_getTransactionByHash&txhash=' + this.txHash + '&apikey=' + this.apiKey)
     .then(
       function (response) {
-        // console.log(response);
+        // console.log('a',response);
+        // decode the message
         self.hex2utf8(response["data"]["result"]["input"]);
+        // console.log(response["data"]["result"]);
         self.blockNumber = response["data"]["result"]["blockNumber"];
-        axios.get(etherscan + '/api?module=proxy&action=eth_getBlockByNumber&tag='+self.blockNumber+'&boolean=true')
+        axios.get(etherscan + '/api?module=proxy&action=eth_getBlockByNumber&tag='+self.blockNumber+'&boolean=true' + '&apikey=' + self.apiKey)
           .then (
             function (response) {
-              // console.log(response);
+              // console.log('b',response);
 
               if (typeof response["data"]["error"] === 'undefined') {
                   let timestamp = response["data"]["result"]["timestamp"];
@@ -95,7 +89,7 @@ export default {
     hex2utf8: function(pStr) {
       try {
         this.tempstr = decodeURIComponent(pStr.replace(/\s+/g, '').replace(/[0-9a-f]{2}/g, '%$&')).substring(2);
-        console.log(this.tempstr);
+        // console.log(this.tempstr);
       }
       catch (err) {
         console.log(err);
@@ -152,25 +146,6 @@ export default {
   clear: both;
 }
 
-.reader-footer {
-  background-color: rgb(231, 231, 231);
-  border-top: 1px solid rgb(179, 179, 179);
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 50px;
-  width: 100%;
-  overflow: hidden;
-  font-size: 14px;
-  padding-top: 15px;
-}
-
-.width {
-  max-width: 1032px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin: 0 auto;
-}
 
 .social-icon {
   width: 20px;

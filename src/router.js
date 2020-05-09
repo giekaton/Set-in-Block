@@ -5,7 +5,7 @@ import NewMessage from './views/NewMessage.vue'
 import Read from './views/Read.vue'
 import Redirect from './views/Redirect.vue'
 import IPProtection from './components/IPProtection.vue'
-
+import CeaseAndDesistLetter from './components/CeaseAndDesistLetter.vue'
 
 Vue.use(Router)
 
@@ -69,7 +69,25 @@ export default new Router({
       }
     },
     {
-      path: '/intellectual-property-protection',
+      path: '/cease-and-desist-letter-generator',
+      name: 'CeaseAndDesistLetter',
+      component: CeaseAndDesistLetter,
+      meta: {
+        title: 'Set in Block - Cease and Desist Letter Generator',
+        // metaTags: [
+        //   {
+        //     name: 'description',
+        //     content: 'Enter the message and "set in stone" it on the Ethereum blockchain. You will create a permanent record, which is message permanently recorded in the Ethereum blockchain.'
+        //   },
+        //   {
+        //     property: 'og:description',
+        //     content: 'Enter the message and "set in stone" it on the Ethereum blockchain. You will create a permanent record, which is message permanently recorded in the Ethereum blockchain.'
+        //   }
+        // ],
+      }
+    },
+    {
+      path: '/intellectual-property-copyright-protection',
       name: 'IPProtection',
       component: IPProtection,
       meta: {

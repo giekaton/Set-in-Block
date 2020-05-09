@@ -43,12 +43,14 @@
           <div class="title-slogan">
             <!-- Permanent Records in the Blockchain Archive -->
             <!-- Immutable Records in the Permanent Archive -->
-            Read and Write Permanent Messages
+            <!-- Read and Write Permanent Messages -->
+            Blockchain Based Permanent Records
           </div>
 
           <div style="height:5px;"></div>
 
-          <span class="slogan2">Immutable and Everlasting Records in the Ethereum Blockchain Archive</span>
+          <!-- <span class="slogan2">Immutable and Everlasting Records in the Ethereum Blockchain Archive</span> -->
+          <span class="slogan2">Read and Write Immutable and Everlasting Messages in the Ethereum Transactions Chain</span>
 
 
         </div>
@@ -61,15 +63,15 @@
 
         <span style="font-size:14px;line-height:160%;">
 
-          <router-link to="/new-message">Create a New Message</router-link>
+          <router-link to="/new-message">Create a new message</router-link>
           
-          <div style="height:13px;"></div>
+          <div style="height:15px;"></div>
 
-          <router-link to="/intellectual-property-protection">IP and Copyright Protection</router-link>
+          <!-- <router-link to="/intellectual-property-copyright-protection">IP and Copyright Protection</router-link>
 
-          <div style="height:13px;"></div>
+          <div style="height:13px;"></div> -->
 
-          <router-link to="/about">About Set in Block</router-link>
+          <router-link to="/about">About</router-link>
         </span>
 
         <div style="height:60px;"></div>
@@ -84,23 +86,23 @@
             <div style="height:30px;"></div>
             <b>Intellectual Property Protection</b>
             <div style="height:10px;"></div>
+            <span style="font-size:13px;">
             <a href="/0x35dbf0e5c933db547022fbb61ed06458e028d34e388d253ab14a2b686582dd6c" target="_blank">Copyright Protection</a>
             <br>
             <a href="/0xddfa3b28394d52d0e2c168c42d0f853179b3e482ee4bf507851c95da6d68d1c1"  style="white-space: nowrap;"  target="_blank">IP Protection</a>
             <div style="height:10px;"></div>
-            <span style="font-size:13px;">
-              You can create proof of existence and ownership for your authentic work, e.g. design, musical composition, code, movie script or anything else that can be considered as intellectual property and falls under copyright protection law.
-              <br>
-              <router-link  to="/intellectual-property-protection">Read more...</router-link>
+            You can create proof of existence and ownership for your authentic work, e.g. design, musical composition, code, movie script or anything else that can be considered as intellectual property and falls under copyright protection law.
+            <div style="height:10px;"></div>
+            <router-link  to="/intellectual-property-copyright-protection"><strong>Read more</strong></router-link> how to use Set in Block to protect intellectual property rights.
             </span>
             <br>
             <br>
             <br>
             <b>Censorship Resistant Messages</b>
             <div style="height:10px;"></div>
-            <a href="/0x2d6a7b0f6adeff38423d4c62cd8b6ccb708ddad85da5d3d06756ad4d8a04a6a2" style="white-space: nowrap;" target="_blank"><div class="overflow-dots">A letter to Peking University teachers and classmates</div></a>
-            <div style="height:10px;"></div>
             <span style="font-size:13px;">
+            <div class="overflow-dots"><a href="/0x2d6a7b0f6adeff38423d4c62cd8b6ccb708ddad85da5d3d06756ad4d8a04a6a2" style="white-space: nowrap;" target="_blank">A letter to Peking University teachers and classmates</a></div>
+            <div style="height:10px;"></div>
               The above is a real-life example from the Chinese #MeToo movement. Read an article about this case <a target="_blank" href="https://qz.com/1260191/metoo-activists-in-china-are-turning-to-the-blockchain-to-dodge-censorship/">here</a>.
             </span>
             <br>
@@ -108,13 +110,14 @@
             <br>
             <b>Valuable Content Archive</b>
             <div style="height:10px;"></div>
-            <a target="_blank" style="white-space: nowrap;" href="/0x8006d703a45663cab96a85a4ef3e6ab94a1410d6e70119139eea807a63ecb79e"><div class="overflow-dots">What If Linus Torvalds Gets Hit By A Bus?</div></a>
+            
+            <span style="font-size:13px;">
+            <div class="overflow-dots"><a target="_blank" style="white-space: nowrap;" href="/0x8006d703a45663cab96a85a4ef3e6ab94a1410d6e70119139eea807a63ecb79e">What If Linus Torvalds Gets Hit By A Bus</a></div>
             <a target="_blank" style="white-space: nowrap;" href="/0x7975bf9cf6ce32b3f04cafcca60b1a7bb214d66c5c47ca8c6e65faab787079b6">The Afterlife</a>
             <br>
             <a target="_blank" style="white-space: nowrap;" href="/0xf750f5c105bc9692d065ebfb7f6abd483336682490106b409e15c295b34b217a">Zorba the Buddha</a>
             <br>
             <div style="height:10px;"></div>
-            <span style="font-size:13px;">
               Writings that are important or interesting can be stored permanently in the blockchain to make them available for future generations.
             </span>
             <br>
@@ -122,46 +125,47 @@
             <br>
             <b>Resolutions and Declarations</b>
             <div style="height:10px;"></div>
+            <span style="font-size:13px;">
             <a style="white-space: nowrap;" href="/0xa0904c7011c4195630b4fbffee67df687112a6bae9770fedc1d90179fa838cfb" target="_blank">First Things First Manifesto 2000</a>
             <br>
             <a style="white-space: nowrap;" href="/0xc7377190e9c0b40d3e5e7d434430ffeff5df3394dd4e6b56581802ee125185de" target="_blank">New Year's Resolution</a>
             <div style="height:10px;"></div>
-            <span style="font-size:13px;">
               Resolutions and declarations are more powerful when they are publicly stated and there is no way to take them back. A person is then publicly obliged to follow his or her promises.
             </span>
             <br>
             <br>
             <br>
-            <b>Public Acknowledgements</b>
+            <b>Public Statements</b>
             <div style="height:10px;"></div>
+            <span style="font-size:13px;">
             <a href="/0x98f619c174b21b28a5820f9be61cd4f86b51d7889b0eb38840028df34a6ac2c7" style="white-space: nowrap;" target="_blank">1st Link Marine BigMac™ Platoon</a>
+            <br>
+            <a href="/0xeff50e090d8490266b9b122c75fb661b5967bc5789a51540875ca7d2554f7e01" style="white-space: nowrap;" target="_blank">Confession of Love</a>
             <div style="height:10px;"></div>
-            <span style="font-size:13px;">
-              You can claim something publicly, create an acknowledgment or give a credit.
+              You can claim something publicly, create an acknowledgment or give a credit. Create permanent confessions of love or record the fact of marriage.
             </span>
-            <br>
-            <br>
-            <br>
-            <b>Confessions of Love</b>
-            <div style="height:10px;"></div>
-            <a href="/0xeff50e090d8490266b9b122c75fb661b5967bc5789a51540875ca7d2554f7e01" style="white-space: nowrap;" target="_blank">Example</a>
-            <div style="height:10px;"></div>
-            <span style="font-size:13px;">
-              Create permanent confessions of love or record the fact of marriage.
-            </span>
+
             <br>
             <br>
             <br>
             <b>Proof of Existence</b>
             <div style="height:10px;"></div>
             <span style="font-size:13px;">
-              Proof-of-existence is a general term that encompasses different objects you can set in block in order to have a mathematically-based proof that the object in the recorded message existed prior to the recording date. By creating a file's hash, you can set in block virtually anything.
+              Proof-of-existence is a general term that encompasses different objects you can set in block in order to have a mathematically-based proof that the object in the recorded message existed prior to the transaction's date. By recording a file's hash, you can set in block virtually anything.
             </span>
             <br>
             <br>
   
             <!-- Use cases:<br><a href="0x35dbf0e5c933db547022fbb61ed06458e028d34e388d253ab14a2b686582dd6c" target="_blank">Copyright Protection</a><br><span class="link" style="white-space: nowrap;"  @click="readExamples('0x2d6a7b0f6adeff38423d4c62cd8b6ccb708ddad85da5d3d06756ad4d8a04a6a2')">Bypassing Censorship</span><br><span class="link" style="white-space: nowrap;"  @click="readExamples('0xddfa3b28394d52d0e2c168c42d0f853179b3e482ee4bf507851c95da6d68d1c1')">Proof-of-Existence</span><br><span class="link" style="white-space: nowrap;" @click="readExamples('0x8006d703a45663cab96a85a4ef3e6ab94a1410d6e70119139eea807a63ecb79e')">Everlasting Valuable Content</span><br><span style="white-space: nowrap;" class="link" @click="readExamples('0xc7377190e9c0b40d3e5e7d434430ffeff5df3394dd4e6b56581802ee125185de')">Resolutions</span><br><span style="white-space: nowrap;" class="link" @click="readExamples('0x98f619c174b21b28a5820f9be61cd4f86b51d7889b0eb38840028df34a6ac2c7')">Acknowledgments</span><br><span style="white-space: nowrap;" class="link" @click="readExamples('0xeff50e090d8490266b9b122c75fb661b5967bc5789a51540875ca7d2554f7e01')">Confessions of Love</span> -->
           </div>
+        </div>
+
+        <div style="height:60px;"></div>
+
+        <div style="max-width:600px;font-size:13px;margin:0 auto;line-height:150%;">
+          <span style="letter-spacing: 3px; font-size: 13px;">EXTRA</span>
+          <div style="height:10px;"></div>
+          Stay informed about the cryptocurrency market price changes with the least amount of effort required. Coinwink is an app that allows you to create <a href="https://coinwink.com" target="_blank">Bitcoin alerts</a>, manage cryptocurrency watchlist and portfolio. In total, Coinwink supports more than 2500 cryptocurrencies. Don't waste time manually watching crypto prices, use Coinwink.
         </div>
 
         <div style="height:30px;"></div>
@@ -204,19 +208,23 @@
             Users can use Set in Block <a target="_blank" href="https://setinblock.com/new-message">submission interface</a> to create Ethereum blockchain messages and broadcast them with their MetaMask wallets. The submission is done on the client side. For privacy reasons, every new Set in Block message is sent to a randomly generated Ethereum address.
           </li>
         </ul>
+        
+        <br>
+        <br>
 
+        Read how to use Set in Block for <router-link to="/intellectual-property-copyright-protection">copyright protection</router-link>.
         <br>
         <br>
         <br>
 
         <h2 style="text-align:left;margin-bottom:40px;">About</h2>
 
-        Your message, recorded on the blockchain, is immutable and incorruptible - no one can delete or modify it. It also never expires - it is a <a href="https://setinblock.com/new-message/" target="_blank">permanent record</a>. 
+        Your message, recorded on the blockchain, is immutable and incorruptible - no one can delete or modify it. It also never expires - it's a permanent record. 
         <br><br>
         By having a message archived on the blockchain, you have a mathematically-based proof of existence that your message is authentic, and that it existed prior to a 
         specific date.
         <br><br>
-        The message you enter in this app is encoded into a hexadecimal format and then included in the data field of the Ethereum blockchain transaction.
+        The message you enter in using Set in Block interface is encoded into a hexadecimal format and then included in the data field of the Ethereum blockchain transaction.
         <br><br>
         Set in Block message submission interface only encodes and prepares the message. After the submit button is pressed, you will be asked to confirm the transaction with your <a href="https://medium.com/publicaio/a-complete-guide-to-using-metamask-updated-version-cd0d6f8c338f" target="_blank">MetaMask</a> wallet and by doing this, to create a permanent record, which is a proof of existence.
         <br><br>
@@ -232,15 +240,18 @@
         <br><br>
         The message submission is anonymous and for every message, a new random receiving Ethereum address is generated. Besides Google Analytics with IP anonymization, we do not use any trackers or cookies. We do not use a database and do not 
         collect any information about the website users.
-        <br><br><br>
-        "I'm feeling lucky" is a random list of Ethereum transactions with messages. You can browse through them by repeatedly clicking the lucky button. Tweet your blockchain message link with the #setinblock hashtag - we will include the message in the lucky list.
+        <br><br>
+        "I'm feeling lucky" is a random list of Ethereum transactions with messages. You can browse through them by repeatedly clicking the lucky button. 
+        <!-- Tweet your blockchain message link with the #setinblock hashtag - we will include the message in the lucky list. -->
+        <br><br>
+        Powered by <a href="https://etherscan.io" target="_blank">Etherscan.io</a> APIs.
         <br><br><br>
         Follow and fork Set in Block on <a href="https://twitter.com/setinblock" target="_blank">Twitter</a> and <a href="https://github.com/giekaton/set-in-block" target="_blank">GitHub</a>.
-        <br><br><br>
-        To support Set in Block, donate <a href="https://commerce.coinbase.com/checkout/27cfef00-226b-43dc-bf2c-6f85e045624f" target="_blank">BTC, ETH, BCH, LTC</a>.
+        <!-- <br><br><br>
+        To support Set in Block, donate <a href="https://commerce.coinbase.com/checkout/27cfef00-226b-43dc-bf2c-6f85e045624f" target="_blank">BTC, ETH, BCH, LTC</a>. -->
         <br><br><br>
         Contact: i&#110;&#102;&#x6f;&#x40;&#x73;&#x65;t&#105;&#110;&#98;&#x6c;&#x6f;&#x63;k&#46;&#99;&#111;&#x6d;
-        <br><br><br>
+        <!-- <br><br><br>
         Other projects:
         <br>
         <span style="line-height:150%;">
@@ -251,11 +262,9 @@
           Accept <a href="https://nimipay.com" target="_blank">cryptocurrency payments</a> on any website.
           <br>
           Experience the Libra testnet with <a href="https://librachecker.com" target="_blank">Libra block explorer</a> and <a href="https://librapaperwallet.com" target="_blank">Libra wallet</a>.
-        </span>
+        </span> -->
         
-        <br>
-        <br>
-        <br>
+        <div style="height:60px;"></div>
 
 
       </div>
@@ -266,15 +275,7 @@
 
     </div>
 
-    <div class="reader-footer">
-      <div class="width">
-        <a href="https://github.com/giekaton/set-in-block" target="_blank" title="GitHub" class="sans-serif" style="margin-right:2px;color:#333333;">
-          GitHub</a> | <a href="https://twitter.com/setinblock" style="color:#333333;" target="_blank">Twitter</a>
-        <div class="sans-serif" style="float:right;">
-          <router-link to="/about" style="color:#333333;">About</router-link>
-        </div>
-      </div>
-    </div>
+
 
   </div>
 </template>
@@ -294,7 +295,7 @@ export default {
   components: {
     // FileInput,
     ReaderComponent,
-    IPProtection
+    IPProtection,
     // MsgIpProtection
   },
 
@@ -306,7 +307,6 @@ export default {
   },
   mounted () {
     // console.log('home');
-    document.getElementById('splashScreen').style.display = 'none';
     window.scrollTo(0, 0);
   },
   rendered () {
@@ -428,7 +428,7 @@ export default {
   .use-cases-container {
     padding: 20px;
     font-size:14px;
-    line-height:160%;
+    line-height:150%;
   }
 
   @media screen and (max-width: 600px) {

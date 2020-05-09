@@ -8,14 +8,26 @@
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} (.+)/$
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
     RewriteRule ^ %1 [L,R=301]
 
     # Handle Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
     RewriteRule ^ /redirect/index.php [L]
 
     RewriteCond %{SERVER_PORT} 80
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/cpanel-dcv/[0-9a-zA-Z_-]+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/(?:\ Ballot169)?
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
     RewriteRule ^(.*)$ https://setinblock.com/$1 [R,L]
 </IfModule>
 
@@ -24,5 +36,4 @@ Redirect 301 /reader/0x77ed505f790493db0e47a0379e8455843bb5ecac9d03ba88602696e34
 Redirect 301 /reader/0x35dbf0e5c933db547022fbb61ed06458e028d34e388d253ab14a2b686582dd6c https://setinblock.com/0x35dbf0e5c933db547022fbb61ed06458e028d34e388d253ab14a2b686582dd6c
 Redirect 301 /reader/0x8006d703a45663cab96a85a4ef3e6ab94a1410d6e70119139eea807a63ecb79e https://setinblock.com/0x8006d703a45663cab96a85a4ef3e6ab94a1410d6e70119139eea807a63ecb79e
 Redirect 301 /reader https://setinblock.com/about
-Redirect 301 /intellectual-property-copyright-protection https://setinblock.com/new-message
 Redirect 301 /permanent-text-message-on-the-blockchain https://setinblock.com/new-message
