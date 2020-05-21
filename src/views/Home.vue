@@ -165,7 +165,7 @@
         <div style="max-width:600px;font-size:13px;margin:0 auto;line-height:150%;">
           <span style="letter-spacing: 3px; font-size: 13px;">EXTRA</span>
           <div style="height:10px;"></div>
-          Stay informed about the cryptocurrency market price changes with the least amount of effort required. Coinwink is an app that allows you to create <a href="https://coinwink.com" target="_blank">Bitcoin alerts</a>, manage cryptocurrency watchlist and portfolio. In total, Coinwink supports more than 2500 cryptocurrencies. Don't waste time manually watching crypto prices, use Coinwink.
+          Stay informed about the cryptocurrency market price changes with the least amount of effort required. Coinwink is an app that allows you to create <a href="https://coinwink.com/eth/" target="_blank">Ethereum price alerts</a>, manage cryptocurrency watchlist and portfolio. In total, Coinwink supports more than 2500 cryptocurrencies. Don't waste time manually watching crypto prices, use Coinwink.
         </div>
 
         <div style="height:30px;"></div>

@@ -27,12 +27,21 @@
       <div style="height:7px;"></div>
       <textarea class="message-input" v-model="messageInput"></textarea>
 
-      <div style="float:left;margin-top:5px;text-align:left;line-height:18px;font-size:13px;">
+      <div style="float:left;margin-top:5px;text-align:left;line-height:18px;font-size:13px;width:210px;">
         <span >
           Message size: {{ bytesCalc }} bytes<br>
           Max tx fee: {{ txFeeCalc }} ETH
         </span>
       </div>
+
+      <div style="float:left;margin-top:5px;text-align:left;line-height:17px;font-size:13px;">
+        <span>
+          Gas price: <input v-model="gasPrice" type="numeric" style="width:40px;padding-left:3px;height:18px;">
+          <br>
+          <a href="https://ethgasstation.info/" target="_blank" style="font-size:11px;">Gas Station</a>
+        </span>
+      </div>
+
       <br>
 
       <div class="set-controls">
@@ -42,7 +51,7 @@
 
     </div>
 
-    <div style="height:80px;"></div>
+    <div style="clear:both;height:70px;"></div>
 
     <!-- Feedback -->
     <div v-if="feedback != ''" v-html="feedback" class="feedback" style="text-align:center;font-weight:bold;"></div>
@@ -121,7 +130,8 @@ export default {
       fileSize: 0,
       fileHash: 'Waiting for the file',
       feedback: '',
-      content: false
+      content: false,
+      gasPrice: 3
     }
   },
 
@@ -130,14 +140,17 @@ export default {
       return encodeURI(this.messageInput).split(/%..|./).length - 1;
     },
     txFeeCalc: function () {
-      return (((this.bytesCalc * 68) + 30000) * 3) / 1000000000;
+      return (((this.bytesCalc * 68) + 30000) * this.gasPrice) / 1000000000;
     },
     bytesCalcIp: function () {
       return encodeURI(this.messageInputIp).split(/%..|./).length - 1;
     },
     txFeeCalcIp: function () {
-      return (((this.bytesCalcIp * 68) + 30000) * 3) / 1000000000;
+      return (((this.bytesCalcIp * 68) + 30000) * this.gasPrice) / 1000000000;
     },
+    gasPriceReal: function() {
+      return(this.gasPrice * 1000000000);
+    }
   },
 
   mounted () {
@@ -207,7 +220,7 @@ export default {
         to: address,
         value: 0,
         gas: gasCount(message) + 30000,
-        gasPrice: 3000000000,
+        gasPrice: this.gasPriceReal,
         data: message,
       }, handleReceipt);
       
