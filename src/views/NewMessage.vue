@@ -27,7 +27,7 @@
       <div style="height:7px;"></div>
       <textarea class="message-input" v-model="messageInput"></textarea>
 
-      <div style="float:left;margin-top:5px;text-align:left;line-height:18px;font-size:13px;width:210px;">
+      <div style="float:left;margin-top:5px;text-align:left;line-height:18px;font-size:13px;width:200px;">
         <span >
           Message size: {{ bytesCalc }} bytes<br>
           Max tx fee: {{ txFeeCalc }} ETH
