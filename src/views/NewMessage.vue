@@ -10,9 +10,9 @@
       <br><br>
 
       <div style="text-align:left;font-size:13px;border:1px solid #cacaca;border-radius:5px;background-color:#f9f9f9;padding:20px;">
-          Enter a message and permanently record it in the Ethereum blockchain.
+          Enter a message and record it in the Ethereum blockchain for permanent storage.
           <br><br>
-          Set in Block message submission interface only encodes and prepares the message. After the submit button is pressed, you will be asked to confirm the transaction with your MetaMask wallet and by doing this, to create the permanent record. Currently, it works only with the desktop version of MetaMask.
+          Set in Block message submission interface only encodes and prepares the message. After the submit button is pressed, you will be asked to confirm the transaction with your MetaMask wallet and by doing this, to create your permanent record. Currently, it works only with the desktop version of MetaMask.
           <br><br><br>
           Optional: Is the message private, or a file? Hash the file (.txt or other) client-side, and submit only the SHA-256 hash. Keep the original file in your archive.
           <br><br>

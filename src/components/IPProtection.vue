@@ -84,7 +84,7 @@
 
       <div class="faq-spacer"></div>
 
-      <h4>If Set in Block will shut down or be unreachable, what will happen to my record?</h4>
+      <h4>If Set in Block shuts down or becomes somehow unreachable, what happens to my record?</h4>
 
       <p>
         Even if Set in Block is somehow not reachable, your blockchain record is never lost. It can be easily viewed and verified

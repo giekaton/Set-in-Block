@@ -26,10 +26,11 @@
 
     <div style="clear:both;height:15px;"></div>
   	
-    <button @click="read" class="two-buttons">Read the message</button>
+    <button @click="read" class="two-buttons">Read</button>
     <button @click="read('lucky')" class="two-buttons">I'm feeling lucky</button>
 
     <div style="height:20px;"></div>
+
 
     <div v-if="$parent.$parent.content" class="reader-msg serif" style="min-height:55px;">      
       <div style="position:absolute;top:11px;right:13px;cursor:pointer;font-size:20px;" @click="close()">✕</div>

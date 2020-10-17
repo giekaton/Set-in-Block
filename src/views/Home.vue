@@ -59,51 +59,87 @@
           <reader-component @isContent="isContent"/>
         </div>
 
-        <div style="height:40px;"></div>
+        <div style="height:90px;"></div>
 
-        <span style="font-size:14px;line-height:160%;">
+        <!-- <span style="font-size:14px;line-height:160%;"> -->
 
-          <router-link to="/new-message">Create a new message</router-link>
+          <!-- <router-link to="/new-message">Create a new message</router-link> -->
           
-          <div style="height:15px;"></div>
+          <!-- <div style="height:15px;"></div> -->
 
           <!-- <router-link to="/intellectual-property-copyright-protection">IP and Copyright Protection</router-link>
 
           <div style="height:13px;"></div> -->
 
-          <router-link to="/about">About</router-link>
-        </span>
+          <!-- <router-link to="/about">About</router-link> -->
+        <!-- </span> -->
 
-        <div style="height:60px;"></div>
+        <!-- <div style="height:60px;"></div> -->
+        <b>Copyright Protection with Set in Block</b>
 
-        <div style="max-width:600px;border:1px solid #ccc;margin:0 auto;padding:20px;">
+        <div style="height:15px;"></div>
 
+        HOW IT WORKS
+
+        <div style="height:10px;"></div>
+
+        <div class="row" style="margin-top:10px;margin-bottom:10px;">
+
+          <div class="col">
+            <div style="height:55px;display:block;">
+              <img src="../assets/123-01.svg" width="68">
+            </div>
+            <div style="display:block">
+              Create the unique ID for your authentic work. It's a random looking 64 characters string.
+            </div>
+          </div>
+
+          <div class="col">
+            <div style="height:55px;display:block;">
+              <img src="../assets/123-02.svg" width="113">
+            </div>
+            <div style="display:block">
+              Write this ID in the Ethereum blockchain. Optionally, upload the actual work file to IPFS.
+            </div>
+          </div>
+
+          <div class="col">
+            <div style="height:55px;display:block;">
+              <img src="../assets/123-03.svg" width="45">
+            </div>
+            <div style="display:block">
+              Get the mathematically-based proof about the authorship and ownership of your work.
+            </div>
+          </div>
+
+          <div style="clear:both;height:30px;"></div>
+
+          <div>
+          <div style="max-width:600px;margin:0 auto;">
+            You can create a proof of existence and/or ownership for your authentic work, e.g. design, musical composition, code, movie script, or anything else that can be considered as intellectual property and falls under copyright protection law.
+            <br><br>
+            <router-link  to="/intellectual-property-copyright-protection">Read more</router-link> on how to use Set in Block for intellectual property protection.
+            </div>
+          </div>
+
+        </div>
+
+        <div style="height:70px;max-width:600px;"></div>
+
+        <!-- <div style="max-width:600px;border:1px solid #ccc;margin:0 auto;padding:20px;">
+
+          <div style="height:20px;"></div> -->
+          
+          <span style="letter-spacing:3px;font-size:13px;">OTHER USE CASES</span>
           <div style="height:20px;"></div>
-          
-          <span style="letter-spacing:3px;font-size:13px;">USE CASES</span>
-          
+
           <div class="use-cases-container">
-            <div style="height:30px;"></div>
-            <b>Intellectual Property Protection</b>
-            <div style="height:10px;"></div>
-            <span style="font-size:13px;">
-            <a href="/0x35dbf0e5c933db547022fbb61ed06458e028d34e388d253ab14a2b686582dd6c" target="_blank">Copyright Protection</a>
-            <br>
-            <a href="/0xddfa3b28394d52d0e2c168c42d0f853179b3e482ee4bf507851c95da6d68d1c1"  style="white-space: nowrap;"  target="_blank">IP Protection</a>
-            <div style="height:10px;"></div>
-            You can create proof of existence and ownership for your authentic work, e.g. design, musical composition, code, movie script or anything else that can be considered as intellectual property and falls under copyright protection law.
-            <div style="height:10px;"></div>
-            <router-link  to="/intellectual-property-copyright-protection"><strong>Read more</strong></router-link> how to use Set in Block to protect intellectual property rights.
-            </span>
-            <br>
-            <br>
-            <br>
             <b>Censorship Resistant Messages</b>
             <div style="height:10px;"></div>
             <span style="font-size:13px;">
             <div class="overflow-dots"><a href="/0x2d6a7b0f6adeff38423d4c62cd8b6ccb708ddad85da5d3d06756ad4d8a04a6a2" style="white-space: nowrap;" target="_blank">A letter to Peking University teachers and classmates</a></div>
             <div style="height:10px;"></div>
-              The above is a real-life example from the Chinese #MeToo movement. Read an article about this case <a target="_blank" href="https://qz.com/1260191/metoo-activists-in-china-are-turning-to-the-blockchain-to-dodge-censorship/">here</a>.
+              The above is a real-life example from the Chinese #MeToo movement. Read <a target="_blank" href="https://qz.com/1260191/metoo-activists-in-china-are-turning-to-the-blockchain-to-dodge-censorship/">an article</a> about this case.
             </span>
             <br>
             <br>
@@ -118,57 +154,51 @@
             <a target="_blank" style="white-space: nowrap;" href="/0xf750f5c105bc9692d065ebfb7f6abd483336682490106b409e15c295b34b217a">Zorba the Buddha</a>
             <br>
             <div style="height:10px;"></div>
-              Writings that are important or interesting can be stored permanently in the blockchain to make them available for future generations.
+              Interesting or important content that can be stored permanently in the blockchain to make it available for future generations and to promote long-term thinking.
             </span>
             <br>
             <br>
             <br>
-            <b>Resolutions and Declarations</b>
+            <b>Resolutions, Declarations, Confessions and other Public Statements</b>
             <div style="height:10px;"></div>
             <span style="font-size:13px;">
-            <a style="white-space: nowrap;" href="/0xa0904c7011c4195630b4fbffee67df687112a6bae9770fedc1d90179fa838cfb" target="_blank">First Things First Manifesto 2000</a>
-            <br>
-            <a style="white-space: nowrap;" href="/0xc7377190e9c0b40d3e5e7d434430ffeff5df3394dd4e6b56581802ee125185de" target="_blank">New Year's Resolution</a>
-            <div style="height:10px;"></div>
-              Resolutions and declarations are more powerful when they are publicly stated and there is no way to take them back. A person is then publicly obliged to follow his or her promises.
-            </span>
-            <br>
-            <br>
-            <br>
-            <b>Public Statements</b>
-            <div style="height:10px;"></div>
-            <span style="font-size:13px;">
-            <a href="/0x98f619c174b21b28a5820f9be61cd4f86b51d7889b0eb38840028df34a6ac2c7" style="white-space: nowrap;" target="_blank">1st Link Marine BigMac™ Platoon</a>
-            <br>
-            <a href="/0xeff50e090d8490266b9b122c75fb661b5967bc5789a51540875ca7d2554f7e01" style="white-space: nowrap;" target="_blank">Confession of Love</a>
-            <div style="height:10px;"></div>
-              You can claim something publicly, create an acknowledgment or give a credit. Create permanent confessions of love or record the fact of marriage.
+              <a style="white-space: nowrap;" href="/0xa0904c7011c4195630b4fbffee67df687112a6bae9770fedc1d90179fa838cfb" target="_blank">First Things First Manifesto 2000</a>
+              <br>
+              <a style="white-space: nowrap;" href="/0xc7377190e9c0b40d3e5e7d434430ffeff5df3394dd4e6b56581802ee125185de" target="_blank">New Year's Resolution</a>
+              <br>
+              <a href="/0x98f619c174b21b28a5820f9be61cd4f86b51d7889b0eb38840028df34a6ac2c7" style="white-space: nowrap;" target="_blank">1st Link Marine BigMac™ Platoon</a>
+              <br>
+              <a href="/0xeff50e090d8490266b9b122c75fb661b5967bc5789a51540875ca7d2554f7e01" style="white-space: nowrap;" target="_blank">Confession of Love</a>
+              <div style="height:10px;"></div>
+              Resolutions and declarations become more powerful when they are publicly available and there is no way to take them back. A person is then obliged to follow his or her promises. Also, you can claim something publicly, create an acknowledgment or give a credit, create a permanent confession of love or record the fact of marriage.
+              <br>
+              <br>
+              <br>
+              PROOF OF EXISTENCE
+              <div style="height:10px;"></div>
+              The options for <i>setting things in block</i> are endless. By recording a file's hash in the blockchain, you can <i>set in block</i> virtually anything. The thing represented in the file, no matter the format, receives an immutable and incorruptible timestamp, which works as a proof-of-existence. Such a proof never expires, it cannot be edited or deleted, and it can always be independently verified.
             </span>
 
-            <br>
-            <br>
-            <br>
-            <b>Proof of Existence</b>
-            <div style="height:10px;"></div>
-            <span style="font-size:13px;">
-              Proof-of-existence is a general term that encompasses different objects you can set in block in order to have a mathematically-based proof that the object in the recorded message existed prior to the transaction's date. By recording a file's hash, you can set in block virtually anything.
-            </span>
-            <br>
-            <br>
-  
-            <!-- Use cases:<br><a href="0x35dbf0e5c933db547022fbb61ed06458e028d34e388d253ab14a2b686582dd6c" target="_blank">Copyright Protection</a><br><span class="link" style="white-space: nowrap;"  @click="readExamples('0x2d6a7b0f6adeff38423d4c62cd8b6ccb708ddad85da5d3d06756ad4d8a04a6a2')">Bypassing Censorship</span><br><span class="link" style="white-space: nowrap;"  @click="readExamples('0xddfa3b28394d52d0e2c168c42d0f853179b3e482ee4bf507851c95da6d68d1c1')">Proof-of-Existence</span><br><span class="link" style="white-space: nowrap;" @click="readExamples('0x8006d703a45663cab96a85a4ef3e6ab94a1410d6e70119139eea807a63ecb79e')">Everlasting Valuable Content</span><br><span style="white-space: nowrap;" class="link" @click="readExamples('0xc7377190e9c0b40d3e5e7d434430ffeff5df3394dd4e6b56581802ee125185de')">Resolutions</span><br><span style="white-space: nowrap;" class="link" @click="readExamples('0x98f619c174b21b28a5820f9be61cd4f86b51d7889b0eb38840028df34a6ac2c7')">Acknowledgments</span><br><span style="white-space: nowrap;" class="link" @click="readExamples('0xeff50e090d8490266b9b122c75fb661b5967bc5789a51540875ca7d2554f7e01')">Confessions of Love</span> -->
           </div>
-        </div>
+        <!-- </div> -->
 
         <div style="height:60px;"></div>
+        <div style="border-top: 1px solid rgb(204, 204, 204); max-width:600px; margin:0 auto; padding-top: 10px;"></div>
+        <div style="height:20px;"></div>
 
         <div style="max-width:600px;font-size:13px;margin:0 auto;line-height:150%;">
-          <span style="letter-spacing: 3px; font-size: 13px;">EXTRA</span>
-          <div style="height:10px;"></div>
-          Stay informed about the cryptocurrency market price changes with the least amount of effort required. Coinwink is an app that allows you to create <a href="https://coinwink.com/eth/" target="_blank">Ethereum price alerts</a>, manage cryptocurrency watchlist and portfolio. In total, Coinwink supports more than 2500 cryptocurrencies. Don't waste time manually watching crypto prices, use Coinwink.
+          <!-- <span style="letter-spacing: 3px; font-size: 13px;">EXTRA</span>
+          <div style="height:10px;"></div> -->
+
+          
+          Set in Block is supported by the Coinwink app: Stay informed about the cryptocurrency market price changes with the least amount of effort required. Coinwink is an app that allows you to create <a href="https://coinwink.com/eth" target="_blank">Ethereum price alerts</a>, and manage cryptocurrency watchlist and portfolio for more than 2500 coins and tokens. Don't waste time manually watching crypto prices, use <a href="https://coinwink.com" target="_blank">Coinwink</a>.
+          <br><br>
+          Set in Block is a free and <a href="https://github.com/giekaton/Set-in-Block" target="_blank">open-source</a> digital service based on the <a href="https://ethereum.org" target="_blank">Ethereum</a> blockchain.
         </div>
 
-        <div style="height:30px;"></div>
+        <div style="height:20px;"></div>
+
+        <!-- <div style="height:20px;"></div> -->
 
         
         <!-- <div class="logo-div" style="clear:both;">
@@ -264,7 +294,7 @@
           Experience the Libra testnet with <a href="https://librachecker.com" target="_blank">Libra block explorer</a> and <a href="https://librapaperwallet.com" target="_blank">Libra wallet</a>.
         </span> -->
         
-        <div style="height:60px;"></div>
+        <div style="height:40px;"></div>
 
 
       </div>
@@ -417,7 +447,7 @@ export default {
     max-width: 740px;
     margin: 0 auto;
     clear:both;
-    padding-top: 80px;
+    padding-top: 90px;
     padding-bottom: 80px;
     text-align: left;
     font-size: 14px;
@@ -470,14 +500,18 @@ export default {
     padding: 4px 15px 4px 13px;
     margin-top: 5px;
     margin-bottom: 5px;
-    background-color: rgb(134, 134, 134);
-    border-color: rgb(170, 170, 170);
+    background-color: rgb(99, 99, 99);
+    border-color: rgb(140, 140, 140);
     color: white;
     cursor: pointer;
   }
 
   button:focus {
     outline:0;
+  }
+
+  button:hover {
+    background-color: rgb(113, 113, 113);
   }
 
   .button {
@@ -546,4 +580,35 @@ export default {
   .underlined:hover {
     border-bottom: 2px solid rgb(255, 94, 0);
   }
+
+  /* 20 09 27 */
+
+.row {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.row .col {
+  float: left;
+  margin: 0.5rem 2%;
+  min-height: 0.125rem;
+  margin-top: 20px;
+}
+
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.col {
+  width: 96%;
+}
+
+@media only screen and (min-width: 720px) {
+  .col {
+    width: 29.33%;
+  }
+}
 </style>

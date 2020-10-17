@@ -16,10 +16,13 @@
         <div v-if="$route.name == 'read2'" style="float:left;padding-left:6px;font-size:9px;padding-top:3px;color:#bebebe;" class="sans-serif">Reader</div>
 
         <div style="float:right;font-size:14px;" class="sans-serif">
-          <button @click="routerNewMsg()" style="margin-top:-3px;padding-top:2px;padding-bottom:2px;">New</button>
+          <button @click="routerNewMsg()" style="margin-top:-2px;padding-top:2px;padding-bottom:2px;">Write</button>
           <!-- <router-link v-if="$route.name == 'home'" to="/new-message">New</router-link> -->
           <!-- <router-link v-else to="/"><span @click="content = false">Home</span></router-link> -->
-        </div>
+        </div>        
+        
+        <router-link class="link-about" to="/about">About</router-link>
+
       </div>
     </div>
 
@@ -133,5 +136,21 @@ h3 {
   font-weight: bold;
   text-align: left;
   margin-bottom: 20px;
+}
+
+.link-about {
+  float:right;margin-right:45px;font-size:14.5px;padding-top:4px;
+}
+
+@media screen and (max-width: 600px) {
+  .link-about {
+    margin-right:30px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .link-about {
+    margin-right:20px;
+  }
 }
 </style>
