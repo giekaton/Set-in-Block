@@ -82,6 +82,7 @@ export default {
         '0xf750f5c105bc9692d065ebfb7f6abd483336682490106b409e15c295b34b217a',
         '0x7975bf9cf6ce32b3f04cafcca60b1a7bb214d66c5c47ca8c6e65faab787079b6',
         '0xa0904c7011c4195630b4fbffee67df687112a6bae9770fedc1d90179fa838cfb',
+        '0x2dc3fcc6a0a23e88a82def9c07248731d98e7178a9fd4cee9ca72fa7e1a28774',
 
       ],
       message: 'Loading...',

@@ -74,129 +74,129 @@
           <!-- <router-link to="/about">About</router-link> -->
         <!-- </span> -->
 
-        <!-- <div style="height:60px;"></div> -->
-        <b>Copyright Protection with Set in Block</b>
+        <span class="home-info">
 
-        <div style="height:15px;"></div>
+          <span style="letter-spacing:1px;">USE CASES</span>
+          <div style="height:50px;"></div>
 
-        HOW IT WORKS
+          <!-- <div style="height:60px;"></div> -->
+          <b>Content Copyright Protection with Blockchain</b>
 
-        <div style="height:10px;"></div>
+          <div style="height:15px;"></div>
 
-        <div class="row" style="margin-top:10px;margin-bottom:10px;">
-
-          <div class="col">
-            <div style="height:55px;display:block;">
-              <img src="../assets/123-01.svg" width="68">
-            </div>
-            <div style="display:block">
-              Create the unique ID for your authentic work. It's a random looking 64 characters string.
-            </div>
-          </div>
-
-          <div class="col">
-            <div style="height:55px;display:block;">
-              <img src="../assets/123-02.svg" width="113">
-            </div>
-            <div style="display:block">
-              Write this ID in the Ethereum blockchain. Optionally, upload the actual work file to IPFS.
-            </div>
-          </div>
-
-          <div class="col">
-            <div style="height:55px;display:block;">
-              <img src="../assets/123-03.svg" width="45">
-            </div>
-            <div style="display:block">
-              Get the mathematically-based proof about the authorship and ownership of your work.
-            </div>
-          </div>
-
-          <div style="clear:both;height:30px;"></div>
-
-          <div>
-          <div style="max-width:600px;margin:0 auto;">
-            You can create a proof of existence and/or ownership for your authentic work, e.g. design, musical composition, code, movie script, or anything else that can be considered as intellectual property and falls under copyright protection law.
-            <br><br>
-            <router-link  to="/intellectual-property-copyright-protection">Read more</router-link> on how to use Set in Block for intellectual property protection.
-            </div>
-          </div>
-
-        </div>
-
-        <div style="height:70px;max-width:600px;"></div>
-
-        <!-- <div style="max-width:600px;border:1px solid #ccc;margin:0 auto;padding:20px;">
-
-          <div style="height:20px;"></div> -->
-          
-          <span style="letter-spacing:3px;font-size:13px;">OTHER USE CASES</span>
-          <div style="height:20px;"></div>
-
-          <div class="use-cases-container">
-            <b>Censorship Resistant Messages</b>
-            <div style="height:10px;"></div>
-            <span style="font-size:13px;">
-            <div class="overflow-dots"><a href="/0x2d6a7b0f6adeff38423d4c62cd8b6ccb708ddad85da5d3d06756ad4d8a04a6a2" style="white-space: nowrap;" target="_blank">A letter to Peking University teachers and classmates</a></div>
-            <div style="height:10px;"></div>
-              The above is a real-life example from the Chinese #MeToo movement. Read <a target="_blank" href="https://qz.com/1260191/metoo-activists-in-china-are-turning-to-the-blockchain-to-dodge-censorship/">an article</a> about this case.
-            </span>
-            <br>
-            <br>
-            <br>
-            <b>Valuable Content Archive</b>
-            <div style="height:10px;"></div>
-            
-            <span style="font-size:13px;">
-            <div class="overflow-dots"><a target="_blank" style="white-space: nowrap;" href="/0x8006d703a45663cab96a85a4ef3e6ab94a1410d6e70119139eea807a63ecb79e">What If Linus Torvalds Gets Hit By A Bus</a></div>
-            <a target="_blank" style="white-space: nowrap;" href="/0x7975bf9cf6ce32b3f04cafcca60b1a7bb214d66c5c47ca8c6e65faab787079b6">The Afterlife</a>
-            <br>
-            <a target="_blank" style="white-space: nowrap;" href="/0xf750f5c105bc9692d065ebfb7f6abd483336682490106b409e15c295b34b217a">Zorba the Buddha</a>
-            <br>
-            <div style="height:10px;"></div>
-              Interesting or important content that can be stored permanently in the blockchain to make it available for future generations and to promote long-term thinking.
-            </span>
-            <br>
-            <br>
-            <br>
-            <b>Resolutions, Declarations, Confessions and other Public Statements</b>
-            <div style="height:10px;"></div>
-            <span style="font-size:13px;">
-              <a style="white-space: nowrap;" href="/0xa0904c7011c4195630b4fbffee67df687112a6bae9770fedc1d90179fa838cfb" target="_blank">First Things First Manifesto 2000</a>
-              <br>
-              <a style="white-space: nowrap;" href="/0xc7377190e9c0b40d3e5e7d434430ffeff5df3394dd4e6b56581802ee125185de" target="_blank">New Year's Resolution</a>
-              <br>
-              <a href="/0x98f619c174b21b28a5820f9be61cd4f86b51d7889b0eb38840028df34a6ac2c7" style="white-space: nowrap;" target="_blank">1st Link Marine BigMac™ Platoon</a>
-              <br>
-              <a href="/0xeff50e090d8490266b9b122c75fb661b5967bc5789a51540875ca7d2554f7e01" style="white-space: nowrap;" target="_blank">Confession of Love</a>
-              <div style="height:10px;"></div>
-              Resolutions and declarations become more powerful when they are publicly available and there is no way to take them back. A person is then obliged to follow his or her promises. Also, you can claim something publicly, create an acknowledgment or give a credit, create a permanent confession of love or record the fact of marriage.
-              <br>
-              <br>
-              <br>
-              PROOF OF EXISTENCE
-              <div style="height:10px;"></div>
-              The options for <i>setting things in block</i> are endless. By recording a file's hash in the blockchain, you can <i>set in block</i> virtually anything. The thing represented in the file, no matter the format, receives an immutable and incorruptible timestamp, which works as a proof-of-existence. Such a proof never expires, it cannot be edited or deleted, and it can always be independently verified.
-            </span>
-
-          </div>
-        <!-- </div> -->
-
-        <div style="height:60px;"></div>
-        <div style="border-top: 1px solid rgb(204, 204, 204); max-width:600px; margin:0 auto; padding-top: 10px;"></div>
-        <div style="height:20px;"></div>
-
-        <div style="max-width:600px;font-size:13px;margin:0 auto;line-height:150%;">
-          <!-- <span style="letter-spacing: 3px; font-size: 13px;">EXTRA</span>
+          <!-- HOW IT WORKS
           <div style="height:10px;"></div> -->
 
-          
-          Set in Block is supported by the Coinwink app: Stay informed about the cryptocurrency market price changes with the least amount of effort required. Coinwink is an app that allows you to create <a href="https://coinwink.com/eth" target="_blank">Ethereum price alerts</a>, and manage cryptocurrency watchlist and portfolio for more than 2500 coins and tokens. Don't waste time manually watching crypto prices, use <a href="https://coinwink.com" target="_blank">Coinwink</a>.
-          <br><br>
-          Set in Block is a free and <a href="https://github.com/giekaton/Set-in-Block" target="_blank">open-source</a> digital service based on the <a href="https://ethereum.org" target="_blank">Ethereum</a> blockchain.
-        </div>
+          <div class="row" style="margin-top:10px;">
 
-        <div style="height:20px;"></div>
+            <div class="col">
+              <div style="height:55px;display:block;">
+                <img src="../assets/123-01.svg" width="68">
+              </div>
+              <div style="display:block">
+                Create the unique ID for your authentic work. It's a random looking 64 characters string.
+              </div>
+            </div>
+
+            <div class="col">
+              <div style="height:55px;display:block;">
+                <img src="../assets/123-02.svg" width="113">
+              </div>
+              <div style="display:block">
+                Write this ID in the Ethereum blockchain. Optionally, upload the actual work file to IPFS.
+              </div>
+            </div>
+
+            <div class="col">
+              <div style="height:55px;display:block;">
+                <img src="../assets/123-03.svg" width="45">
+              </div>
+              <div style="display:block">
+                Get the mathematically-based proof about the authorship and ownership of your work.
+              </div>
+            </div>
+
+            <div style="clear:both;height:30px;"></div>
+
+            <div>
+            <div style="max-width:600px;margin:0 auto;">
+              You can create a proof of existence and/or ownership for your authentic work, e.g. design, musical composition, code, movie script, or anything else that can be considered as intellectual property and falls under copyright protection law.
+              <br><br>
+              <router-link  to="/intellectual-property-copyright-protection">Read more</router-link> on how to use Set in Block for intellectual property protection.
+              <br><br>
+              In a case of copyright infringement, use our <a href="/cease-and-desist-letter-generator" target="_blank">Cease and Desist letter generator</a>.
+              <br><br>
+              Real life example: See <router-link to="/0x2dc3fcc6a0a23e88a82def9c07248731d98e7178a9fd4cee9ca72fa7e1a28774">here</router-link> how <a href="https://multiavatar.com" target="_blank">Multiavatar</a> is protecting design assets with the help of blockchain and IPFS.
+              </div>
+            </div>
+
+          </div>
+
+
+          <div style="height:60px;"></div>
+
+
+          <b>Censorship Resistant Messages</b>
+          <div style="height:10px;"></div>
+          <div class="overflow-dots"><a href="/0x2d6a7b0f6adeff38423d4c62cd8b6ccb708ddad85da5d3d06756ad4d8a04a6a2" style="white-space: nowrap;" target="_blank">A letter to Peking University teachers and classmates</a></div>
+          <div style="height:10px;"></div>
+          The above is a real-life example from the Chinese #MeToo movement. Read <a target="_blank" href="https://qz.com/1260191/metoo-activists-in-china-are-turning-to-the-blockchain-to-dodge-censorship/">an article</a> about this case.
+
+
+          <div style="height:60px;"></div>
+
+
+          <b>Valuable Content Archive</b>
+          <div style="height:10px;"></div>        
+          <div class="overflow-dots"><a target="_blank" style="white-space: nowrap;" href="/0x8006d703a45663cab96a85a4ef3e6ab94a1410d6e70119139eea807a63ecb79e">What If Linus Torvalds Gets Hit By A Bus</a></div>
+          <a target="_blank" style="white-space: nowrap;" href="/0x7975bf9cf6ce32b3f04cafcca60b1a7bb214d66c5c47ca8c6e65faab787079b6">The Afterlife</a>
+          <br>
+          <a target="_blank" style="white-space: nowrap;" href="/0xf750f5c105bc9692d065ebfb7f6abd483336682490106b409e15c295b34b217a">Zorba the Buddha</a>
+          <br>
+          <div style="height:10px;"></div>
+          Interesting or important content that can be stored permanently in the blockchain to make it available for future generations and to promote long-term thinking.
+          <br><br>
+          To prevent <a href="https://themerkle.com/what-is-blockchain-bloat/" target="_blank">blockchain bloating</a> and to avoid high transaction fee, the content needs to be relatively short. For a larger content, or files, the best practice is to include only the content's hash, and to publish the actual content somewhere else, e.g. on IPFS. See the <router-link to="/intellectual-property-copyright-protection">FAQ</router-link> for more details.
+
+              
+          <div style="height:60px;"></div>
+
+
+          <b>Resolutions, Declarations, Confessions and other Public Statements</b>
+          <div style="height:10px;"></div>
+          <a style="white-space: nowrap;" href="/0xa0904c7011c4195630b4fbffee67df687112a6bae9770fedc1d90179fa838cfb" target="_blank">First Things First Manifesto 2000</a>
+          <br>
+          <a style="white-space: nowrap;" href="/0xc7377190e9c0b40d3e5e7d434430ffeff5df3394dd4e6b56581802ee125185de" target="_blank">New Year's Resolution</a>
+          <br>
+          <a href="/0x98f619c174b21b28a5820f9be61cd4f86b51d7889b0eb38840028df34a6ac2c7" style="white-space: nowrap;" target="_blank">1st Link Marine BigMac™ Platoon</a>
+          <!-- <br>
+          <a href="/0xeff50e090d8490266b9b122c75fb661b5967bc5789a51540875ca7d2554f7e01" style="white-space: nowrap;" target="_blank">Confession of Love</a> -->
+          <div style="height:10px;"></div>
+          Resolutions and declarations become more powerful when they are publicly available and there is no way to take them back. The one who made a statement is then obliged to follow on the promises. Additionally, you can claim something publicly, create an acknowledgment, or give a credit, create a permanent confession of love or record the fact of marriage.
+
+
+
+          <div style="height:70px;"></div>
+
+          PROOF OF EXISTENCE
+          <div style="height:10px;"></div>
+          The options for <i>setting things in block</i> are endless. By recording a file's hash in the blockchain, you can <i>set in block</i> virtually anything. The thing represented in the file, no matter the format, receives an immutable and incorruptible timestamp, which works as a proof-of-existence. Such proof never expires, it cannot be edited or deleted, and it can always be independently verified.
+          
+
+          <div style="height:40px;"></div>
+          <div style="border-top: 1px solid rgb(204, 204, 204); max-width:600px; margin:0 auto; padding-top: 10px;"></div>
+          <div style="height:40px;"></div>
+
+          <div style="max-width:600px;font-size:13px;margin:0 auto;line-height:150%;">
+            Set in Block is brought to you by the Coinwink app. Stay informed about the cryptocurrency market price changes with the least amount of effort required. Coinwink is a web-app that allows you to create <a href="https://coinwink.com/eth" target="_blank">Ethereum price alerts</a>, and manage cryptocurrency watchlist and portfolio for more than 3500 coins and tokens. Don't waste time manually watching crypto prices, use <a href="https://coinwink.com" target="_blank">Coinwink</a>.
+            <br><br>
+            Set in Block is a free and <a href="https://github.com/giekaton/Set-in-Block" target="_blank">open-source</a> digital service based on the <a href="https://ethereum.org" target="_blank">Ethereum</a> blockchain.
+          </div>
+
+          <div style="height:20px;"></div>
+
+        </span>
+
 
         <!-- <div style="height:20px;"></div> -->
 
@@ -254,7 +254,7 @@
         By having a message archived on the blockchain, you have a mathematically-based proof of existence that your message is authentic, and that it existed prior to a 
         specific date.
         <br><br>
-        The message you enter in using Set in Block interface is encoded into a hexadecimal format and then included in the data field of the Ethereum blockchain transaction.
+        The message you enter in the Set in Block new message interface is encoded into a hexadecimal format and then included in the data field of the Ethereum blockchain transaction.
         <br><br>
         Set in Block message submission interface only encodes and prepares the message. After the submit button is pressed, you will be asked to confirm the transaction with your <a href="https://medium.com/publicaio/a-complete-guide-to-using-metamask-updated-version-cd0d6f8c338f" target="_blank">MetaMask</a> wallet and by doing this, to create a permanent record, which is a proof of existence.
         <br><br>
@@ -281,18 +281,6 @@
         To support Set in Block, donate <a href="https://commerce.coinbase.com/checkout/27cfef00-226b-43dc-bf2c-6f85e045624f" target="_blank">BTC, ETH, BCH, LTC</a>. -->
         <br><br><br>
         Contact: i&#110;&#102;&#x6f;&#x40;&#x73;&#x65;t&#105;&#110;&#98;&#x6c;&#x6f;&#x63;k&#46;&#99;&#111;&#x6d;
-        <!-- <br><br><br>
-        Other projects:
-        <br>
-        <span style="line-height:150%;">
-          Use Coinwink for <a href="https://coinwink.com/" target="_blank">bitcoin and crypto alerts</a>, and for <a href="https://coinwink.com/portfolio/" target="_blank">crypto portfolio tracking</a>.
-          <br>
-          Check the <a href="https://cryptologos.cc/" target="_blank">cryptocurrency logos</a> gallery and the <a href="https://cryptoclothing.cc" target="_blank">crypto clothing</a> store.
-          <br>
-          Accept <a href="https://nimipay.com" target="_blank">cryptocurrency payments</a> on any website.
-          <br>
-          Experience the Libra testnet with <a href="https://librachecker.com" target="_blank">Libra block explorer</a> and <a href="https://librapaperwallet.com" target="_blank">Libra wallet</a>.
-        </span> -->
         
         <div style="height:40px;"></div>
 
@@ -610,5 +598,9 @@ export default {
   .col {
     width: 29.33%;
   }
+}
+
+.home-info {
+  line-height: 140%;
 }
 </style>

@@ -3,7 +3,7 @@
       <div class="width">
 
       <div style="float:left;margin-top:1px;">
-        <span @click="backHome()" style="cursor:pointer;">Set in Block 2020</span>
+        <span @click="backHome()" style="cursor:pointer;">Set in Block © 2018-2021</span>
       </div>
 
       <div class="sans-serif" style="float:right;color:#777;margin-top:-2px;">
@@ -93,12 +93,12 @@ export default {
     position: absolute;
     left: 0;
     bottom: 0;
-    height: 60px;
+    height: 70px;
     width: 100%;
     overflow: hidden;
     font-size: 13px;
-    letter-spacing:2px;
-    padding-top: 20px;
+    /* letter-spacing:1px; */
+    padding-top: 25px;
     color: #666;
   }
 
