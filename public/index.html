@@ -33,23 +33,38 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Arapey|Noto+Sans:400,700" rel="stylesheet">
-
+    
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/ethjs@0.3.4/dist/ethjs.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     
     <script>
-      // // TESTNET
-      // infura = "https://ropsten.infura.io/v3/74444a880eb74bf1acfb2c32463b7d4a";
-      // etherscan = "https://ropsten.etherscan.io";
-      // // generate a random Ethereum address
-      // address = Eth.keccak256(Math.random().toString()).substring(0, 42);
-    
-      // MAINNET
-      infura = "https://mainnet.infura.io/v3/74444a880eb74bf1acfb2c32463b7d4a";
-      etherscan = "https://api.etherscan.io";
+
+      function selectNetwork(network) {
+        if (network == 'main') {
+          // MAINNET
+          infura = "https://mainnet.infura.io/v3/74444a880eb74bf1acfb2c32463b7d4a";
+          etherscan = "https://api.etherscan.io";
+        }
+        else if (network == 'ropsten') {
+          // TESTNET
+          infura = "https://ropsten.infura.io/v3/74444a880eb74bf1acfb2c32463b7d4a";
+          etherscan = "https://api-ropsten.etherscan.io";
+        }
+        else if (network == 'goerli') {
+          // TESTNET
+          infura = "https://goerli.infura.io/v3/74444a880eb74bf1acfb2c32463b7d4a";
+          etherscan = "https://api-goerli.etherscan.io";
+        }
+      }
+      selectedNetwork = 'main';
+      selectNetwork(selectedNetwork);
+
       // generate a random Ethereum address
       address = Eth.keccak256(Math.random().toString()).substring(0, 42);
+
+      const web3 = new Web3(window.web3.currentProvider);
 
       // const eth = new Eth(new Eth.HttpProvider(infura));
 

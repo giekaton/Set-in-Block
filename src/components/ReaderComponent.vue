@@ -27,7 +27,7 @@
     <div style="clear:both;height:15px;"></div>
   	
     <button @click="read" class="two-buttons">Read</button>
-    <button @click="read('lucky')" class="two-buttons">I'm feeling lucky</button>
+    <button @click="read('lucky')" class="two-buttons">Random</button>
 
     <div style="height:20px;"></div>
 
@@ -83,6 +83,7 @@ export default {
         '0x7975bf9cf6ce32b3f04cafcca60b1a7bb214d66c5c47ca8c6e65faab787079b6',
         '0xa0904c7011c4195630b4fbffee67df687112a6bae9770fedc1d90179fa838cfb',
         '0x2dc3fcc6a0a23e88a82def9c07248731d98e7178a9fd4cee9ca72fa7e1a28774',
+        '0xea8ffdabd3dc2a43b643640be59a93953fa25d273d5beaa34ed96b7fc5f3d033',
 
       ],
       message: 'Loading...',
@@ -91,6 +92,8 @@ export default {
       apiKey: 'RCQRV7SVG3MWCWZ9W1INYXTSVSGKBQTPAX',
     }
   },
+
+
   methods: {
     embed: function() {
       alert("This feature is coming soon. Please come back in a few days.")
@@ -115,51 +118,53 @@ export default {
         return alert('Enter Ethereum transaction hash');
       }
 
-      this.$emit('isContent', true);
+      this.$router.push({ path: '/'+this.txHash })
 
-      this.message = "Loading...";
-      this.$parent.$parent.content = true;
-      let self = this;
+      // this.$emit('isContent', true);
 
-      axios.get(etherscan + '/api?module=proxy&action=eth_getTransactionByHash&txhash=' + this.txHash + '&apikey=' + this.apiKey)
-      .then(
-        function (response) {
-          // console.log(response);
-          if (typeof(response["data"]["result"]["input"]) == 'undefined') {
-            self.message = "Error. Please try again.";
-            return;
-          }
-          console.log(response["data"]);
-          self.hex2utf8(response["data"]["result"]["input"]);
-          self.blockNumber = response["data"]["result"]["blockNumber"];
-          axios.get(etherscan + '/api?module=proxy&action=eth_getBlockByNumber&tag='+self.blockNumber+'&boolean=true' + '&apikey=' + self.apiKey)
-            .then (
-              function (response) {
-                console.log(response);
+      // this.message = "Loading...";
+      // this.$parent.$parent.content = true;
+      // let self = this;
 
-                if (typeof response["data"]["error"] === 'undefined') {
-                    let timestamp = response["data"]["result"]["timestamp"];
-                    timestamp = parseInt(timestamp, 16);
-                    self.convert(timestamp);
-                }
-                else {
-                    self.timestamp = "Processing..."
-                }
-              }
-            )
-            .catch (
-              function (error) {
-                console.log (error);
-              }
-            );
-        }
-      )
-      .catch (
-        function (error) {
-          console.log (error);
-          self.message = "Message is not available. Try a different tx hash.";
-        }
-      );
+      // axios.get(etherscan + '/api?module=proxy&action=eth_getTransactionByHash&txhash=' + this.txHash + '&apikey=' + this.apiKey)
+      // .then(
+      //   function (response) {
+      //     // console.log(response);
+      //     if (typeof(response["data"]["result"]["input"]) == 'undefined') {
+      //       self.message = "Error. Please try again.";
+      //       return;
+      //     }
+      //     console.log(response["data"]);
+      //     self.hex2utf8(response["data"]["result"]["input"]);
+      //     self.blockNumber = response["data"]["result"]["blockNumber"];
+      //     axios.get(etherscan + '/api?module=proxy&action=eth_getBlockByNumber&tag='+self.blockNumber+'&boolean=true' + '&apikey=' + self.apiKey)
+      //       .then (
+      //         function (response) {
+      //           console.log(response);
+
+      //           if (typeof response["data"]["error"] === 'undefined') {
+      //               let timestamp = response["data"]["result"]["timestamp"];
+      //               timestamp = parseInt(timestamp, 16);
+      //               self.convert(timestamp);
+      //           }
+      //           else {
+      //               self.timestamp = "Processing..."
+      //           }
+      //         }
+      //       )
+      //       .catch (
+      //         function (error) {
+      //           console.log (error);
+      //         }
+      //       );
+      //   }
+      // )
+      // .catch (
+      //   function (error) {
+      //     console.log (error);
+      //     self.message = "Message is not available. Try a different tx hash.";
+      //   }
+      // );
     },
     hex2utf8: function(pStr) {
       try {

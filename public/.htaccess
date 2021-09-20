@@ -25,3 +25,7 @@ Redirect 301 /reader/0x35dbf0e5c933db547022fbb61ed06458e028d34e388d253ab14a2b686
 Redirect 301 /reader/0x8006d703a45663cab96a85a4ef3e6ab94a1410d6e70119139eea807a63ecb79e https://setinblock.com/0x8006d703a45663cab96a85a4ef3e6ab94a1410d6e70119139eea807a63ecb79e
 Redirect 301 /reader https://setinblock.com/about
 Redirect 301 /permanent-text-message-on-the-blockchain https://setinblock.com/new-message
+
+
+Redirect 301 /intellectual-property-copyright-protection /copyright-protection/faq
+Redirect 301 /cease-and-desist-letter-generator /copyright-protection/cease-and-desist-letter

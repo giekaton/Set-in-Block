@@ -6,6 +6,7 @@
         <span @click="backHome()" style="cursor:pointer;">Set in Block © 2018-2021</span>
       </div>
 
+
       <div class="sans-serif" style="float:right;color:#777;margin-top:-2px;">
         <div style="display:inline-block;width:20px;margin-right:18px;">
           <a href="https://twitter.com/setinblock" title="Twitter" target="_blank">
@@ -21,6 +22,14 @@
             </svg>
           </a>
         </div>
+      </div>
+
+      <div v-if="this.$route.name == 'reader'" class="select-network-div">
+        <select name="select-network" id="select-network" v-model="selectedNetwork">
+          <option value="main">Main network</option>
+          <option value="ropsten">Ropsten</option>
+          <option value="goerli">Goerli</option>
+        </select>
       </div>
 
       <!-- <div class="footer-left-side">
@@ -63,7 +72,24 @@
 export default {
   data: function() {
     return {
-      one: '1'
+      one: '1',
+      selectedNetwork: '',
+      initial: false,
+    }
+  },
+  watch: {
+    selectedNetwork: function(val) {
+      // console.log(val)
+      if (!this.initial && this.$route.name == 'reader') {
+        selectNetwork(val);
+
+        // console.log('reload reader');
+        this.$emit('network')
+      }
+      else {
+        selectNetwork(val);
+      }
+      this.initial = false;
     }
   },
   methods: {
@@ -71,11 +97,50 @@ export default {
       this.$router.push({path: '/'});
       window.scrollTo(0, 0);
     }
+  },
+  mounted () {
+    this.initial = true;
+    this.selectedNetwork = selectedNetwork;
   }
 }
 </script>
 
 <style>
+  .select-network-div {
+    width:125px;
+    margin:0 auto;
+  }
+
+  select {
+    width: 125px;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-padding-end: 20px;
+    -moz-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -moz-padding-start: 2px;
+    background-color: #3d3d3d;
+    border: 1px solid rgb(103, 103, 103);
+    border-radius: 2px;
+    color: rgb(230, 230, 230);
+    font-size: inherit;
+    overflow: hidden;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    white-space: nowrap;
+}
+
+  @media screen and (max-width: 500px) {
+    .select-network-div {
+      display:block;
+      float:left;
+      height: 40px;
+      margin-top: 10px;
+    }
+  }
+
   .svg-button {
     fill: #7a7a7a;
     fill-rule: evenodd;
@@ -93,7 +158,7 @@ export default {
     position: absolute;
     left: 0;
     bottom: 0;
-    height: 70px;
+    min-height: 70px;
     width: 100%;
     overflow: hidden;
     font-size: 13px;
@@ -122,4 +187,6 @@ export default {
       padding-right: 20px;
     }
   }
+
+
 </style>

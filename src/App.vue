@@ -13,10 +13,10 @@
         <!-- <div style="float:left;height:23px;width:23px;background-color:#767676;"></div>
         <div style="float:left;padding-left:8px;padding-top:1px;font-size:19px;font-family:'Arapey'">Set in Block</div> -->
 
-        <div v-if="$route.name == 'read2'" style="float:left;padding-left:6px;font-size:9px;padding-top:3px;color:#bebebe;" class="sans-serif">Reader</div>
+        <div v-if="$route.name == 'reader'" style="float:left;padding-left:6px;font-size:9px;padding-top:3px;color:#bebebe;" class="sans-serif">Reader</div>
 
         <div style="float:right;font-size:14px;" class="sans-serif">
-          <button @click="routerNewMsg()" style="margin-top:-2px;padding-top:2px;padding-bottom:2px;">Write</button>
+          <router-link to="/new"><button style="margin-top:-2px;padding-top:2px;padding-bottom:2px;">New</button></router-link>
           <!-- <router-link v-if="$route.name == 'home'" to="/new-message">New</router-link> -->
           <!-- <router-link v-else to="/"><span @click="content = false">Home</span></router-link> -->
         </div>        
@@ -26,11 +26,11 @@
       </div>
     </div>
 
-    <router-view class="router-content"></router-view>
+    <router-view class="router-content" :network="networkReload"></router-view>
 
     <div style="height:20px;"></div>
 
-    <footer-component />
+    <footer-component v-on:network="reloadReader" />
 
   </div>
 </template>
@@ -46,7 +46,8 @@ export default {
   },
   data: function() {
     return {
-      content: false
+      content: false,
+      networkReload: false,
     }
   },
   mounted () {
@@ -59,8 +60,9 @@ export default {
       this.$router.push({ path: '/' });
       window.scrollTo(0, 0);
     },
-    routerNewMsg: function() {
-      this.$router.push({ path: '/new-message/' })
+    reloadReader: function() {
+      // console.log('reload')
+      this.networkReload = true;
     }
   }
 }

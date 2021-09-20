@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "postbuild": "node -e \"const fs = require('fs'); fs.renameSync('./dist/index.html', './dist/index.php'); fs.renameSync('./dist/redirect/index.html', './dist/redirect/index.php');"
   },
   "dependencies": {
     "vue": "^2.6.12",

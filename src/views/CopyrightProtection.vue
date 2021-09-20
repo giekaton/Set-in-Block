@@ -4,15 +4,21 @@
     <!-- New message -->
     <div style="max-width:620px;margin:0 auto;padding-top:50px;">
 
-      <h1><b>Create New Permanent Message</b></h1>
+      <h1><b>Protect Content Copyright</b></h1>
 
 
       <br><br>
 
       <div style="text-align:left;font-size:13px;border:1px solid #cacaca;border-radius:5px;background-color:#f9f9f9;padding:20px;">
-          Enter a message and record it in the Ethereum blockchain for permanent storage.
+          Enter your work's name and description in the message field to record it in the Ethereum blockchain for permanent storage. You can also include first publication date and author's name.
           <br><br>
-          Set in Block message submission interface only encodes and prepares the message. After the submit button is pressed, you will be asked to confirm the transaction with your MetaMask wallet and by doing this, to create your permanent record. Currently, it works only with the desktop version of MetaMask.
+          Hash the work by selecting its file (.png, .js or other), and submit only the SHA-256 hash. Keep the original file in your archive.
+          <br><br>
+          Optionally, upload the file to IPFS and add its link in the message. See <a href="/0x2dc3fcc6a0a23e88a82def9c07248731d98e7178a9fd4cee9ca72fa7e1a28774" target="_blank">example</a>.
+          <br><br>
+          For more details see the <router-link to="/copyright-protection/faq">FAQ</router-link>. In case of copyright infringement, use our <router-link to="/copyright-protection/cease-and-desist-letter">cease and desist letter generator</router-link>.
+          <br><br>
+          <file-input style="font-size:14px;" v-on:file-data="fileData" />
       </div>
 
       <br><br><br>
@@ -50,7 +56,7 @@
     <!-- Feedback -->
     <div v-if="feedback != ''" v-html="feedback" class="feedback" style="text-align:center;font-weight:bold;"></div>
 
-    <!-- <div v-if="feedback != ''" style="height:40px;"></div> -->
+    <div v-if="feedback != ''" style="height:40px;"></div>
 
     <div style="height:40px;"></div>
 
@@ -157,43 +163,19 @@ export default {
       this.messageInput += '\n\nFile: '+data.fileName+' ('+data.fileSize+' bytes)\nSHA-256 #: '+data.fileHash;
     },
     set: async function() {
-
-      // Modern dapp browsers...
-      // if (window.web3) {
-      //   window.web3 = new Web3(ethereum);
-        try {
-          // const accounts = await ethereum.enable();
-          // web3.currentProvider.publicConfigStore._state.selectedAddress = accounts[0];
-          this.setGo();
-        } catch (error) {
-          console.log(error);
-          self.feedback = '<span class="notice">To broadcast the message, first log in to your MetaMask wallet.</span>';
-          return;
-        }
-      // }
-      // Legacy dapp browsers...
-      // else if (window.web3) {
-      //     window.web3 = new Web3(web3.currentProvider);
-      //     this.setGo();
-      // }
-      // Non-dapp browsers...
-      // else {
-      //   self.feedback = '<span class="notice">To broadcast the message, first install <b><a href="https://metamask.io/" target="_blank" class="notice underlined">MetaMask</a></b> browser extension.</span>';
-      //   return;
-      // }
-
-
+      try {
+        this.setGo();
+      } catch (error) {
+        console.log(error);
+        self.feedback = '<span class="notice">To broadcast the message, first log in to your MetaMask wallet.</span>';
+        return;
+      }
     },
-
     setGo: async function () {
       if (typeof window.web3 === 'undefined') {
         this.feedback = '<span class="notice">To broadcast messages, first install the <b><a href="https://metamask.io/" target="_blank" class="notice underlined">MetaMask</a></b> browser extension.</span>';
         return;
       }
-      // else if (typeof web3.currentProvider.publicConfigStore._state.selectedAddress === 'undefined') {
-      //   this.feedback = '<span class="notice">To broadcast the message, first log in to your MetaMask wallet.</span>';
-      //   return;
-      // }
       
       this.feedback = '<span class="notice-good">Confirm the transaction in the MetaMask popup window.</span>';
 
@@ -206,10 +188,8 @@ export default {
       }
 
       let message = this.messageInput;
-      // let accounts = await ethereum.enable();
-      // let sender = accounts[0];
+      
       var accountsOnEnable = await ethereum.request({method: 'eth_requestAccounts'});
-      // console.log(accountsOnEnable)
       let sender = accountsOnEnable[0];
 
       message = this.rstr2utf8(message);

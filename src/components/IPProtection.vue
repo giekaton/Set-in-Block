@@ -14,7 +14,7 @@
 
       <br />
 
-      <router-link to="/cease-and-desist-letter-generator">
+      <router-link to="/copyright-protection/cease-and-desist-letter">
         <button>Cease and desist letter</button>
       </router-link>
 
@@ -38,7 +38,7 @@
       <h4>What steps do I need to take to create such blockchain protection for my work?</h4>
 
       <p>
-        Use the <router-link to="/new-message" class>new message</router-link> interface on Set in Block.
+        Use the <router-link to="/copyright-protection" class>new message</router-link> interface on Set in Block.
       </p>
       <p>
         When you select a file with your authentic work, Set in Block generates the unique ID (SHA-256 hash) that represents that file. The ID is generated

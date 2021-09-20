@@ -29,7 +29,7 @@
 <script>
 
 export default {
-  props: ['txHash'],
+  props: ['txHash', 'network'],
   components: {
     
   },
@@ -41,10 +41,29 @@ export default {
       blockNumber: '',
       timestamp: 'Loading...',
       apiKey: 'RCQRV7SVG3MWCWZ9W1INYXTSVSGKBQTPAX',
+      networkReload: this.$parent.networkReload,
     }
   },
+  
+  watch: {
+    network: function(val) {
+      // console.log(val)
+      if (val == true) {
+        this.loadMessage();
+        this.$parent.networkReload = false;
+      }
+    }
+  },
+
   mounted () {
+    // console.log(this.network)
     document.getElementById('splashScreen').style.display = 'none';
+    
+    this.loadMessage();
+  },
+  methods: {
+    loadMessage: function() {
+
     window.scrollTo(0, 0);
     let self = this;
     
@@ -76,16 +95,15 @@ export default {
               console.log (error);
             }
           );
-      }
-    )
-    .catch (
-      function (error) {
-        // console.log (error);
-        self.tempstr = "Message is not available. Try a different tx hash.";
-      }
-    );
-  },
-  methods: {
+        }
+      )
+      .catch (
+        function (error) {
+          // console.log (error);
+          self.tempstr = "Message is not available. Try a different tx hash.";
+        }
+      );
+    },
     hex2utf8: function(pStr) {
       try {
         this.tempstr = decodeURIComponent(pStr.replace(/\s+/g, '').replace(/[0-9a-f]{2}/g, '%$&')).substring(2);
