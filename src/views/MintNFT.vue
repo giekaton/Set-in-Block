@@ -8,17 +8,85 @@
 
       <br><br>
 
-      <div style="text-align:left;font-size:13px;border:1px solid #cacaca;border-radius:5px;background-color:#f9f9f9;padding:20px;">
-        NFT minting is coming soon.
+      <span style="font-size:13px;">
+        This is a generic ERC-721 non-fungible token (NFT) contract for the Ethereum blockchain, based on OpenZeppelin contract standarts. The contract is deployed on <a href="https://rinkeby.etherscan.io/address/0x2D4Fc4476B168057dc7589aA28e72f2af2017b5A" target="_blank">Rinkeby testnet</a>. Get free Rinkeby ETH <a href="https://faucet.rinkeby.io/" target="_blank">here</a>. Contract source-code is available on <a href="https://github.com/setinblock/nft-erc721-contract" target="_blank">GitHub</a>. To mint a new NFT is free, but you'll need to cover the network transaction fee, using your own MetaMask wallet. You can find your newly minted tokens on <a href="https://testnets.opensea.io/" target="_blank">OpenSea testnet</a>.
+      </span>
+
+      <div style="height:40px;"></div>
+
+      <div style="display:grid;grid-template-columns: 1fr 1fr;">
+        <div @click="type = 'sb'" class="nft-tab"  v-bind:class="{ 'active-tab': type == 'sb' }" style="margin-right:10px;">
+          <b>Automatic script</b>
+          <br>
+          Not recommended
+        </div>
+
+        <div @click="type = 'ipfs'" class="nft-tab"  v-bind:class="{ 'active-tab': type == 'ipfs' }" style="margin-left:10px;">
+          <b>Using decentralized storage</b>
+          <br>
+          Recommended
+        </div>
       </div>
 
+      <div style="height:30px;"></div>
+
+      <span v-if="type == 'sb'">
+        The metadata file required for NFT is generated automatically, using a script hosted on Set in Block, and json data encoded in the token's URI. Set in Block itself doesn't host any data, only reads data from the URI and returns it as JSON. This is a quick and easy approach, but it's not recommended, because the script is hosted on a centralized Set in Block server.
+        <br>
+        <br>
+        Name: <input type="text" v-model="json.name">
+        <br><br>
+        Image URL: <input type="text" v-model="json.image">
+        <br>
+        <br>
+        <div class="overflow-dots">Metadata URI: <a :href="metaLink" style="white-space: nowrap;" target="_blank" >{{metaLink}}</a></div>
+        <br>
+        <br>
+        Gas price: <input type="text" v-model="gasPrice" style="width:80px;">
+        <br>
+        <br>
+        Maximum transaction fee: {{(gasPrice * gasLimit * 0.000000001).toFixed(3)}} ETH
+        <br>
+        <br>
+        Network: <b>Rinkeby Testnet</b>
+
+        <br><br>
+        <div class="set-controls" style="float:left;width:94px;">
+          <button class="link-set" @click="set()">Mint NFT</button>
+        </div>
+      </span>
+
+      <span v-if="type == 'ipfs'">
+        Upload your image to IPFS, arweave or similar. Create your metadata json file by adding token's name, link to token's image on IPFS, description, any attritubes if needed. Upload this metadata file to IPFS, and provide its link for the token below.
+        <br>
+        <br>
+        Metadata URI: <input type="text" v-model="metaLink">
+        <div style="height:30px;"></div>
+        Gas price: <input type="text" v-model="gasPrice" style="width:80px;">
+        <br>
+        <br>
+        Maximum transaction fee: {{(gasPrice * gasLimit * 0.000000001).toFixed(4)}} ETH
+        <br>
+        <br>
+        Network: <b>Rinkeby Testnet</b>
+
+        <br><br>
+        <div class="set-controls" style="float:left;width:94px;">
+          <button class="link-set" @click="set()">Mint NFT</button>
+        </div>
+      </span>
+
+      <div style="clear:both;height:20px;"></div>
+
+      <!-- Feedback -->
+      <div v-if="feedback != ''" v-html="feedback" class="feedback" style="margin-top:50px;text-align:center;font-weight:bold;"></div>
     </div>
 
     <div style="clear:both;height:70px;"></div>
 
     <div style="height:40px;"></div>
     
-    <footer-component />
+    <footer-component /> 
 
   </div>
 </template>
@@ -53,11 +121,44 @@ export default {
       fileHash: 'Waiting for the file',
       feedback: '',
       content: false,
-      gasPrice: 3
+      gasPrice: 50,
+
+      json: {
+        name: '',
+        image: ''
+      },
+      metaLink: '',
+      type: 'sb',
+      gasLimit: 240000,
+    }
+  },
+
+  watch: {
+    jsonName() {
+      this.updateMetaLink();
+    },
+    jsonImage() {
+      this.updateMetaLink();
+    },
+    type(val) {
+      if(val == 'sb') {
+        this.updateMetaLink();
+        this.feedback = '';
+      }
+      else {
+        this.metaLink = '';
+        this.feedback = '';
+      }
     }
   },
 
   computed: {
+    jsonName() {
+      return this.json.name;
+    },
+    jsonImage() {
+      return this.json.image;
+    },
     bytesCalc: function () {
       return encodeURI(this.messageInput).split(/%..|./).length - 1;
     },
@@ -78,72 +179,70 @@ export default {
   mounted () {
     document.getElementById('splashScreen').style.display = 'none';
     window.scrollTo(0, 0);
+
+    this.updateMetaLink();
   },
 
   methods: {
+    updateMetaLink() {
+      this.metaLink = 'https://setinblock.com/nft-metadata/?json='+encodeURIComponent(JSON.stringify(this.json));
+    },
+
     fileData: function (data) {
       this.messageInput += '\n\nFile: '+data.fileName+' ('+data.fileSize+' bytes)\nSHA-256 #: '+data.fileHash;
     },
-    set: async function() {
 
-      // Modern dapp browsers...
-      if (window.ethereum) {
-        window.web3 = new Web3(ethereum);
-        try {
-          const accounts = await ethereum.enable();
-          web3.currentProvider.publicConfigStore._state.selectedAddress = accounts[0];
-          this.setGo();
-        } catch (error) {
-          console.log(error);
-          self.feedback = '<span class="notice">To broadcast the message, first log in to your MetaMask wallet.</span>';
+    set: async function() {
+      web3.eth.net.getId().then(id=>{
+        if(id==4){
+          try {
+            this.setGo();
+          } catch (error) {
+            console.log(error);
+            self.feedback = '<span class="notice">To broadcast the message, first log in to your MetaMask wallet.</span>';
+            return;
+          }
+        }
+        else {
+          this.feedback = '<span class="notice">Wrong network selected. Change your network to Rinkeby in your MetaMask wallet.</span>';
           return;
         }
-      }
-      // Legacy dapp browsers...
-      else if (window.web3) {
-          window.web3 = new Web3(web3.currentProvider);
-          this.setGo();
-      }
-      // Non-dapp browsers...
-      else {
-        self.feedback = '<span class="notice">To broadcast the message, first install <b><a href="https://metamask.io/" target="_blank" class="notice underlined">MetaMask</a></b> browser extension.</span>';
-        return;
-      }
-
+      });
 
     },
 
-    setGo: function () {
-      // if (typeof window.web3 === 'undefined') {
-      //   this.feedback = '<span class="notice">To broadcast messages, first install <b><a href="https://metamask.io/" target="_blank" class="notice underlined">MetaMask</a></b> browser extension.</span>';
-      //   return;
-      // }
-      // else if (typeof web3.currentProvider.publicConfigStore._state.selectedAddress === 'undefined') {
-      //   this.feedback = '<span class="notice">To broadcast the message, first log in to your MetaMask wallet.</span>';
-      //   return;
-      // }
+    setGo: async function () {
+      if (typeof window.web3 === 'undefined') {
+        this.feedback = '<span class="notice">To broadcast messages, first install the <b><a href="https://metamask.io/" target="_blank" class="notice underlined">MetaMask</a></b> browser extension.</span>';
+        return;
+      }
       
       this.feedback = '<span class="notice-good">Confirm the transaction in the MetaMask popup window.</span>';
 
       let handleReceipt = (error, receipt) => {
         if (error) console.error(error);
         else {
-          this.url = '/'+receipt;
-          this.feedback = 'Message recorded<br><span style="cursor:text;font-size:12px;">Transaction hash: '+ receipt +'</span><br><br>Read the message on Set in Block<br><a href="'+this.url+'" style="font-size:12px;" target="_blank">https://setinblock.com/'+receipt+'</a><br><br><br>';
+          this.url = 'https://rinkeby.etherscan.io/tx/'+receipt;
+          this.feedback = 'Message recorded<br><span style="cursor:text;font-size:12px;">Transaction hash: '+ receipt +'</span><br><a target="_blank" href="'+this.url+'" style="font-size:12px;" target="_blank">'+this.url+'</a><br>';
         }
       }
 
-      let message = this.messageInput;
+      var accountsOnEnable = await ethereum.request({method: 'eth_requestAccounts'});
+      let sender = accountsOnEnable[0];
+
+      const contract = require("./../../public/lib/NFT.json")
+
+      const contractAddress = '0x2D4Fc4476B168057dc7589aA28e72f2af2017b5A';
       
-      message = this.rstr2utf8(message);
-      message = this.str2hex(message);
+      const nftContract = new web3.eth.Contract(contract.abi, contractAddress)
+
       web3.eth.sendTransaction({
-        from: web3.currentProvider.publicConfigStore._state.selectedAddress,
-        to: address,
+        from: sender,
+        to: contractAddress,
         value: 0,
-        gas: gasCount(message) + 30000,
+        gas: this.gasLimit,
         gasPrice: this.gasPriceReal,
-        data: message,
+        data: nftContract.methods.mintNFT(sender, this.metaLink).encodeABI(),
       }, handleReceipt);
       
     },
@@ -178,6 +277,14 @@ export default {
         output += this.strlpad(str.charCodeAt(i).toString(16), "0", 2).toUpperCase();
       }
       return output;
+    },
+    
+    hex2a: function(hexx) {
+        var hex = hexx.toString();
+        var str = '';
+        for (var i = 0; i < hex.length; i += 2)
+            str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+        return str;
     },
 
     strlpad: function(str, pad, len) {
@@ -252,4 +359,12 @@ export default {
 
 }
 
+.nft-tab {
+  cursor:pointer;text-align:left;font-size:13px;border:1px solid #cacaca;border-radius:5px;background-color:#f9f9f9;padding:20px;
+}
+
+.active-tab {
+ border: 3px solid rgb(95, 95, 95);
+ background: white;
+}
 </style>

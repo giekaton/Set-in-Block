@@ -7,7 +7,6 @@ import CopyrightProtection from './views/CopyrightProtection.vue'
 import MintNFT from './views/MintNFT.vue'
 
 import Read from './views/Read.vue'
-import Redirect from './views/Redirect.vue'
 import IPProtection from './components/IPProtection.vue'
 import CeaseAndDesistLetter from './components/CeaseAndDesistLetter.vue'
 
@@ -49,8 +48,6 @@ export default new Router({
         ]
       }
     },
-
-    
     {
       path: '/new',
       name: 'new',
@@ -59,14 +56,6 @@ export default new Router({
         title: 'Create New Permanent Record - Set in Block',
       }
     },
-
-
-    {
-      path: '/redirect',
-      name: 'redirect',
-      component: Redirect,
-    },
-
     {
       path: '/new-message',
       name: 'NewMessage',
@@ -85,7 +74,6 @@ export default new Router({
         ],
       }
     },
-
     {
       path: '/copyright-protection',
       name: 'CopyrightProtection',
@@ -94,16 +82,24 @@ export default new Router({
         title: 'Protect Content Copyright with Blockchain - Set in Block',
       }
     },
-
     {
       path: '/mint-nft',
       name: 'MintNFT',
       component: MintNFT,
       meta: {
         title: 'Mint New NFT Token - Set in Block',
+        metaTags: [
+          {
+            name: 'description',
+            content: 'Create a new non-fungible token'
+          },
+          {
+            property: 'og:description',
+            content: 'Create a new non-fungible token'
+          }
+        ],
       }
     },
-
     {
       path: '/copyright-protection/cease-and-desist-letter',
       name: 'CeaseAndDesistLetter',
@@ -120,8 +116,6 @@ export default new Router({
         title: 'Set in Block - Intellectual Property Protection with Blockchain',
       }
     },
-
-
     {
       path: '/:txHash',
       name: 'reader',

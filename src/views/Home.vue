@@ -203,9 +203,9 @@
           
           <div style="height:20px;"></div>
 
-          A typical NFT is a token that represents some kind of an object, which can be a digital image in jpg or any other format, a physical work of art, a piece of digital land, a physical building, in-game items, and similar. By owning an NFT token, you also own a specific object, associated with that NFT token. 
+          A typical NFT is a token that represents some kind of an object, which can be a digital image in jpg or any other format, a physical work of art, a piece of digital land, a physical building, in-game items, and similar. By owning an NFT token, you also own a specific object representation, associated with that non-fungible token. 
           <br><br>
-          NFT tokens can be minted, and object associations created. NFTs can be transferred from one user to another and traded on exchanges.
+          NFT tokens can be minted, and object associations created. NFTs can be transferred from one user to another, traded on NFT marketplaces.
           <br><br>
 
           <router-link to="/mint-nft"><button class="button-wire">Mint NFT</button></router-link>
