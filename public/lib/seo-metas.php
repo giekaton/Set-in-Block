@@ -3,7 +3,9 @@
 $title_home = "Set in Block - Immutable and Indestructible Records in the Ethereum Blockchain Archive";
 $description_home = "Write and read everlasting messages on the blockchain. Make a permanent promise, create a proof of fact, protect content copyrights, mint NFTs.";
 
-$title_any = "Set in Block - Everlasting Message";
+$title_any = "Permanent Message - Set in Block";
+
+$title_nft = "Non-Fungible Token (NFT) - Set in Block";
 
 $title_copyright_protection = "Set in Block";
 $description_copyright_protection = "Protect Content Copyright with Blockchain";
@@ -17,7 +19,7 @@ $description_cease_desist = "Cease and Desist Letter Generator";
 $title_new_message = "New Permanent Message";
 $description_new_message = "Set in Block";
 
-$title_mint_nft = "Mint New NFT Token - Set in Block";
+$title_mint_nft = "Mint New NFT - Set in Block";
 $description_mint_nft = "Create a new non-fungible token";
 
 $title_new = "Create New Permanent Record";
@@ -101,15 +103,26 @@ else if ($link == 'faq') {
     <meta property="og:title" content="<?php echo ($title_copyright_protection_faq); ?>">
     <meta property="og:description" content="<?php echo ($description_copyright_protection_faq); ?>">
 <?php }
+else if (strpos(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), 'nft')) { 
+?>
+    <title><?php echo ($title_nft); ?></title>
+    <meta name="description" content="NFT ID: <?php echo ($link); ?>"/>
+    <meta itemprop="name" content="<?php echo ($title_nft); ?>">
+    <meta itemprop="description" content="NFT ID: <?php echo ($link); ?>">
+    <meta name="twitter:title" content="<?php echo ($title_nft); ?>">
+    <meta name="twitter:description" content="NFT ID: <?php echo ($link); ?>">
+    <meta property="og:title" content="<?php echo ($title_nft); ?>">
+    <meta property="og:description" content="NFT ID: <?php echo ($link); ?>">
+<?php }
 else if (strlen($link) > 0) {
 ?>
     <title><?php echo ($title_any); ?></title>
     <meta name="description" content="Message transaction hash: <?php echo ($link); ?>"/>
-    <meta itemprop="name" content="Set in Block - Everlasting Message">
+    <meta itemprop="name" content="<?php echo ($title_any); ?>">
     <meta itemprop="description" content="Message transaction hash: <?php echo ($link); ?>">
-    <meta name="twitter:title" content="Set in Block - Everlasting Message">
+    <meta name="twitter:title" content="<?php echo ($title_any); ?>">
     <meta name="twitter:description" content="Message transaction hash: <?php echo ($link); ?>">
-    <meta property="og:title" content="Set in Block - Everlasting Message">
+    <meta property="og:title" content="<?php echo ($title_any); ?>">
     <meta property="og:description" content="Message transaction hash: <?php echo ($link); ?>">
 <?php
 }

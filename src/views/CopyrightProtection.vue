@@ -14,7 +14,7 @@
           <br><br>
           Hash the work by selecting its file (.png, .js or other), and submit only the SHA-256 hash. Keep the original file in your archive.
           <br><br>
-          Optionally, upload the file to IPFS and add its link in the message. See <a href="/0x2dc3fcc6a0a23e88a82def9c07248731d98e7178a9fd4cee9ca72fa7e1a28774" target="_blank">example</a>.
+          Optionally, upload the file to IPFS and add its link in the message. See <a href="/msg/0x2dc3fcc6a0a23e88a82def9c07248731d98e7178a9fd4cee9ca72fa7e1a28774" target="_blank">example</a>.
           <br><br>
           For more details see the <router-link to="/copyright-protection/faq">FAQ</router-link>. In case of copyright infringement, use our <router-link to="/copyright-protection/cease-and-desist-letter">cease and desist letter generator</router-link>.
           <br><br>

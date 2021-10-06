@@ -12,9 +12,36 @@
 
     <div style="height:20px;"></div>
 
+    <div style="display:grid;grid-template-columns: 1fr 1fr;width:286px;margin:0 auto;">
+      <div style="display:grid;grid-template-columns: 1fr 1fr;width:143px;">
+        <div @click="type = 'msg'" class="msg-nft-tab"  v-bind:class="{ 'active-nft-tab': type == 'msg' }" title="Read permanent message">
+          MSG
+        </div>
+        <div @click="type = 'nft'" class="msg-nft-tab"  v-bind:class="{ 'active-nft-tab': type == 'nft' }" title="Read non-fungible token">
+          NFT
+        </div>
+      </div>
+      <div class="select-network-div-reader" >
+        <select name="select-network-reader" id="select-network-reader" v-model="selectedNetwork" title="Select network">
+          <option value="main">Main network</option>
+          <option value="ropsten">Ropsten</option>
+          <option value="rinkeby">Rinkeby</option>
+        </select>
+      </div>
+    </div>
+
+
+
+    <div style="height:10px;"></div>
+
     <div style="max-width:600px;margin:0 auto;">
-		  <input type="text" placeholder="Your Ethereum transaction hash" v-model="txHash" class="tx-input-field">
+		  <input v-show="type == 'msg'" type="text" placeholder="Your Ethereum transaction hash" v-model="txHash" class="tx-input-field">
     
+      <div v-show="type == 'nft'" style="display:grid;grid-template-columns:0.79fr 0.01fr 0.2fr;">
+        <input type="text" placeholder="NFT Contract Address" v-model="nftAddress" class="tx-input-field">
+        <div></div>
+        <input type="text" placeholder="NFT ID" v-model="nftId" class="tx-input-field">
+      </div>
       <!-- <div class="effect-9-parent">
         <input type="text" v-model="txHash" placeholder="Your Ethereum transaction hash" class="effect-9" style="width:100%;height:35px;padding:5px;padding-top:6px;font-size:15px;margin-top:5px;outline:0;">
         <span class="focus-border">
@@ -60,6 +87,8 @@ export default {
   name: 'ReaderComponent',
   data: function() {
     return {
+      nftAddress: '',
+      nftId: '',
       txHash: '',
       txHashArray: [
         '0x52fcfb8b25daa9a6ea2c99a26cba4a4104ba21cb83fe670a3d296a317b98f097',
@@ -84,12 +113,21 @@ export default {
         '0xa0904c7011c4195630b4fbffee67df687112a6bae9770fedc1d90179fa838cfb',
         '0x2dc3fcc6a0a23e88a82def9c07248731d98e7178a9fd4cee9ca72fa7e1a28774',
         '0xea8ffdabd3dc2a43b643640be59a93953fa25d273d5beaa34ed96b7fc5f3d033',
-
+      ],
+      nftArray: [
+        '/nft/0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D/8580',
+        '/nft/0xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270/13000109',
+        '/nft/0xC8BcbE0E8ae36D8f9238cd320ef6dE88784B1734/3926',
+        '/nft/0x41A322b28D0fF354040e2CbC676F0320d8c8850d/11',
+        '/rinkeby/nft/0x2D4Fc4476B168057dc7589aA28e72f2af2017b5A/2',
+        '/nft/0xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270/23000213'
       ],
       message: 'Loading...',
       content: false,
       timestamp: '',
-      apiKey: 'RCQRV7SVG3MWCWZ9W1INYXTSVSGKBQTPAX',
+      type: 'msg',
+
+      selectedNetwork: '',
     }
   },
 
@@ -110,61 +148,40 @@ export default {
       this.read();
     },
     read: function(lucky) {
-      if (lucky == 'lucky') {
+      selectNetwork(this.selectedNetwork);
+
+      if (lucky == 'lucky' && this.type == 'msg') {
+        this.selectedNetwork = 'main';
+        selectNetwork(this.selectedNetwork);
         this.txHash = this.txHashArray[Math.floor(Math.random()*this.txHashArray.length)];
       }
 
-      if (this.txHash == '') {
+      if (this.type == 'msg' && this.txHash == '') {
         return alert('Enter Ethereum transaction hash');
       }
+      
+      let network = '';
+      if (this.selectedNetwork != 'main') {
+        network = '/'+this.selectedNetwork;
+      }
 
-      this.$router.push({ path: '/'+this.txHash })
+      if (this.type == 'msg') {
+        this.$router.push({ path: network+'/msg/'+this.txHash })
+      }
+      else if (this.type == 'nft') {
+        // return(alert('NFT reading is coming soon!'));
+        // console.log(this.nftId, this.nftAddress);
+        if (lucky == 'lucky' && this.type == 'nft') {
+          this.selectedNetwork = 'main';
+          selectNetwork(this.selectedNetwork);
+          let url = this.nftArray[Math.floor(Math.random()*this.nftArray.length)];
+          this.$router.push({ path: url })
+        }
+        else {
+          this.$router.push({ path: network+'/nft/'+this.nftAddress+'/'+this.nftId })
+        }
+      }
 
-      // this.$emit('isContent', true);
-
-      // this.message = "Loading...";
-      // this.$parent.$parent.content = true;
-      // let self = this;
-
-      // axios.get(etherscan + '/api?module=proxy&action=eth_getTransactionByHash&txhash=' + this.txHash + '&apikey=' + this.apiKey)
-      // .then(
-      //   function (response) {
-      //     // console.log(response);
-      //     if (typeof(response["data"]["result"]["input"]) == 'undefined') {
-      //       self.message = "Error. Please try again.";
-      //       return;
-      //     }
-      //     console.log(response["data"]);
-      //     self.hex2utf8(response["data"]["result"]["input"]);
-      //     self.blockNumber = response["data"]["result"]["blockNumber"];
-      //     axios.get(etherscan + '/api?module=proxy&action=eth_getBlockByNumber&tag='+self.blockNumber+'&boolean=true' + '&apikey=' + self.apiKey)
-      //       .then (
-      //         function (response) {
-      //           console.log(response);
-
-      //           if (typeof response["data"]["error"] === 'undefined') {
-      //               let timestamp = response["data"]["result"]["timestamp"];
-      //               timestamp = parseInt(timestamp, 16);
-      //               self.convert(timestamp);
-      //           }
-      //           else {
-      //               self.timestamp = "Processing..."
-      //           }
-      //         }
-      //       )
-      //       .catch (
-      //         function (error) {
-      //           console.log (error);
-      //         }
-      //       );
-      //   }
-      // )
-      // .catch (
-      //   function (error) {
-      //     console.log (error);
-      //     self.message = "Message is not available. Try a different tx hash.";
-      //   }
-      // );
     },
     hex2utf8: function(pStr) {
       try {
@@ -180,12 +197,56 @@ export default {
     convert: function(unixtimestamp) {
       this.timestamp = new Date(new Date(unixtimestamp*1000)).toUTCString();
     }
+  },
+
+  mounted () {
+    this.selectedNetwork = selectedNetwork;
   }
 }
 </script>
 
 
 <style>
+
+  .select-network-div-reader {
+    width:143px;
+    padding: 6px;
+    height: 40px;
+  }
+
+  select {
+    width: 132px;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-padding-end: 20px;
+    -moz-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -moz-padding-start: 2px;
+    background-color: #F9F9F9;
+    border: 1px solid #cacaca;
+    border-radius: 5px;
+    color: rgb(23, 23, 23);
+    font-size: inherit;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 13px;
+    padding: 6px;
+    height:30px;
+}
+
+  @media screen and (max-width: 500px) {
+    .select-network-div-reader {
+      display:block;
+      float:left;
+      padding-left: 0px;
+    }
+    select {
+      width: 120px;
+    }
+  }
+
   .tx-input-field {
     width:100%;
     text-align:center;
@@ -290,4 +351,23 @@ export default {
     font-size: 14px;
   }
   
+  .msg-nft-tab {
+  cursor:pointer;
+  text-align:center;
+  font-size:13px;
+  border:1px solid #cacaca;
+  border-radius:5px;
+  background-color:#f9f9f9;
+  /* padding:3px; */
+  padding-top:8px;
+  margin:6px;
+  /* box-sizing: content-box; */
+  height:30px;
+}
+
+.active-nft-tab {
+ border: 3px solid rgb(95, 95, 95);
+ background: white;
+ padding-top:6px;
+}
 </style>

@@ -56,19 +56,20 @@
             
         <!-- </div> -->
 
-        <div v-if="!$parent.content" style="margin-bottom:60px;">
+        <div v-if="!$parent.content" style="margin-bottom:60px;margin-top:-20px;">
 
           <div class="title-slogan">
             <!-- Permanent Records in the Blockchain Archive -->
             <!-- Immutable Records in the Permanent Archive -->
             <!-- Read and Write Permanent Messages -->
-            Blockchain Based Permanent Records
+            Set in Block Reader
           </div>
 
           <div style="height:5px;"></div>
 
+          <span class="slogan2">Read permanent messages and NFTs set in the Ethereum blockchain</span>
           <!-- <span class="slogan2">Immutable and Everlasting Records in the Ethereum Blockchain Archive</span> -->
-          <span class="slogan2">Read and Write Immutable and Everlasting Data in the Ethereum Blockchain</span>
+          <!-- <span class="slogan2">Read and Write Immutable and Everlasting Data in the Ethereum Blockchain</span> -->
 
 
         </div>
@@ -77,14 +78,23 @@
           <reader-component @isContent="isContent"/>
         </div>
 
-        <div style="height:90px;"></div>
+        <div style="height:120px;"></div>
 
         <span class="home-info">
 
+          <div class="title-slogan">
+            <!-- Permanent Records in the Blockchain Archive -->
+            <!-- Immutable Records in the Permanent Archive -->
+            <!-- Read and Write Permanent Messages -->
+            Decentralized Creator Tools
+          </div>
 
-          <div style="height:20px;"></div>
+          <span class="slogan2">Set in Block user interfaces for interacting with the Ethereum blockchain</span>
+          
+          <div style="height:80px;"></div>
 
-          <b>Content Copyright Protection with Blockchain</b>
+          <b>Content Copyright Protection</b>
+
 
           <div style="height:15px;"></div>
 
@@ -143,23 +153,23 @@
 
           <div style="height:20px;"></div>
 
-          <div class="overflow-dots"><a href="/0x2d6a7b0f6adeff38423d4c62cd8b6ccb708ddad85da5d3d06756ad4d8a04a6a2" style="white-space: nowrap;" target="_blank">A letter to Peking University teachers and classmates</a></div>
-                    <div class="overflow-dots"><a target="_blank" style="white-space: nowrap;" href="/0x8006d703a45663cab96a85a4ef3e6ab94a1410d6e70119139eea807a63ecb79e">What If Linus Torvalds Gets Hit By A Bus</a></div>
-          <a target="_blank" style="white-space: nowrap;" href="/0x7975bf9cf6ce32b3f04cafcca60b1a7bb214d66c5c47ca8c6e65faab787079b6">The Afterlife</a>
+          <div class="overflow-dots"><a href="/msg/0x2d6a7b0f6adeff38423d4c62cd8b6ccb708ddad85da5d3d06756ad4d8a04a6a2" style="white-space: nowrap;" target="_blank">A letter to Peking University teachers and classmates</a></div>
+                    <div class="overflow-dots"><a target="_blank" style="white-space: nowrap;" href="/msg/0x8006d703a45663cab96a85a4ef3e6ab94a1410d6e70119139eea807a63ecb79e">What If Linus Torvalds Gets Hit By A Bus</a></div>
+          <a target="_blank" style="white-space: nowrap;" href="/msg/0x7975bf9cf6ce32b3f04cafcca60b1a7bb214d66c5c47ca8c6e65faab787079b6">The Afterlife</a>
           <br>
-          <a target="_blank" style="white-space: nowrap;" href="/0xf750f5c105bc9692d065ebfb7f6abd483336682490106b409e15c295b34b217a">Zorba the Buddha</a>
+          <a target="_blank" style="white-space: nowrap;" href="/msg/0xf750f5c105bc9692d065ebfb7f6abd483336682490106b409e15c295b34b217a">Zorba the Buddha</a>
           <br>
 
 
-          <a style="white-space: nowrap;" href="/0x7a69f558bdc4aaf1e6bab9473c84cb2fddbd1e419c44d5c22eb88bedeb09657c" target="_blank">Vitalik Buterin on burning SHIB tokens</a>
+          <a style="white-space: nowrap;" href="/msg/0x7a69f558bdc4aaf1e6bab9473c84cb2fddbd1e419c44d5c22eb88bedeb09657c" target="_blank">Vitalik Buterin on burning SHIB tokens</a>
           <br>
-          <a style="white-space: nowrap;" href="/0xa0904c7011c4195630b4fbffee67df687112a6bae9770fedc1d90179fa838cfb" target="_blank">First Things First Manifesto 2000</a>
+          <a style="white-space: nowrap;" href="/msg/0xa0904c7011c4195630b4fbffee67df687112a6bae9770fedc1d90179fa838cfb" target="_blank">First Things First Manifesto 2000</a>
           <br>
-          <a style="white-space: nowrap;" href="/0xc7377190e9c0b40d3e5e7d434430ffeff5df3394dd4e6b56581802ee125185de" target="_blank">New Year's Resolution</a>
+          <a style="white-space: nowrap;" href="/msg/0xc7377190e9c0b40d3e5e7d434430ffeff5df3394dd4e6b56581802ee125185de" target="_blank">New Year's Resolution</a>
           <br>
-          <a href="/0x98f619c174b21b28a5820f9be61cd4f86b51d7889b0eb38840028df34a6ac2c7" style="white-space: nowrap;" target="_blank">1st Link Marine BigMac™ Platoon</a>
+          <a href="/msg/0x98f619c174b21b28a5820f9be61cd4f86b51d7889b0eb38840028df34a6ac2c7" style="white-space: nowrap;" target="_blank">1st Link Marine BigMac™ Platoon</a>
           <br>
-          <a href="/0xea8ffdabd3dc2a43b643640be59a93953fa25d273d5beaa34ed96b7fc5f3d033" style="white-space: nowrap;" target="_blank">Message from the POLY Network exploiter</a>
+          <a href="/msg/0xea8ffdabd3dc2a43b643640be59a93953fa25d273d5beaa34ed96b7fc5f3d033" style="white-space: nowrap;" target="_blank">Message from the POLY Network exploiter</a>
           <br>
           <br>
           <router-link  to="/new-message"><button class="button-wire">Write Permanent Message</button></router-link>
@@ -206,7 +216,18 @@
           A typical NFT is a token that represents some kind of an object, which can be a digital image in jpg or any other format, a physical work of art, a piece of digital land, a physical building, in-game items, and similar. By owning an NFT token, you also own a specific object representation, associated with that non-fungible token. 
           <br><br>
           NFT tokens can be minted, and object associations created. NFTs can be transferred from one user to another, traded on NFT marketplaces.
-          <br><br>
+          
+          <div style="height:20px;"></div>
+
+          <div class="overflow-dots"><a href="/nft/0xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270/13000109" style="white-space: nowrap;" target="_blank">Art Blocks - Ringers #109</a></div>
+          <div class="overflow-dots"><a href="/nft/0xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270/23000213" style="white-space: nowrap;" target="_blank">Art Blocks - Archetype #213</a></div>
+          <div class="overflow-dots"><a target="_blank" style="white-space: nowrap;" href="/nft/0xC8BcbE0E8ae36D8f9238cd320ef6dE88784B1734/3926">Winter Bear #3926</a></div>
+          <div class="overflow-dots"><a href="/nft/0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D/8580" style="white-space: nowrap;" target="_blank">Bored Ape Yacht Club #8580</a></div>
+          <a target="_blank" style="white-space: nowrap;" href="/nft/0x41A322b28D0fF354040e2CbC676F0320d8c8850d/11">SuperRare Token - All Time High in the City</a>
+          <br>
+          <a target="_blank" style="white-space: nowrap;" href="/rinkeby/nft/0x2D4Fc4476B168057dc7589aA28e72f2af2017b5A/2">Set in Block NFT on Rinkeby Testnet</a>
+          <br>
+          <br>
 
           <router-link to="/mint-nft"><button class="button-wire">Mint NFT</button></router-link>
 
@@ -222,11 +243,21 @@
 
           <h2 style="text-align:left;margin-bottom:30px;">About</h2>
 
-          Users can use Set in Block submission interface to create Ethereum blockchain messages and broadcast them with their MetaMask wallets. The submission is done on the client side. For privacy reasons, every new Set in Block message is sent to a randomly generated Ethereum address.
+          Set in Block is a decentralized app (DApp) for digital publishing and intellectual property protection.
+          <br><br>
+          Using Set in Block creator tools, users can read and write permanent records, protect content copyright, mint NFT tokens.
+          <br><br>
+          Set in Block functions as a visual interface, an intermediate between the user and the blockchain, designed for creators to make their work with Ethereum easier.
+          
+          <div style="height:40px;"></div>
+          
+          <h2 style="text-align:left;margin-bottom:30px;">How it works</h2>
+
+          Users can use Set in Block submission interface to create Ethereum blockchain messages and broadcast them with their MetaMask wallets. The submission is done on the client-side. For privacy reasons, every new Set in Block message is sent to a randomly generated Ethereum address.
           <br><br>
           Read how to use Set in Block for <router-link to="/copyright-protection/faq">copyright protection</router-link>.
           <br><br>
-          Your message, recorded on the blockchain, is immutable and incorruptible - no one can delete or modify it. It also never expires - it's a permanent record. 
+          Your message, recorded in the blockchain, is immutable and incorruptible - no one can delete or modify it. It also never expires - it's a permanent record. 
           <br><br>
           By having a message archived on the blockchain, you have a mathematically-based proof of existence that your message is authentic, and that it existed prior to a 
           specific date.
@@ -251,8 +282,10 @@
           To prevent <a href="https://themerkle.com/what-is-blockchain-bloat/" target="_blank">blockchain bloating</a> and to avoid high transaction fee, the content needs to be relatively short. For a larger content, or files, the best practice is to include only the content's hash, and to publish the actual content somewhere else, e.g. on IPFS. See the <router-link to="/copyright-protection/faq">FAQ</router-link> for more details.
           <br><br>
           The options for setting things in block are endless. By recording a file's hash in the blockchain, you can <i>set in block</i> virtually anything. The thing represented in the file, no matter the format, receives an immutable and incorruptible timestamp, which works as a proof-of-existence. Such proof never expires, it cannot be edited or deleted, and it can always be independently verified.
-          <br><br>
-          <br><br>
+          
+          <div style="height:40px;"></div>
+          
+          <h2 style="text-align:left;margin-bottom:30px;">Credits</h2>
           Set in Block is a free and <a href="https://github.com/giekaton/Set-in-Block" target="_blank">open-source</a> digital service based on the <a href="https://ethereum.org" target="_blank">Ethereum</a> blockchain, powered by <a href="https://infura.io/" target="_blank">Infura</a>, <a href="https://www.alchemy.com/" target="_blank">Alchemy</a> and <a href="https://etherscan.io/" target="_blank">Etherscan</a> APIs.
           <br><br>
           Set in Block is supported by <a href="https://coinwink.com/eth" target="_blank">Coinwink</a> - never miss important Ethereum price changes with the help of Coinwink crypto alerts.

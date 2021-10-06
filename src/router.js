@@ -87,7 +87,7 @@ export default new Router({
       name: 'MintNFT',
       component: MintNFT,
       meta: {
-        title: 'Mint New NFT Token - Set in Block',
+        title: 'Mint New NFT - Set in Block',
         metaTags: [
           {
             name: 'description',
@@ -117,12 +117,39 @@ export default new Router({
       }
     },
     {
-      path: '/:txHash',
-      name: 'reader',
+      path: '/msg/:txHash',
+      name: 'readerMsg',
       component: Read,
       props: true,
       meta: {
-        title: 'Set in Block - Everlasting Message',
+        title: 'Permanent Message - Set in Block',
+      }
+    },
+    {
+      path: '/:net/msg/:txHash',
+      name: 'readerNetworkMsg',
+      component: Read,
+      props: true,
+      meta: {
+        title: 'Permanent Message - Set in Block',
+      }
+    },
+    {
+      path: '/nft/:nftAddress/:nftId',
+      name: 'readerNft',
+      component: Read,
+      props: true,
+      meta: {
+        title: 'Non-Fungible Token (NFT) Reader - Set in Block',
+      }
+    },
+    {
+      path: '/:net/nft/:nftAddress/:nftId',
+      name: 'readerNetworkNft',
+      component: Read,
+      props: true,
+      meta: {
+        title: 'Non-Fungible Token (NFT) Reader - Set in Block',
       }
     }
 

@@ -3,6 +3,7 @@ node_modules
 /dist
 /dist-backup
 /public/php-metamask-user-login
+/public/backend/env.php
 
 # local env files
 .env.local
