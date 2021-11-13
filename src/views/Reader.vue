@@ -77,10 +77,9 @@ export default {
       blockNumber: '',
       timestamp: 'Loading...',
       apiKey: 'RCQRV7SVG3MWCWZ9W1INYXTSVSGKBQTPAX',
-      networkReload: this.$parent.networkReload,
       type: '',
-      // backendUrl: 'http://localhost/sb-backend/server.php',
-      backendUrl: '/backend/server.php',
+      // // backendUrl: 'http://localhost/sb-backend/server.php',
+      // backendUrl: '/backend/server.php',
       nftJson: '',
       etherscan: '',
       
@@ -177,7 +176,7 @@ export default {
           net = this.net;
         }
         if (net == '') net = 'main'
-        let call = this.backendUrl + '?type=nft&address='+this.nftAddress+'&id='+this.nftId+'&net='+net;
+        let call = appDomain + '/backend/server.php?type=nft&address='+this.nftAddress+'&id='+this.nftId+'&net='+net;
         axios.get(call)
         .then(
           (response) => {
@@ -260,6 +259,7 @@ export default {
 }
 
 .sans-serif {
-  font-family: 'Noto', sans-serif;
+  /* font-family: 'Noto', sans-serif; */
+  font-family: Arial, Helvetica, sans-serif;
 }
 </style>

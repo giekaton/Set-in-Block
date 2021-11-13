@@ -1,15 +1,6 @@
 <template>
   <div class="reader-input">
 
-    <!-- <div style="font-size:18px;margin-top:-20px;margin-bottom:60px;">
-      <b>Blockchain message reader</b>
-    </div> -->
-
-		<!-- <div style="font-size:14px;">
-      Ethereum transaction hash:
-    </div> -->
-
-
     <div style="height:20px;"></div>
 
     <div style="display:grid;grid-template-columns: 1fr 1fr;width:286px;margin:0 auto;">
@@ -30,8 +21,6 @@
       </div>
     </div>
 
-
-
     <div style="height:10px;"></div>
 
     <div style="max-width:600px;margin:0 auto;">
@@ -42,12 +31,6 @@
         <div></div>
         <input type="text" placeholder="NFT ID" v-model="nftId" class="tx-input-field">
       </div>
-      <!-- <div class="effect-9-parent">
-        <input type="text" v-model="txHash" placeholder="Your Ethereum transaction hash" class="effect-9" style="width:100%;height:35px;padding:5px;padding-top:6px;font-size:15px;margin-top:5px;outline:0;">
-        <span class="focus-border">
-          <i></i>
-        </span>
-      </div> -->
 
     </div>
 
@@ -57,27 +40,6 @@
     <button @click="read('lucky')" class="two-buttons">Random</button>
 
     <div style="height:20px;"></div>
-
-
-    <div v-if="$parent.$parent.content" class="reader-msg serif" style="min-height:55px;">      
-      <div style="position:absolute;top:11px;right:13px;cursor:pointer;font-size:20px;" @click="close()">✕</div>
-      <div style="height:15px;"></div>
-      {{ message }}
-      <div v-if="message != 'Message is not available. Try a different tx hash.'">
-        <div style="border-top:1px solid #cccccc;width:100%;margin-top:60px;padding-top:0px;"></div>
-        <div class="reader-tx-details sans-serif" style="line-height:130%;margin-bottom:20px;margin-top:-7px;">
-          The above message is stored permanently on the blockchain. It cannot be edited or deleted.
-          <div style="height:15px;"></div>
-          Message created: <span style="color:#222;">{{ timestamp }}</span>
-          <div style="height:0px;"></div>
-          Ethereum transaction hash: <a v-bind:href="'https://etherscan.io/tx/'+txHash" target="_blank" title="Link to Etherscan">{{ txHash }}</a>
-          <div style="height:0px;"></div>
-          Set in Block: <a v-bind:href="'/'+txHash" target="_blank" style="font-size:12px;">https://setinblock.com/{{txHash}}</a>
-          <div style="height:0px;"></div>
-        </div>
-      </div>
-      <div v-else style="height:45px;"></div>
-    </div>
 
   </div>
 </template>
@@ -113,6 +75,7 @@ export default {
         '0xa0904c7011c4195630b4fbffee67df687112a6bae9770fedc1d90179fa838cfb',
         '0x2dc3fcc6a0a23e88a82def9c07248731d98e7178a9fd4cee9ca72fa7e1a28774',
         '0xea8ffdabd3dc2a43b643640be59a93953fa25d273d5beaa34ed96b7fc5f3d033',
+        '0x87411bb61a6bf1cbc81a8f193906f0aeb331309696c1d5167053144d13332d49',
       ],
       nftArray: [
         '/nft/0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D/8580',
@@ -120,7 +83,13 @@ export default {
         '/nft/0xC8BcbE0E8ae36D8f9238cd320ef6dE88784B1734/3926',
         '/nft/0x41A322b28D0fF354040e2CbC676F0320d8c8850d/11',
         '/rinkeby/nft/0x2D4Fc4476B168057dc7589aA28e72f2af2017b5A/2',
-        '/nft/0xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270/23000213'
+        '/nft/0xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270/23000213',
+        '/nft/0x60e4d786628fea6478f785a6d7e704777c86a7c6/4849',
+        '/nft/0x1CB1A5e65610AEFF2551A50f76a87a7d3fB649C6/360',
+        '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/374',
+        '/nft/0x1a92f7381b9f03921564a437210bb9396471050c/1490',
+        '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/86',
+
       ],
       message: 'Loading...',
       content: false,
@@ -135,10 +104,6 @@ export default {
   methods: {
     embed: function() {
       alert("This feature is coming soon. Please come back in a few days.")
-    },
-    close: function() {
-      this.$parent.$parent.content = false;
-      // this.$emit('isContent', false);
     },
     readExamples: function(hash) {
       document.body.scrollTop = 0; // For Safari

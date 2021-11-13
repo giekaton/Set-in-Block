@@ -4,7 +4,7 @@
     <!-- New message -->
     <div style="max-width:620px;margin:0 auto;padding-top:50px;">
 
-      <h1><b>Create New Permanent Message</b></h1>
+      <h1>Create New Permanent Message</h1>
 
 
       <br><br>
@@ -50,8 +50,6 @@
     <!-- Feedback -->
     <div v-if="feedback != ''" v-html="feedback" class="feedback" style="text-align:center;font-weight:bold;"></div>
 
-    <!-- <div v-if="feedback != ''" style="height:40px;"></div> -->
-
     <div style="height:40px;"></div>
 
     <!-- Preview -->
@@ -80,33 +78,16 @@
 
     <div style="height:40px;"></div>
 
-    <!-- <div class="reader-footer">
-      <div class="width">
-        <a href="https://github.com/giekaton/set-in-block" target="_blank" title="GitHub" class="sans-serif" style="margin-right:2px;color:#828282;">
-          GitHub</a> | <a href="https://twitter.com/setinblock" target="_blank" style="color:#828282;">Twitter</a>
-        <div style="float:right;" class="sans-serif">
-          <router-link to="/about" style="color:#828282;">About</router-link>
-        </div>
-      </div>
-    </div> -->
-    
-    <footer-component />
-
   </div>
 </template>
 
 <script>
-import ReaderComponent from '../components/ReaderComponent.vue';
-import FileInput from '../components/FileInput.vue';
-import FooterComponent from '../components/Footer.vue';
 
 export default {
   props: ['txHash'],
   
   components: {
-    ReaderComponent,
-    FileInput,
-    FooterComponent
+
   },
 
   data: function() {
@@ -156,45 +137,29 @@ export default {
     fileData: function (data) {
       this.messageInput += '\n\nFile: '+data.fileName+' ('+data.fileSize+' bytes)\nSHA-256 #: '+data.fileHash;
     },
-    set: async function() {
 
-      // Modern dapp browsers...
-      // if (window.web3) {
-      //   window.web3 = new Web3(ethereum);
+    set: async function() {
+      document.getElementsByClassName('web3modal-modal-lightbox')[0].style.display = 'block';
+
+      await onConnectLoadWeb3Modal();
+
+      if (web3ModalProv) {
+        window.web3 = web3ModalProv;
         try {
-          // const accounts = await ethereum.enable();
-          // web3.currentProvider.publicConfigStore._state.selectedAddress = accounts[0];
           this.setGo();
         } catch (error) {
           console.log(error);
-          self.feedback = '<span class="notice">To broadcast the message, first log in to your MetaMask wallet.</span>';
+          this.feedback = '<span class="notice">To broadcast the message, first log in to your MetaMask wallet.</span>';
           return;
         }
-      // }
-      // Legacy dapp browsers...
-      // else if (window.web3) {
-      //     window.web3 = new Web3(web3.currentProvider);
-      //     this.setGo();
-      // }
-      // Non-dapp browsers...
-      // else {
-      //   self.feedback = '<span class="notice">To broadcast the message, first install <b><a href="https://metamask.io/" target="_blank" class="notice underlined">MetaMask</a></b> browser extension.</span>';
-      //   return;
-      // }
-
-
-    },
-
-    setGo: async function () {
-      if (typeof window.web3 === 'undefined') {
-        this.feedback = '<span class="notice">To broadcast messages, first install the <b><a href="https://metamask.io/" target="_blank" class="notice underlined">MetaMask</a></b> browser extension.</span>';
+      }
+      else {
+        this.feedback = '<span class="notice">To broadcast the message, first install <b><a href="https://metamask.io/" target="_blank" class="notice underlined">MetaMask</a></b> browser extension.</span>';
         return;
       }
-      // else if (typeof web3.currentProvider.publicConfigStore._state.selectedAddress === 'undefined') {
-      //   this.feedback = '<span class="notice">To broadcast the message, first log in to your MetaMask wallet.</span>';
-      //   return;
-      // }
-      
+    },
+
+    setGo: async function () {  
       this.feedback = '<span class="notice-good">Confirm the transaction in the MetaMask popup window.</span>';
 
       let handleReceipt = (error, receipt) => {
@@ -206,11 +171,9 @@ export default {
       }
 
       let message = this.messageInput;
-      // let accounts = await ethereum.enable();
-      // let sender = accounts[0];
-      var accountsOnEnable = await ethereum.request({method: 'eth_requestAccounts'});
-      // console.log(accountsOnEnable)
-      let sender = accountsOnEnable[0];
+
+      let accountsOnEnable = await web3.eth.getAccounts();
+      let sender = accountsOnEnable[0].toLowerCase();
 
       message = this.rstr2utf8(message);
       message = this.str2hex(message);
@@ -224,26 +187,6 @@ export default {
       }, handleReceipt);
       
     },
-
-    // Converts a raw javascript string into a string of single byte characters using utf8 encoding.
-    // This makes it easier to perform other encoding operations on the string.
-    // rstr2utf8: function(input) {
-    //   let output = "";
-    //   for (let n = 0; n < input.length; n++) {
-    //     let c = input.charCodeAt(n);
-    //     if (c < 128) {
-    //         output += String.fromCharCode(c);
-    //     } else if ((c > 127) && (c < 2048)) {
-    //         output += String.fromCharCode((c >> 6) | 192);
-    //         output += String.fromCharCode((c & 63) | 128);
-    //     } else {
-    //         output += String.fromCharCode((c >> 12) | 224);
-    //         output += String.fromCharCode(((c >> 6) & 63) | 128);
-    //         output += String.fromCharCode((c & 63) | 128);
-    //     }
-    //   }
-    //   return output;
-    // },
 
     rstr2utf8: function(input) {
       return unescape( encodeURIComponent( input ) );

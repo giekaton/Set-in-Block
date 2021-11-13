@@ -1,71 +1,34 @@
 <template>
   <div id="app">
-    <div class="header">
+    <header-component />
 
-      <div class="header-inner">
-        <div style="cursor:pointer;">
-          <router-link to="/">
-            <div style="float:left;height:24px;width:24px;margin-top:-1px;">
-              <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 343.42 343.42"><title>logo</title><polygon points="0 0 343.42 0 343.42 343.42 0 343.42 0 0 0 0" style="fill:#424242;fill-rule:evenodd"/><polygon points="49.99 69.14 168.5 69.14 168.5 96.07 49.99 96.07 49.99 69.14 49.99 69.14" style="fill:#fff;fill-rule:evenodd"/><polygon points="49.99 157.98 111.94 157.98 111.94 184.91 49.99 184.91 49.99 157.98 49.99 157.98" style="fill:#fff;fill-rule:evenodd"/><polygon points="49.99 247.35 231.4 247.35 231.4 274.28 49.99 274.28 49.99 247.35 49.99 247.35" style="fill:#fff;fill-rule:evenodd"/></svg>
-            </div>
-            <div style="float:left;padding-left:10px;padding-top:1px;font-size:18px;font-family:'Arapey',serif;color:black;">Set in Block</div>
-          </router-link>
-        </div>
+    <router-view class="router-content"></router-view>
 
-        <!-- <div style="float:left;height:23px;width:23px;background-color:#767676;"></div>
-        <div style="float:left;padding-left:8px;padding-top:1px;font-size:19px;font-family:'Arapey'">Set in Block</div> -->
-
-        <div v-if="$route.name == 'readerMsg' || $route.name == 'readerNetworkMsg' || $route.name == 'readerNft' || $route.name == 'readerNetworkNft'" style="float:left;padding-left:6px;font-size:9px;padding-top:3px;color:#bebebe;" class="sans-serif">Reader</div>
-
-        <div style="float:right;font-size:14px;" class="sans-serif">
-          <router-link to="/new"><button style="margin-top:-2px;padding-top:2px;padding-bottom:2px;">New</button></router-link>
-          <!-- <router-link v-if="$route.name == 'home'" to="/new-message">New</router-link> -->
-          <!-- <router-link v-else to="/"><span @click="content = false">Home</span></router-link> -->
-        </div>        
-        
-        <router-link class="link-about" to="/about">About</router-link>
-
-      </div>
-    </div>
-
-    <router-view class="router-content" :network="networkReload"></router-view>
-
-    <div style="height:20px;"></div>
-
-    <footer-component v-on:network="reloadReader" />
+    <footer-component />
 
   </div>
 </template>
 
 <script>
-import FooterComponent from './components/Footer.vue';
-// import Header from './views/Header.vue';
+import FooterComponent from './partials/Footer.vue';
+import HeaderComponent from './partials/Header.vue';
+
 export default {
   props: [''],
   components: {
-    // Header,
     FooterComponent,
+    HeaderComponent,
   },
   data: function() {
     return {
-      content: false,
-      networkReload: false,
+
     }
   },
   mounted () {
-
     document.getElementById('splashScreen').style.display = 'none';
   },
   methods: {
-    backHome: function() {
-      this.content = false;
-      this.$router.push({ path: '/' });
-      window.scrollTo(0, 0);
-    },
-    reloadReader: function() {
-      // console.log('reload')
-      this.networkReload = true;
-    }
+
   }
 }
 </script>
@@ -78,7 +41,8 @@ html {
 
 body {
   margin: 0 0 50px;
-  font-family: 'Noto', sans-serif;
+  /* font-family: 'Noto', sans-serif; */
+  font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #181818;
@@ -140,21 +104,5 @@ h3 {
   font-weight: bold;
   text-align: left;
   margin-bottom: 20px;
-}
-
-.link-about {
-  float:right;margin-right:45px;font-size:14.5px;padding-top:4px;
-}
-
-@media screen and (max-width: 600px) {
-  .link-about {
-    margin-right:30px;
-  }
-}
-
-@media screen and (max-width: 350px) {
-  .link-about {
-    margin-right:20px;
-  }
 }
 </style>

@@ -4,7 +4,7 @@
     <!-- New message -->
     <div style="max-width:620px;margin:0 auto;padding-top:50px;">
 
-      <h1><b>Mint NFT</b></h1>
+      <h1>Mint NFT</h1>
 
       <br><br>
 
@@ -82,27 +82,19 @@
       <div v-if="feedback != ''" v-html="feedback" class="feedback" style="margin-top:50px;text-align:center;font-weight:bold;"></div>
     </div>
 
-    <div style="clear:both;height:70px;"></div>
-
-    <div style="height:40px;"></div>
-    
-    <footer-component /> 
+    <div style="clear:both;height:110px;"></div>
 
   </div>
 </template>
 
 <script>
-import ReaderComponent from '../components/ReaderComponent.vue';
 import FileInput from '../components/FileInput.vue';
-import FooterComponent from '../components/Footer.vue';
 
 export default {
   props: ['txHash'],
   
   components: {
-    ReaderComponent,
     FileInput,
-    FooterComponent
   },
 
   data: function() {
@@ -185,7 +177,7 @@ export default {
 
   methods: {
     updateMetaLink() {
-      this.metaLink = 'https://setinblock.com/nft-metadata/?json='+encodeURIComponent(JSON.stringify(this.json));
+      this.metaLink = appDomain+'/nft-metadata/?json='+encodeURIComponent(JSON.stringify(this.json));
     },
 
     fileData: function (data) {

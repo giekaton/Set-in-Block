@@ -3,12 +3,13 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 
 import NewMessage from './views/NewMessage.vue'
-import CopyrightProtection from './views/CopyrightProtection.vue'
-import MintNFT from './views/MintNFT.vue'
+import MintNFT from './views/NewMintNFT.vue'
+import CopyrightProtection from './views/NewCopyrightProtection.vue'
+import CeaseAndDesistLetter from './views/CeaseAndDesistLetter.vue'
 
-import Read from './views/Read.vue'
-import IPProtection from './components/IPProtection.vue'
-import CeaseAndDesistLetter from './components/CeaseAndDesistLetter.vue'
+import Reader from './views/Reader.vue'
+
+// import EthLogin from './components/EthLogin.vue'
 
 Vue.use(Router)
 
@@ -21,15 +22,15 @@ export default new Router({
       name: 'home',
       component: Home,
       meta: {
-        title: 'Set in Block - Immutable and Indestructible Records in the Ethereum Blockchain Archive',
+        title: 'Set in Block - Immutable Records, NFT Viewer, Content Creator Tools',
         metaTags: [
           {
             name: 'description',
-            content: 'Write and read everlasting messages on the blockchain. Make a permanent promise, create a proof of fact, bypass censorship. Enter a message and "set in stone" it on the blockchain.'
+            content: 'Write and read everlasting messages in the Ethereum blockchain. Make a permanent promise, create a proof of fact, protect content copyrights, mint NFTs.'
           },
           {
             property: 'og:description',
-            content: 'Write and read everlasting messages on the blockchain. Make a permanent promise, create a proof of fact, bypass censorship. Enter a message and "set in stone" it on the blockchain.'
+            content: 'Write and read everlasting messages in the Ethereum blockchain. Make a permanent promise, create a proof of fact, protect content copyrights, mint NFTs.'
           }
         ]
       }
@@ -39,11 +40,11 @@ export default new Router({
       name: 'about',
       component: Home,
       meta: {
-        title: 'Set in Block - Hidden Messages in the Ethereum, Proof-of-Existence',
+        title: 'Set in Block - Decentralized Publishing, Proof of Existence, DApp for Ethereum Blockchain',
         metaTags: [
           {
             property: 'og:description',
-            content: 'Immutable and Indestructible Proof of Existence on the Ethereum Blockchain. Create and read everlasting messages on the blockchain. Make a permanent promise, create a proof of fact, bypass censorship. Enter a message and "set in stone" it on the blockchain.'
+            content: 'Immutable and Indestructible Proof of Existence on the Ethereum Blockchain. Create and read everlasting messages on the blockchain. Make a permanent promise, create a proof of fact, protect copyrights, mint NFT tokens.'
           }
         ]
       }
@@ -65,11 +66,11 @@ export default new Router({
         metaTags: [
           {
             name: 'description',
-            content: 'Enter the message and "set in stone" it on the Ethereum blockchain. You will create a permanent record, which is message permanently recorded in the Ethereum blockchain.'
+            content: 'Create a new permanent, everlasting, indestructible blockchain record.'
           },
           {
             property: 'og:description',
-            content: 'Enter the message and "set in stone" it on the Ethereum blockchain. You will create a permanent record, which is message permanently recorded in the Ethereum blockchain.'
+            content: 'Create a new permanent, everlasting, indestructible blockchain record.'
           }
         ],
       }
@@ -79,7 +80,17 @@ export default new Router({
       name: 'CopyrightProtection',
       component: CopyrightProtection,
       meta: {
-        title: 'Protect Content Copyright with Blockchain - Set in Block',
+        title: 'Protect Content Copyright - Set in Block',
+        metaTags: [
+          {
+            name: 'description',
+            content: 'Intellectual property protection on the Ethereum blockchain.'
+          },
+          {
+            property: 'og:description',
+            content: 'Intellectual property protection on the Ethereum blockchain.'
+          }
+        ],
       }
     },
     {
@@ -87,39 +98,41 @@ export default new Router({
       name: 'MintNFT',
       component: MintNFT,
       meta: {
-        title: 'Mint New NFT - Set in Block',
+        title: 'Mint New NFT (ERC-721) Token - Set in Block',
         metaTags: [
           {
             name: 'description',
-            content: 'Create a new non-fungible token'
+            content: 'Create a new non-fungible token on the Ethereum blockchain.'
           },
           {
             property: 'og:description',
-            content: 'Create a new non-fungible token'
+            content: 'Create a new non-fungible token on the Ethereum blockchain.'
           }
         ],
       }
     },
     {
-      path: '/copyright-protection/cease-and-desist-letter',
+      path: '/cease-and-desist-letter-template',
       name: 'CeaseAndDesistLetter',
       component: CeaseAndDesistLetter,
       meta: {
-        title: 'Set in Block - Cease and Desist Letter Generator',
+        title: 'Cease and Desist Letter Generator, Template - Set in Block',
       }
     },
-    {
-      path: '/copyright-protection/faq',
-      name: 'IPProtection',
-      component: IPProtection,
-      meta: {
-        title: 'Set in Block - Intellectual Property Protection with Blockchain',
-      }
-    },
+
+    // {
+    //   path: '/php-metamask-user-login',
+    //   name: 'EthLogin',
+    //   component: EthLogin,
+    //   meta: {
+    //     title: 'Sign-In With Ethereum - Passwordless User Authentication With PHP & MetaMask',
+    //   }
+    // },
+
     {
       path: '/msg/:txHash',
       name: 'readerMsg',
-      component: Read,
+      component: Reader,
       props: true,
       meta: {
         title: 'Permanent Message - Set in Block',
@@ -128,7 +141,7 @@ export default new Router({
     {
       path: '/:net/msg/:txHash',
       name: 'readerNetworkMsg',
-      component: Read,
+      component: Reader,
       props: true,
       meta: {
         title: 'Permanent Message - Set in Block',
@@ -137,19 +150,29 @@ export default new Router({
     {
       path: '/nft/:nftAddress/:nftId',
       name: 'readerNft',
-      component: Read,
+      component: Reader,
       props: true,
       meta: {
-        title: 'Non-Fungible Token (NFT) Reader - Set in Block',
+        title: 'Non-Fungible Token (NFT) - Set in Block',
       }
     },
     {
       path: '/:net/nft/:nftAddress/:nftId',
       name: 'readerNetworkNft',
-      component: Read,
+      component: Reader,
       props: true,
       meta: {
-        title: 'Non-Fungible Token (NFT) Reader - Set in Block',
+        title: 'Non-Fungible Token (NFT) - Set in Block',
+      }
+    },
+    
+    {
+      path: '/:any',
+      name: '404',
+      component: Home,
+      props: true,
+      meta: {
+        title: '404',
       }
     }
 

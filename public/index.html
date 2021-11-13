@@ -5,19 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
 
-    <meta name="image" content="https://setinblock.com/img/social.png?v=001">
-
-    <!-- Schema.org for Google -->
-    <meta itemprop="image" content="https://setinblock.com/img/social.png?v=001">
-
-    <!-- Twitter -->
-    <meta name="twitter:site" content="@setinblock">
-    <meta name="twitter:image:src" content="https://setinblock.com/img/social.png?v=001">
-
-    <!-- Open Graph general (Facebook, Pinterest & Google+) -->
-    <meta property="og:image" content="https://setinblock.com/img/social_fb.png?v=001">
-    <meta property="og:type" content="website">
-
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="https://setinblock.com/img/favicon/apple-touch-icon.png?v=xQOzbvWeR2">
     <link rel="icon" type="image/png" sizes="32x32" href="https://setinblock.com/img/favicon/favicon-32x32.png?v=xQOzbvWeR2">
@@ -32,15 +19,17 @@
     <meta name="theme-color" content="#f4f4f4">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Arapey|Noto+Sans:400,700" rel="stylesheet">
-    
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/ethjs@0.3.4/dist/ethjs.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Arapey" rel="stylesheet">
+
+    <script>
+      // ENV
+      // let appDomain = 'http://sb.local';
+      let appDomain = 'https://setinblock.com';
+    </script>
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     
     <script>
-
       function selectNetwork(network) {
         if (network == 'main') {
           // MAINNET
@@ -60,19 +49,7 @@
       }
       selectedNetwork = 'main';
       selectNetwork(selectedNetwork);
-
-      // generate a random Ethereum address
-      address = Eth.keccak256(Math.random().toString()).substring(0, 42);
-
-      const web3 = new Web3(window.web3.currentProvider);
-
-      // const eth = new Eth(new Eth.HttpProvider(infura));
-
-      // window.addEventListener('load', function() {
-      //   if (typeof window.web3 !== 'undefined' && typeof window.web3.currentProvider !== 'undefined') {
-      //     eth.setProvider(window.web3.currentProvider);
-      //   }
-      // });
+      
 
       const gasPerByte = 68;
 
@@ -80,6 +57,7 @@
         var bytes = encodeURI(string).split(/%..|./).length - 1;
         return bytes * gasPerByte / 2;
       }
+
     </script>
 
     <script>
@@ -113,4 +91,36 @@
   <script src="/lib/sha256.js"></script>
   <script src="/lib/lib-typedarrays-min.js"></script>
 
+
+  <!-- Web3 -->
+  <style>
+    .web3modal-modal-lightbox { display: none; }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
+  <script src="https://unpkg.com/web3modal@1.9.0/dist/index.js"></script>
+  <script src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"></script>
+  <script src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
+
+  <script src="/php-metamask-user-login/js/web3-modal.js"></script>
+  <!-- <script src="http://localhost/php-metamask-user-login/js/web3-modal.js"></script> -->
+
+  <script>
+      // Enable web3 connection
+      async function ethEnabled() {
+        if (window.ethereum) {
+          await window.ethereum.send('eth_requestAccounts');
+          window.web3 = new Web3(window.ethereum);
+          
+          // generate a random 'to' Ethereum address for a permanent message
+          address = web3.utils.keccak256(Math.random().toString()).substring(0, 42);
+
+          return true;
+        }
+        return false;
+      }
+      ethEnabled();
+  </script>
+  
 </html>
