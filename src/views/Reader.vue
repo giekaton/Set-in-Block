@@ -21,30 +21,53 @@
           </div>
         </div>
       </span>
-      <div v-else style="margin-top:-10px;">
+      <div v-else style="margin-top:-30px;">
         <span v-if="loaded && nftImageSrc">
           <span style="font-size:22px;font-weight:bold;">Non-Fungible Token (NFT)</span>
-          <div style="height:20px;"></div>
-          Token ID: {{ nftId }}
-          <br>
-          Contract address: <a target="_blank" :href="'https://'+netLink+'etherscan.io/address/'+nftAddress">{{ nftAddress }}</a>
-          <span v-if="net">
-            <br>
-            Network: <span style="text-transform:capitalize;">{{ net }}</span>
-          </span>
-          <br>
-          <br>
-          Name: {{ nftJson.data.name }}
-          <br>
-          Image: <a :href="nftImageSrc" target="_blank">{{ nftImageSrc }}</a>
           <div style="height:30px;"></div>
           <div style="width:100%;min-height: 55px; margin: 0px auto; box-shadow: rgb(233, 233, 233) 0px 4px 8px 3px;padding: 30px;">
             <img v-bind:src="nftImageSrc" style="width:100%;height:100%;">
           </div>
+          <div style="height:30px;"></div>
+          Token ID: <a :href="'https://'+netLink+'etherscan.io/token/'+nftAddress+'?a='+nftId" target="_blank">{{ nftId }}</a>
+          <span v-if="nftJson.name">
+            <br>
+            Name: {{ nftJson.name }}
+          </span>
+          <span v-if="nftJson.description">
+            <br>
+            Description: {{ nftJson.name }}
+          </span>
+          <span v-if="nftJson.owner">
+            <br>
+            Owner: <a :href="'https://'+netLink+'etherscan.io/address/'+nftJson.owner.address" target="_blank">{{ nftJson.owner.address }}</a>
+          </span>
+          <br>
+          Contract address: <a target="_blank" :href="'https://'+netLink+'etherscan.io/address/'+nftAddress">{{ nftAddress }}</a>
+          <!-- <span v-if="nftJson.asset_contract.name">
+            <br>
+            Name: {{ nftJson.asset_contract.name }}
+          </span> -->
+          <span v-if="nftJson.asset_contract" style="font-size:14px;">
+            <div style="height:15px;"></div>
+            {{ nftJson.asset_contract.description }}
+          </span>
+          <span v-if="net">
+            <br>
+            <br>
+            Network: <span style="text-transform:capitalize;">{{ net }}</span>
+          </span>
+          <br>
+          <!-- <br>
+          Image: <a :href="nftImageSrc" target="_blank">{{ nftImageSrc }}</a> -->
+          <!-- <div style="height:30px;"></div> -->
+          <!-- <div style="width:100%;min-height: 55px; margin: 0px auto; box-shadow: rgb(233, 233, 233) 0px 4px 8px 3px;padding: 30px;">
+            <img v-bind:src="nftImageSrc" style="width:100%;height:100%;">
+          </div> -->
           <div style="height:20px;"></div>
         </span>
         <span v-else-if="loaded && !nftImageSrc">
-          <b>NFT data is not available, or the token is based not on the ERC-721 standard.</b>
+          <b>NFT data is not available, or the token is based not on the Ethereum ERC-721 standard.</b>
           <div style="height:30px;"></div>
           Token ID: {{ nftId }}
           <br>
@@ -181,11 +204,17 @@ export default {
         .then(
           (response) => {
             console.log(response)
-            this.nftJson = response;
+            this.nftJson = response.data;
             this.loaded = true;
             // console.log(JSON.parse(response));
             // console.log(response.data.image)
-            this.nftImageSrc = response.data.image.replace("ipfs://", "https://ipfs.io/ipfs/");
+
+            if (typeof(response.data.image_url) != 'undefined') {
+              this.nftImageSrc = response.data.image_url;
+            }
+            else {
+              this.nftImageSrc = response.data.image.replace("ipfs://", "https://ipfs.io/ipfs/");
+            }
           }
         );
       }

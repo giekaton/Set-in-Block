@@ -5,17 +5,17 @@
 
     <div style="display:grid;grid-template-columns: 1fr 1fr;width:286px;margin:0 auto;">
       <div style="display:grid;grid-template-columns: 1fr 1fr;width:143px;">
-        <div @click="type = 'msg'" class="msg-nft-tab"  v-bind:class="{ 'active-nft-tab': type == 'msg' }" title="Read permanent message">
-          MSG
-        </div>
         <div @click="type = 'nft'" class="msg-nft-tab"  v-bind:class="{ 'active-nft-tab': type == 'nft' }" title="Read non-fungible token">
           NFT
+        </div>
+        <div @click="type = 'msg'" class="msg-nft-tab"  v-bind:class="{ 'active-nft-tab': type == 'msg' }" title="Read permanent message">
+          MSG
         </div>
       </div>
       <div class="select-network-div-reader" >
         <select name="select-network-reader" id="select-network-reader" v-model="selectedNetwork" title="Select network">
           <option value="main">Main network</option>
-          <option value="ropsten">Ropsten</option>
+          <option v-if="type == 'msg'" value="ropsten">Ropsten</option>
           <option value="rinkeby">Rinkeby</option>
         </select>
       </div>
@@ -85,16 +85,38 @@ export default {
         '/rinkeby/nft/0x2D4Fc4476B168057dc7589aA28e72f2af2017b5A/2',
         '/nft/0xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270/23000213',
         '/nft/0x60e4d786628fea6478f785a6d7e704777c86a7c6/4849',
+        '/nft/0x60e4d786628fea6478f785a6d7e704777c86a7c6/4850',
+        '/nft/0x60e4d786628fea6478f785a6d7e704777c86a7c6/4851',
+        '/nft/0x60e4d786628fea6478f785a6d7e704777c86a7c6/4852',
+        '/nft/0x60e4d786628fea6478f785a6d7e704777c86a7c6/4853',
+        '/nft/0x60e4d786628fea6478f785a6d7e704777c86a7c6/4854',
         '/nft/0x1CB1A5e65610AEFF2551A50f76a87a7d3fB649C6/360',
+        '/nft/0x1CB1A5e65610AEFF2551A50f76a87a7d3fB649C6/361',
+        '/nft/0x1CB1A5e65610AEFF2551A50f76a87a7d3fB649C6/362',
+        '/nft/0x1CB1A5e65610AEFF2551A50f76a87a7d3fB649C6/363',
+        '/nft/0x1CB1A5e65610AEFF2551A50f76a87a7d3fB649C6/364',
         '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/374',
+        '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/376',
+        '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/378',
+        '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/379',
         '/nft/0x1a92f7381b9f03921564a437210bb9396471050c/1490',
+        '/nft/0x1a92f7381b9f03921564a437210bb9396471050c/1491',
+        '/nft/0x1a92f7381b9f03921564a437210bb9396471050c/1492',
+        '/nft/0x1a92f7381b9f03921564a437210bb9396471050c/1493',
         '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/86',
-
+        '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/87',
+        '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/16',
+        '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/5',
+        '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/4',
+        '/nft/0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB/20',
+        '/nft/0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB/22',
+        '/nft/0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB/24',
+        '/nft/0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB/26',
       ],
       message: 'Loading...',
       content: false,
       timestamp: '',
-      type: 'msg',
+      type: 'nft',
 
       selectedNetwork: '',
     }

@@ -45,7 +45,7 @@
     <div style="height:40px;"></div>
     
     <h2 style="text-align:left;margin-bottom:30px;">Credits</h2>
-    Set in Block is a free and open-source digital service based on the <a href="https://ethereum.org" target="_blank">Ethereum</a> blockchain, powered by <a href="https://infura.io/" target="_blank">Infura</a>, <a href="https://www.alchemy.com/" target="_blank">Alchemy</a> and <a href="https://etherscan.io/" target="_blank">Etherscan</a> APIs.
+    Set in Block is a free and open-source digital service based on the <a href="https://ethereum.org" target="_blank">Ethereum</a> blockchain, powered by <a href="https://infura.io/" target="_blank">Infura</a>, <a href="https://www.alchemy.com/" target="_blank">Alchemy</a>, <a href="https://etherscan.io/" target="_blank">Etherscan</a>, and <a href="https://opensea.io/" target="_blank">OpenSea</a> APIs.
     <br><br>
     Set in Block is supported by <a href="https://coinwink.com/eth" target="_blank">Coinwink</a> - never miss important Ethereum price changes with the help of Coinwink crypto alerts.
     <br><br>

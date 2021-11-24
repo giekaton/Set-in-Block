@@ -1,12 +1,12 @@
 # Set in Block
 
-[Set in Block](https://setinblock.com) is a web app for creating and reading immutable and indestructible messages on the Ethereum blockchain.
+[Set in Block](https://setinblock.com) is a decentralized app (dApp) that allows users to read and write data to the Ethereum blockchain.
 
-The app uses [ethjs](https://github.com/ethjs/ethjs) utility to create transactions and allow users to execute them with MetaMask. The transaction's data field is prefilled with the user's message that is converted into a hexadecimal format.
+The dApp uses [web3](https://github.com/ChainSafe/web3.js), [web3Modal](https://github.com/Web3Modal/web3modal), and [WalletConnect](https://github.com/WalletConnect/walletconnect-monorepo) JavaScript libraries to establish connection with the Ethereum blockchain, prepare and sign transactions client-side, and allow users to broadcast them with their Ethereum wallets.
 
-The message reader uses Etherscan API to receive transaction data. The app then converts the hexadecimal message back into UTF-8 and presents it to the user.
+Set in Block is a free and open-source digital service based on the Ethereum blockchain, powered by [Infura](https://infura.io/), [Alchemy](https://www.alchemy.com/), [Etherscan](https://etherscan.io/), and [OpenSea](https://opensea.io/) APIs.
 
-There is no back-end code and no database, all logic is on the front-end, written in Vue.js.
+The Set in Block dApp is written in Vue.js, with a minimal PHP backend. It doesn't use a server-side database.
 
 ## Quickstart
 
