@@ -162,12 +162,9 @@ export default {
     setGo: async function () {  
       this.feedback = '<span class="notice-good">Confirm the transaction in the MetaMask popup window.</span>';
 
-      let handleReceipt = (error, receipt) => {
-        if (error) console.error(error);
-        else {
-          this.url = '/'+receipt;
-          this.feedback = 'Message recorded<br><span style="cursor:text;font-size:12px;">Transaction hash: '+ receipt +'</span><br><br>Read the message on Set in Block<br><a href="'+this.url+'" style="font-size:12px;" target="_blank">https://setinblock.com/'+receipt+'</a><br><br><br>';
-        }
+      let handleReceipt = (receipt) => {
+        this.url = '/msg/'+receipt;
+        this.feedback = 'Message recorded<br><span style="cursor:text;font-size:12px;">Transaction hash: '+ receipt +'</span><br><br>Read the message on Set in Block<br><a href="'+this.url+'" style="font-size:12px;" target="_blank">https://setinblock.com/msg/'+receipt+'</a><br><br><br>';
       }
 
       let message = this.messageInput;
@@ -177,14 +174,38 @@ export default {
 
       message = this.rstr2utf8(message);
       message = this.str2hex(message);
-      web3.eth.sendTransaction({
-        from: sender,
-        to: address,
-        value: 0,
-        gas: gasCount(message) + 30000,
-        gasPrice: this.gasPriceReal,
-        data: message,
-      }, handleReceipt);
+      // web3.eth.sendTransaction({
+      //   from: sender,
+      //   to: address,
+      //   value: 0,
+      //   gas: gasCount(message) + 30000,
+      //   gasPrice: this.gasPriceReal,
+      //   data: message,
+      // }, handleReceipt);
+
+      handleEthTx().then(handleReceipt);
+
+      let gasPriceReal = this.gasPriceReal;
+
+      function handleEthTx() {
+        return new Promise((resolve, reject) =>  
+          web3.eth.sendTransaction({
+              from: sender,
+              to: address,
+              value: 0,
+              gas: gasCount(message) + 30000,
+              gasPrice: gasPriceReal,
+              data: message,
+            },
+            (err, receipt) => {
+              if (err) {
+                return console.log(err);
+              }
+              return resolve(receipt);
+            }
+          )
+        );
+      }
       
     },
 

@@ -31,7 +31,7 @@
       <div style="height:30px;"></div>
 
       <span v-if="type == 'sb'">
-        The metadata file required for NFT is generated automatically, using a script hosted on Set in Block, and json data encoded in the token's URI. Set in Block itself doesn't host any data, only reads data from the URI and returns it as JSON. This is a quick and easy approach, but it's not recommended, because the script is hosted on a centralized Set in Block server.
+        The metadata file required for NFT is generated automatically, using a script hosted on Set in Block, and json data encoded in the token's URI. Set in Block itself doesn't host any data, only reads data from the URI and returns it as JSON. This is a quick and easy approach, but it's not recommended, because the script itself is hosted on a centralized Set in Block server.
         <br>
         <br>
         Name: <input type="text" v-model="json.name">
@@ -185,30 +185,41 @@ export default {
     },
 
     set: async function() {
-      web3.eth.net.getId().then(id=>{
-        if(id==4){
-          try {
-            this.setGo();
-          } catch (error) {
-            console.log(error);
-            self.feedback = '<span class="notice">To broadcast the message, first log in to your MetaMask wallet.</span>';
-            return;
-          }
-        }
-        else {
-          this.feedback = '<span class="notice">Wrong network selected. Change your network to Rinkeby in your MetaMask wallet.</span>';
+      document.getElementsByClassName('web3modal-modal-lightbox')[0].style.display = 'block';
+
+      await onConnectLoadWeb3Modal();
+
+      if (web3ModalProv) {
+        window.web3 = web3ModalProv;
+        try {
+          web3.eth.net.getId().then(id=>{
+            if(id==4){
+              try {
+                this.setGo();
+              } catch (error) {
+                console.log(error);
+                self.feedback = '<span class="notice">To broadcast the message, first log in to your MetaMask wallet.</span>';
+                return;
+              }
+            }
+            else {
+              this.feedback = '<span class="notice">Wrong network selected. Change your network to Rinkeby in your MetaMask wallet.</span>';
+              return;
+            }
+          });
+        } catch (error) {
+          console.log(error);
+          this.feedback = '<span class="notice">To broadcast the message, first log in to your MetaMask wallet.</span>';
           return;
         }
-      });
-
+      }
+      else {
+        this.feedback = '<span class="notice">To broadcast the message, first install <b><a href="https://metamask.io/" target="_blank" class="notice underlined">MetaMask</a></b> browser extension.</span>';
+        return;
+      }
     },
 
     setGo: async function () {
-      if (typeof window.web3 === 'undefined') {
-        this.feedback = '<span class="notice">To broadcast messages, first install the <b><a href="https://metamask.io/" target="_blank" class="notice underlined">MetaMask</a></b> browser extension.</span>';
-        return;
-      }
-      
       this.feedback = '<span class="notice-good">Confirm the transaction in the MetaMask popup window.</span>';
 
       let handleReceipt = (error, receipt) => {

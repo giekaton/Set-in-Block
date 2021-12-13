@@ -374,8 +374,8 @@ export default {
       let handleReceipt = (error, receipt) => {
         if (error) console.error(error);
         else {
-          this.url = '/'+receipt;
-          this.feedback = 'Message recorded<br><span style="cursor:text;font-size:12px;">Transaction hash: '+ receipt +'</span><br><br>Read the message on Set in Block<br><a href="'+this.url+'" style="font-size:12px;" target="_blank">https://setinblock.com/'+receipt+'</a><br><br><br>';
+          this.url = '/msg/'+receipt;
+          this.feedback = 'Message recorded<br><span style="cursor:text;font-size:12px;">Transaction hash: '+ receipt +'</span><br><br>Read the message on Set in Block<br><a href="'+this.url+'" style="font-size:12px;" target="_blank">https://setinblock.com/msg/'+receipt+'</a><br><br><br>';
         }
       }
 
