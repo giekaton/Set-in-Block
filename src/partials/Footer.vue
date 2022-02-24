@@ -3,7 +3,7 @@
       <div class="width">
 
       <div style="float:left;margin-top:1px;">
-        <span @click="backHome()" style="cursor:pointer;">Set in Block © 2018-2021</span>
+        <span @click="backHome()" style="cursor:pointer;">Set in Block 2018-2022</span>
       </div>
 
 

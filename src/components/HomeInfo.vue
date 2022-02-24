@@ -15,7 +15,7 @@
           
           <div style="height:80px;"></div>
 
-          <b>Content Copyright Protection</b>
+          <b style="font-size:16px;">Content Copyright Protection</b>
 
 
           <div style="height:15px;"></div>
@@ -45,7 +45,7 @@
                 <img src="../assets/123-03.svg" width="45">
               </div>
               <div style="display:block">
-                Get the mathematically-based proof about the authorship and ownership of your work.
+                Get a mathematically-based proof about the authorship and ownership of your work.
               </div>
             </div>
 
@@ -62,27 +62,25 @@
           </div>
 
 
-          <div style="height:90px;"></div>
+          <div style="height:80px;"></div>
 
 
-          <b>Censorship Resistant Permanent Messages</b>
+          <b style="font-size:16px;">Censorship Resistant Permanent Messages</b>
           
           <br><br>
           
-          Blockchain messages are permanent, public and censorship resistant. They can be used for resolutions, declarations, confessions and other public statements. You can claim something publicly, create an acknowledgment, or give a credit, create a confession of love or record a fact of marriage.
+          Blockchain messages are permanent, public and censorship resistant. They can be used for resolutions, declarations, confessions, and other public statements. You can claim something publicly, create an acknowledgment, or give credit, create a confession of love or record a fact of marriage.
           <br><br>
-          Interesting or important content can be stored permanently in the blockchain to make it available for future generations and to promote long-term thinking. Below is our little permanent library of interesting and significant blockchain messages.
+          Interesting or important content can be stored permanently in the blockchain, available for future generations, promoting long-term thinking. Below is a little permanent library of interesting and significant blockchain messages.
 
           <div style="height:20px;"></div>
 
           <div class="overflow-dots"><a href="/msg/0x2d6a7b0f6adeff38423d4c62cd8b6ccb708ddad85da5d3d06756ad4d8a04a6a2" style="white-space: nowrap;" target="_blank">A letter to Peking University teachers and classmates</a></div>
-                    <div class="overflow-dots"><a target="_blank" style="white-space: nowrap;" href="/msg/0x8006d703a45663cab96a85a4ef3e6ab94a1410d6e70119139eea807a63ecb79e">What If Linus Torvalds Gets Hit By A Bus</a></div>
+          <div class="overflow-dots"><a target="_blank" style="white-space: nowrap;" href="/msg/0x8006d703a45663cab96a85a4ef3e6ab94a1410d6e70119139eea807a63ecb79e">What If Linus Torvalds Gets Hit By A Bus</a></div>
           <a target="_blank" style="white-space: nowrap;" href="/msg/0x7975bf9cf6ce32b3f04cafcca60b1a7bb214d66c5c47ca8c6e65faab787079b6">The Afterlife</a>
           <br>
           <a target="_blank" style="white-space: nowrap;" href="/msg/0xf750f5c105bc9692d065ebfb7f6abd483336682490106b409e15c295b34b217a">Zorba the Buddha</a>
           <br>
-
-
           <a style="white-space: nowrap;" href="/msg/0x7a69f558bdc4aaf1e6bab9473c84cb2fddbd1e419c44d5c22eb88bedeb09657c" target="_blank">Vitalik Buterin on burning SHIB tokens</a>
           <br>
           <a style="white-space: nowrap;" href="/msg/0xa0904c7011c4195630b4fbffee67df687112a6bae9770fedc1d90179fa838cfb" target="_blank">First Things First Manifesto 2000</a>
@@ -95,13 +93,15 @@
           <br>
           <a href="/msg/0x87411bb61a6bf1cbc81a8f193906f0aeb331309696c1d5167053144d13332d49" style="white-space: nowrap;" target="_blank">A permanent breakup love-letter</a>
           <br>
+          <a href="/msg/0xa988c166bcbf94726180acd7bfa313319dcf85d9a5ad980af6b5db809f0ce338" style="white-space: nowrap;" target="_blank">SushiSwap CTO Resignation Message</a>
+          <br>
           <br>
           <router-link  to="/new-message"><button class="button-wire">Write Permanent Message</button></router-link>
 
 
-          <div style="height:90px;"></div>
+          <div style="height:80px;"></div>
 
-          <b>Non-Fungible Tokens (NFTs)</b>
+          <b style="font-size:16px;">Non-Fungible Tokens - NFTs</b>
           <div style="height:40px;"></div>
           
           <div style="width:245px;margin:0 auto;">
@@ -137,9 +137,9 @@
           
           <div style="height:20px;"></div>
 
-          A typical NFT is a token that represents some kind of an object, which can be a digital image in JPG or any other format, a physical work of art, a piece of digital or physical land, a physical building, a digital building as an in-game item, and similar. By owning a non-fungible token, you also own the object, associated with that NFT.
+          Non-Fungible Tokens (NFTs) are records in the blockchain. They can represent some kind of an object, be it a digital image in JPG or any other format, a physical work of art, a piece of digital or physical land, a physical building, a digital building as an in-game item, and similar.
           <br><br>
-          NFTs can transferred from one user to another, traded on NFT marketplaces. New NFTs are created by the process called minting.
+          NFTs can be transferred from one user to another, traded on NFT marketplaces. New NFTs are created by the process called minting.
           
           <div style="height:20px;"></div>
 

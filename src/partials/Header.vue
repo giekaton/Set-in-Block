@@ -32,6 +32,8 @@
         </div> -->
 
         <router-link class="link-about" to="/about">About</router-link>
+
+        <!-- <router-link style="float:right;margin-right:15px;margin-top:-5px;" to="/about"><button style="margin-top:3px;height:26px;width:26px;">?</button></router-link> -->
         
       </div>
     </div>

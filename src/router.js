@@ -22,12 +22,12 @@ export default new Router({
       name: 'home',
       component: Home,
       meta: {
-        title: 'Set in Block - Immutable Records, NFT Viewer, Content Creator Tools',
+        title: 'Set in Block - NFT Reader, Immutable Messages, Permanent Records',
         metaTags: [
-          {
-            name: 'description',
-            content: 'Write and read everlasting messages in the Ethereum blockchain. Make a permanent promise, create a proof of fact, protect content copyrights, mint NFTs.'
-          },
+          // {
+          //   name: 'description',
+          //   content: 'Write and read everlasting messages in the Ethereum blockchain. Make a permanent promise, create a proof of fact, protect content copyrights, mint NFTs.'
+          // },
           {
             property: 'og:description',
             content: 'Write and read everlasting messages in the Ethereum blockchain. Make a permanent promise, create a proof of fact, protect content copyrights, mint NFTs.'
@@ -40,7 +40,7 @@ export default new Router({
       name: 'about',
       component: Home,
       meta: {
-        title: 'Set in Block - Decentralized Publishing, Proof of Existence, DApp for Ethereum Blockchain',
+        title: 'Web3 Decentralized Publishing and Content Protection Tools - Set in Block',
         metaTags: [
           {
             property: 'og:description',
@@ -54,7 +54,7 @@ export default new Router({
       name: 'new',
       component: Home,
       meta: {
-        title: 'Create New Permanent Record - Set in Block',
+        title: 'Web3 Interfaces - Set in Block Writer',
       }
     },
     {
@@ -62,12 +62,12 @@ export default new Router({
       name: 'NewMessage',
       component: NewMessage,
       meta: {
-        title: 'New Permanent Message - Set in Block',
+        title: 'Create New Permanent Record, Proof of Existence - Set in Block Writer',
         metaTags: [
-          {
-            name: 'description',
-            content: 'Create a new permanent, everlasting, indestructible blockchain record.'
-          },
+          // {
+          //   name: 'description',
+          //   content: 'Create a new permanent, everlasting, indestructible blockchain record.'
+          // },
           {
             property: 'og:description',
             content: 'Create a new permanent, everlasting, indestructible blockchain record.'
@@ -80,12 +80,12 @@ export default new Router({
       name: 'CopyrightProtection',
       component: CopyrightProtection,
       meta: {
-        title: 'Protect Content Copyright - Set in Block',
+        title: 'Decentralized Content Protection with Ethereum Blockchain - Set in Block Writer',
         metaTags: [
-          {
-            name: 'description',
-            content: 'Intellectual property protection on the Ethereum blockchain.'
-          },
+          // {
+          //   name: 'description',
+          //   content: 'Intellectual property protection on the Ethereum blockchain.'
+          // },
           {
             property: 'og:description',
             content: 'Intellectual property protection on the Ethereum blockchain.'
@@ -98,12 +98,12 @@ export default new Router({
       name: 'MintNFT',
       component: MintNFT,
       meta: {
-        title: 'Mint New NFT (ERC-721) Token - Set in Block',
+        title: 'Mint a New Non-Fungible Token (NFT) - Set in Block Writer',
         metaTags: [
-          {
-            name: 'description',
-            content: 'Create a new non-fungible token on the Ethereum blockchain.'
-          },
+          // {
+          //   name: 'description',
+          //   content: 'Create a new non-fungible token on the Ethereum blockchain.'
+          // },
           {
             property: 'og:description',
             content: 'Create a new non-fungible token on the Ethereum blockchain.'
@@ -135,7 +135,7 @@ export default new Router({
       component: Reader,
       props: true,
       meta: {
-        title: 'Permanent Message - Set in Block',
+        title: 'Permanent Message - Set in Block Reader',
       }
     },
     {
@@ -144,7 +144,7 @@ export default new Router({
       component: Reader,
       props: true,
       meta: {
-        title: 'Permanent Message - Set in Block',
+        title: 'Permanent Message - Set in Block Reader',
       }
     },
     {
@@ -153,7 +153,7 @@ export default new Router({
       component: Reader,
       props: true,
       meta: {
-        title: 'Non-Fungible Token (NFT) - Set in Block',
+        title: 'Non-Fungible Token (NFT) - Set in Block Reader',
       }
     },
     {
@@ -162,7 +162,7 @@ export default new Router({
       component: Reader,
       props: true,
       meta: {
-        title: 'Non-Fungible Token (NFT) - Set in Block',
+        title: 'Non-Fungible Token (NFT) - Set in Block Reader',
       }
     },
     
@@ -175,11 +175,6 @@ export default new Router({
         title: '404',
       }
     }
-
-    // Set in Block - Immutable and Indestructible Messages on the Blockchain
-    // Set in Block - How to Read and Write Blockchain Messages
-    // Set in Block - Immutable message, permanently recorded on the blockchain
-    // Set in Block - Blockchain Message Reader
 
 
   ]

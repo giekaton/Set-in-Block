@@ -5,10 +5,10 @@
 
     <div style="display:grid;grid-template-columns: 1fr 1fr;width:286px;margin:0 auto;">
       <div style="display:grid;grid-template-columns: 1fr 1fr;width:143px;">
-        <div @click="type = 'nft'" class="msg-nft-tab"  v-bind:class="{ 'active-nft-tab': type == 'nft' }" title="Read non-fungible token">
+        <div @click="changeType('nft')" class="msg-nft-tab"  v-bind:class="{ 'active-nft-tab': type == 'nft' }" title="Read non-fungible token">
           NFT
         </div>
-        <div @click="type = 'msg'" class="msg-nft-tab"  v-bind:class="{ 'active-nft-tab': type == 'msg' }" title="Read permanent message">
+        <div @click="changeType('msg') " class="msg-nft-tab"  v-bind:class="{ 'active-nft-tab': type == 'msg' }" title="Read permanent message">
           MSG
         </div>
       </div>
@@ -24,12 +24,12 @@
     <div style="height:10px;"></div>
 
     <div style="max-width:600px;margin:0 auto;">
-		  <input v-show="type == 'msg'" type="text" placeholder="Your Ethereum transaction hash" v-model="txHash" class="tx-input-field">
+		  <input v-show="type == 'msg'" type="text" placeholder="Ethereum transaction hash" v-model="txHash" id="tx-input-field" class="tx-input-field">
     
       <div v-show="type == 'nft'" style="display:grid;grid-template-columns:0.79fr 0.01fr 0.2fr;">
-        <input type="text" placeholder="NFT Contract Address" v-model="nftAddress" class="tx-input-field">
+        <input type="text" placeholder="NFT Contract Address" v-model="nftContract" id="nft-contract" class="tx-input-field">
         <div></div>
-        <input type="text" placeholder="NFT ID" v-model="nftId" class="tx-input-field">
+        <input type="text" placeholder="NFT ID" v-model="nftId" id="nft-id" class="tx-input-field">
       </div>
 
     </div>
@@ -49,7 +49,7 @@ export default {
   name: 'ReaderComponent',
   data: function() {
     return {
-      nftAddress: '',
+      nftContract: '',
       nftId: '',
       txHash: '',
       txHashArray: [
@@ -76,43 +76,199 @@ export default {
         '0x2dc3fcc6a0a23e88a82def9c07248731d98e7178a9fd4cee9ca72fa7e1a28774',
         '0xea8ffdabd3dc2a43b643640be59a93953fa25d273d5beaa34ed96b7fc5f3d033',
         '0x87411bb61a6bf1cbc81a8f193906f0aeb331309696c1d5167053144d13332d49',
+        '0xa988c166bcbf94726180acd7bfa313319dcf85d9a5ad980af6b5db809f0ce338',
       ],
-      nftArray: [
-        '/nft/0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D/8580',
-        '/nft/0xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270/13000109',
-        '/nft/0xC8BcbE0E8ae36D8f9238cd320ef6dE88784B1734/3926',
-        '/nft/0x41A322b28D0fF354040e2CbC676F0320d8c8850d/11',
-        '/rinkeby/nft/0x2D4Fc4476B168057dc7589aA28e72f2af2017b5A/2',
-        '/nft/0xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270/23000213',
-        '/nft/0x60e4d786628fea6478f785a6d7e704777c86a7c6/4849',
-        '/nft/0x60e4d786628fea6478f785a6d7e704777c86a7c6/4850',
-        '/nft/0x60e4d786628fea6478f785a6d7e704777c86a7c6/4851',
-        '/nft/0x60e4d786628fea6478f785a6d7e704777c86a7c6/4852',
-        '/nft/0x60e4d786628fea6478f785a6d7e704777c86a7c6/4853',
-        '/nft/0x60e4d786628fea6478f785a6d7e704777c86a7c6/4854',
-        '/nft/0x1CB1A5e65610AEFF2551A50f76a87a7d3fB649C6/360',
-        '/nft/0x1CB1A5e65610AEFF2551A50f76a87a7d3fB649C6/361',
-        '/nft/0x1CB1A5e65610AEFF2551A50f76a87a7d3fB649C6/362',
-        '/nft/0x1CB1A5e65610AEFF2551A50f76a87a7d3fB649C6/363',
-        '/nft/0x1CB1A5e65610AEFF2551A50f76a87a7d3fB649C6/364',
-        '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/374',
-        '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/376',
-        '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/378',
-        '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/379',
-        '/nft/0x1a92f7381b9f03921564a437210bb9396471050c/1490',
-        '/nft/0x1a92f7381b9f03921564a437210bb9396471050c/1491',
-        '/nft/0x1a92f7381b9f03921564a437210bb9396471050c/1492',
-        '/nft/0x1a92f7381b9f03921564a437210bb9396471050c/1493',
-        '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/86',
-        '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/87',
-        '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/16',
-        '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/5',
-        '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/4',
-        '/nft/0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB/20',
-        '/nft/0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB/22',
-        '/nft/0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB/24',
-        '/nft/0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB/26',
-      ],
+      // nftArray: [
+      //   '/nft/0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D/8580',
+      //   '/nft/0xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270/13000109',
+      //   '/nft/0xC8BcbE0E8ae36D8f9238cd320ef6dE88784B1734/3926',
+      //   '/nft/0x41A322b28D0fF354040e2CbC676F0320d8c8850d/11',
+      //   '/rinkeby/nft/0x2D4Fc4476B168057dc7589aA28e72f2af2017b5A/2',
+      //   '/nft/0xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270/23000213',
+      //   '/nft/0x60e4d786628fea6478f785a6d7e704777c86a7c6/4849',
+      //   '/nft/0x60e4d786628fea6478f785a6d7e704777c86a7c6/4850',
+      //   '/nft/0x60e4d786628fea6478f785a6d7e704777c86a7c6/4851',
+      //   '/nft/0x60e4d786628fea6478f785a6d7e704777c86a7c6/4852',
+      //   '/nft/0x60e4d786628fea6478f785a6d7e704777c86a7c6/4853',
+      //   '/nft/0x60e4d786628fea6478f785a6d7e704777c86a7c6/4854',
+      //   '/nft/0x1CB1A5e65610AEFF2551A50f76a87a7d3fB649C6/360',
+      //   '/nft/0x1CB1A5e65610AEFF2551A50f76a87a7d3fB649C6/361',
+      //   '/nft/0x1CB1A5e65610AEFF2551A50f76a87a7d3fB649C6/362',
+      //   '/nft/0x1CB1A5e65610AEFF2551A50f76a87a7d3fB649C6/363',
+      //   '/nft/0x1CB1A5e65610AEFF2551A50f76a87a7d3fB649C6/364',
+      //   '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/374',
+      //   '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/376',
+      //   '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/378',
+      //   '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/379',
+      //   '/nft/0x1a92f7381b9f03921564a437210bb9396471050c/1490',
+      //   '/nft/0x1a92f7381b9f03921564a437210bb9396471050c/1491',
+      //   '/nft/0x1a92f7381b9f03921564a437210bb9396471050c/1492',
+      //   '/nft/0x1a92f7381b9f03921564a437210bb9396471050c/1493',
+      //   '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/86',
+      //   '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/87',
+      //   '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/16',
+      //   '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/5',
+      //   '/nft/0x41a322b28d0ff354040e2cbc676f0320d8c8850d/4',
+      //   '/nft/0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB/20',
+      //   '/nft/0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB/22',
+      //   '/nft/0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB/24',
+      //   '/nft/0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB/26',
+      // ],
+      nftRandom: {
+        'cryptoPunks': {
+          contract: '0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB',
+          count: 9999,
+        },
+        'superRare': {
+          contract: '0x41a322b28d0ff354040e2cbc676f0320d8c8850d',
+          count: 100
+        },
+        'coolCats': {
+          contract: '0x1a92f7381b9f03921564a437210bb9396471050c',
+          count: 8888
+        },
+        'crypToadz': {
+          contract: '0x1CB1A5e65610AEFF2551A50f76a87a7d3fB649C6',
+          count: 5000,
+        },
+        'mutantApes': {
+          contract: '0x60e4d786628fea6478f785a6d7e704777c86a7c6',
+          count: 9999
+        },
+        'boredApes': {
+          contract: '0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D',
+          count: 9999
+        },
+        'winterBears': {
+          contract: '0xC8BcbE0E8ae36D8f9238cd320ef6dE88784B1734',
+          count: 9999
+        },
+        'cryptoBulls': {
+          contract: '0x469823c7b84264d1bafbcd6010e9cdf1cac305a3',
+          count: 5000
+        },
+        'apeWives': {
+          contract: '0xf1268733c6fb05ef6be9cf23d24436dcd6e0b35e',
+          count: 5000
+        },
+        'voxCollectibles': {
+          contract: '0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c',
+          count: 5000
+        },
+        'cyberKongz': {
+          contract: '0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c',
+          count: 3000
+        },
+        'doodles': {
+          contract: '0x8a90cab2b38dba80c64b7734e58ee1db38b8992e',
+          count: 5000
+        },
+        'thingdoms': {
+          contract: '0x0aa7420c43b8c1a7b165d216948870c8ecfe1ee1',
+          count: 5000
+        },
+        'flowerGirls': {
+          contract: '0x2efa07cac3395599db83035d196f2a0e7263f766',
+          count: 5000
+        },
+        'wodlfOfWomen': {
+          contract: '0xe785e82358879f061bc3dcac6f0444462d4b5330',
+          count: 9999
+        },
+        'apesInSpace': {
+          contract: '0x7a3b97a7400e44dadd929431a3640e4fc47daebd',
+          count: 9999
+        },
+        'zenApe': {
+          contract: '0x838804a3dd7c717396a68f94e736eaf76b911632',
+          count: 5000
+        },
+        'creatureWorld': {
+          contract: '0xc92ceddfb8dd984a89fb494c376f9a48b999aafc',
+          count: '9999'
+        },
+        'cryptoMories': {
+          contract: '0x1a2f71468f656e97c2f86541e57189f59951efe7',
+          count: '9999'
+        },
+        'theLittles': {
+          contract: '0xc6ec80029cd2aa4b0021ceb11248c07b25d2de34',
+          count: 9999
+        },
+        'littleLemon': {
+          contract: '0x0b22fe0a2995c5389ac093400e52471dca8bb48a',
+          count: 5000
+        },
+        'cryptoCoven': {
+          contract: '0x5180db8f5c931aae63c74266b211f580155ecac8',
+          count: 5000
+        },
+        'theHumanoids': {
+          contract: '0x3a5051566b2241285be871f650c445a88a970edd',
+          count: 9999
+        },
+        'humansMetaverse': {
+          contract: '0x8a9ece9d8806eb0cde56ac89ccb23a36e2c718cf',
+          count: 5000
+        },
+        'gutterCatGang': {
+          contract: '0xedb61f74b0d09b2558f1eeb79b247c1f363ae452',
+          count: 3000
+        },
+        'swampVerse': {
+          contract: '0x95784f7b5c8849b0104eaf5d13d6341d8cc40750',
+          count: 5000
+        },
+        'deadFellaz': {
+          contract: '0x2acab3dea77832c09420663b0e1cb386031ba17b',
+          count: 9999
+        },
+        'mfers': {
+          contract: '0x79fcdef22feed20eddacbb2587640e45491b757f',
+          count: 9999
+        },
+        'theShiboshis': {
+          contract: '0x11450058d796b02eb53e65374be59cff65d3fe7f',
+          count: 9999
+        },
+        'boonjiProject': {
+          contract: '0x4cd0ea8b1bdb5ab9249d96ccf3d8a0d3ada2bc76',
+          count: 9999
+        },
+        'alphaGirl': {
+          contract: '0x8c5029957bf42c61d19a29075dc4e00b626e5022',
+          count: 5000
+        },
+        'asmBrains': {
+          contract: '0xd0318da435dbce0b347cc6faa330b5a9889e3585',
+          count: 3000
+        },
+        'mutantCats': {
+          contract: '0xaadba140ae5e4c8a9ef0cc86ea3124b446e3e46a',
+          count: 9999
+        },
+        'galacticApes': {
+          contract: '0x12d2d1bed91c24f878f37e66bd829ce7197e4d14',
+          count: 5000
+        },
+        'robotos': {
+          contract: '0x099689220846644f87d1137665cded7bf3422747',
+          count: 5000
+        },
+        'hashMasks': {
+          contract: '0xc2c747e0f7004f9e8817db2ca4997657a7746928',
+          count: 9999
+        },
+        'slimHoods': {
+          contract: '0x2931b181ae9dc8f8109ec41c42480933f411ef94',
+          count: 5000
+        },
+        // 'other': [
+        //   '/nft/0xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270/13000109',
+        //   '/rinkeby/nft/0x2D4Fc4476B168057dc7589aA28e72f2af2017b5A/2',
+        //   '/nft/0xa7d8d9ef8D8Ce8992Df33D8b8CF4Aebabd5bD270/23000213',
+        // ]
+      },
       message: 'Loading...',
       content: false,
       timestamp: '',
@@ -134,6 +290,10 @@ export default {
       this.txHash = hash;
       this.read();
     },
+    changeType(type) {
+      this.type = type;
+      readerType = type;
+    },
     read: function(lucky) {
       selectNetwork(this.selectedNetwork);
 
@@ -153,19 +313,55 @@ export default {
       }
 
       if (this.type == 'msg') {
+        txHash = this.txHash;
         this.$router.push({ path: network+'/msg/'+this.txHash })
       }
       else if (this.type == 'nft') {
-        // return(alert('NFT reading is coming soon!'));
-        // console.log(this.nftId, this.nftAddress);
+        // nftId = this.nftId;
+        // nftContract = this.nftContract;
         if (lucky == 'lucky' && this.type == 'nft') {
           this.selectedNetwork = 'main';
           selectNetwork(this.selectedNetwork);
-          let url = this.nftArray[Math.floor(Math.random()*this.nftArray.length)];
-          this.$router.push({ path: url })
+          // let url = this.nftArray[Math.floor(Math.random()*this.nftArray.length)];
+
+          let randomProperty = function (obj) {
+              let keys = Object.keys(obj);
+              let random = keys.length * Math.random() << 0;
+              let randomCollection = obj[keys[random]];
+              let key = keys[random];
+              let id = null;
+
+              if (key == 'other') {
+                id = randomCollection[Math.floor(Math.random()*randomCollection.length)]
+                return (id)
+              }
+              else {
+                id = Math.floor(Math.random()*randomCollection['count'])
+                return ('/nft/'+randomCollection['contract']+'/'+id)
+              }
+
+              // return [key, randomCollection['contract'], id];
+              
+          };
+
+          // console.log(randomProperty(this.nftRandom));
+          // return;
+
+          // this.$router.push({ path: url })
+          this.$router.push(randomProperty(this.nftRandom))
         }
         else {
-          this.$router.push({ path: network+'/nft/'+this.nftAddress+'/'+this.nftId })
+          
+          if (this.nftContract == "") {
+            document.getElementById('nft-contract').focus();
+            return;
+          }
+          if (this.nftId == "") {
+            document.getElementById('nft-id').focus();
+            return;
+          }
+
+          this.$router.push({ path: network+'/nft/'+this.nftContract+'/'+this.nftId })
         }
       }
 
@@ -187,6 +383,16 @@ export default {
   },
 
   mounted () {
+    if (txHash) {
+      this.txHash = txHash;
+    }
+    if (readerType) {
+      this.type = readerType;
+    }
+    if (nftContract && nftId) {
+      this.nftContract = nftContract;
+      this.nftId = nftId;
+    }
     this.selectedNetwork = selectedNetwork;
   }
 }

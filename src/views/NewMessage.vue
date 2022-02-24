@@ -12,7 +12,21 @@
       <div style="text-align:left;font-size:13px;border:1px solid #cacaca;border-radius:5px;background-color:#f9f9f9;padding:20px;">
           Enter a message and record it in the Ethereum blockchain for permanent storage.
           <br><br>
-          Set in Block message submission interface only encodes and prepares the message. After the submit button is pressed, you will be asked to confirm the transaction with your MetaMask wallet and by doing this, to create your permanent record. Currently, it works only with the desktop version of MetaMask.
+          Set in Block message submission interface only encodes and prepares the message. After the Set button is pressed, you will be asked to confirm the transaction with your <a href="https://metamask.io/" target="_blank">MetaMask</a> wallet and by doing this, to create a permanent record.
+          <br><br>
+          The message you enter will be encoded into a hexadecimal format and then included in the data field of the Ethereum blockchain transaction.
+          <br><br>
+          The value of your prepared transaction is 0. The longer is your message, the bigger is the transaction fee. Gas Limit is calculated automatically, according to the size of your message. Gas Price is set to {{gasPrice}} Gwei, but you can change it, depending on the network conditions.
+          <br><br>
+          We never see your private key or any other personal data, as the transaction is broadcast on the client-side, through the MetaMask extension. You can inspect 
+          the code of our website by looking into its source and visiting its <a href="https://github.com/giekaton/set-in-block" target="_blank">GitHub</a> repository.
+          <br><br>
+          For privacy reasons, every new Set in Block message is sent to a randomly generated Ethereum address.
+          <br><br>
+          After the message is added in the blockchain, it is no longer possible to change or delete it. Your message, recorded in the blockchain, is immutable and incorruptible - no one can delete or modify it. It also never expires - it's a permanent record. 
+          <br><br>
+          By having a message recorded on the blockchain, you have a mathematically-based proof of existence that your message is authentic, and that it existed prior to a 
+          specific date.
       </div>
 
       <br><br><br>
@@ -106,7 +120,7 @@ export default {
       fileHash: 'Waiting for the file',
       feedback: '',
       content: false,
-      gasPrice: 3
+      gasPrice: 30
     }
   },
 

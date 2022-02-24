@@ -9,7 +9,7 @@
       <br><br>
 
       <span style="font-size:13px;">
-        This is a generic ERC-721 non-fungible token (NFT) contract for the Ethereum blockchain, based on OpenZeppelin contract standarts. The contract is deployed on <a href="https://rinkeby.etherscan.io/address/0x2D4Fc4476B168057dc7589aA28e72f2af2017b5A" target="_blank">Rinkeby testnet</a>. Get free Rinkeby ETH <a href="https://faucet.rinkeby.io/" target="_blank">here</a>. Contract source-code is available on <a href="https://github.com/setinblock/nft-erc721-contract" target="_blank">GitHub</a>. To mint a new NFT is free, but you'll need to cover the network transaction fee, using your own MetaMask wallet. You can find your newly minted tokens on <a href="https://testnets.opensea.io/" target="_blank">OpenSea testnet</a>.
+        This is a generic ERC-721 non-fungible token (NFT) contract for the Ethereum blockchain, based on the <a href="https://openzeppelin.com/" target="_blank">OpenZeppelin</a> contract standarts. The contract is deployed on the <a href="https://rinkeby.etherscan.io/address/0x2D4Fc4476B168057dc7589aA28e72f2af2017b5A" target="_blank">Rinkeby testnet</a>. Get free Rinkeby ETH <a href="https://faucet.rinkeby.io/" target="_blank">here</a>. Contract source-code is available on <a href="https://github.com/setinblock/nft-erc721-contract" target="_blank">GitHub</a>. To mint a new NFT is free, but you'll need to cover the network transaction fee, using your <a href="https://metamask.io/" target="_blank">MetaMask</a> wallet. You can find your newly minted tokens on <a href="https://testnets.opensea.io/" target="_blank">OpenSea testnet</a>.
       </span>
 
       <div style="height:40px;"></div>
@@ -30,8 +30,8 @@
 
       <div style="height:30px;"></div>
 
-      <span v-if="type == 'sb'">
-        The metadata file required for NFT is generated automatically, using a script hosted on Set in Block, and json data encoded in the token's URI. Set in Block itself doesn't host any data, only reads data from the URI and returns it as JSON. This is a quick and easy approach, but it's not recommended, because the script itself is hosted on a centralized Set in Block server.
+      <span v-if="type == 'sb'" >
+        <span style="font-size:13px;">The metadata file required for the NFT is generated automatically, using a script hosted on Set in Block, and JSON data encoded in the token's URI. Set in Block itself doesn't host any data, only reads the data from the URI and returns it as JSON. This is a quick and easy approach, but it's not recommended, because the script itself is hosted on a centralized Set in Block server.</span>
         <br>
         <br>
         Name: <input type="text" v-model="json.name">
@@ -57,7 +57,7 @@
       </span>
 
       <span v-if="type == 'ipfs'">
-        Upload your image to IPFS, arweave or similar. Create your metadata json file by adding token's name, link to token's image on IPFS, description, any attritubes if needed. Upload this metadata file to IPFS, and provide its link for the token below.
+        <span style="font-size:13px;">Upload your image to IPFS, arweave or similar. Create your metadata JSON file by adding token's name, link to token's image on IPFS, description, any attritubes if needed. Upload this metadata file to IPFS, and provide its link for the NFT below.</span>
         <br>
         <br>
         Metadata URI: <input type="text" v-model="metaLink">

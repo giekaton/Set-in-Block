@@ -9,13 +9,13 @@
       <br><br>
 
       <div style="text-align:left;font-size:13px;border:1px solid #cacaca;border-radius:5px;background-color:#f9f9f9;padding:20px;">
-          Enter your work's name and description in the message field to record it in the Ethereum blockchain for permanent storage. You can also include first publication date and author's name.
+          Enter your work's name and description in the message field to record this data in the Ethereum blockchain for permanent storage. You can also include first publication date, author's name, etc.
           <br><br>
           Hash the work by selecting its file (.png, .js or other), and submit only the SHA-256 hash. Keep the original file in your archive.
           <br><br>
-          Optionally, upload the file to IPFS and add its link in the message. See <a href="/msg/0x2dc3fcc6a0a23e88a82def9c07248731d98e7178a9fd4cee9ca72fa7e1a28774" target="_blank">example</a>.
+          Optionally, upload the file to IPFS and add its link in the message. See this <a href="/msg/0x2dc3fcc6a0a23e88a82def9c07248731d98e7178a9fd4cee9ca72fa7e1a28774" target="_blank">example</a>.
           <br><br>
-          In case of copyright infringement, use our <router-link to="/cease-and-desist-letter-template" target="_blank">cease and desist letter template</router-link>.
+          In a case of copyright infringement, use our <router-link to="/cease-and-desist-letter-template" target="_blank">cease and desist letter template</router-link>.
           <br><br>
           <b v-if="!moreInfo"><span class="link" @click="moreInfo = true">More info...</span></b>
           <b v-if="moreInfo"><span class="link" @click="moreInfo = false">Close</span><br><br><br></b>
@@ -27,7 +27,7 @@
 
             <p>As an owner of the work, you can prevent the unauthorized use of your intellectual property. For this, you need to have proof that you are the author or have the licensing rights to the original work.</p>
 
-            <p>Set in Block allows you to create such proof on the blockchain inexpensively and quickly, without the need for third parties or complicated registration procedures. Blockchain-based proofs are immutable and incorruptible, and they never expire.</p>
+            <p>Set in Block allows you to create such a proof on the blockchain inexpensively and quickly, without the need for third parties or complicated registration procedures. Blockchain-based proofs are immutable and incorruptible, and they never expire.</p>
 
             <p>In a case of copyright infringement, you are welcome to use our Cease and Desist letter template.</p>
 
@@ -314,7 +314,7 @@ export default {
       fileHash: 'Waiting for the file',
       feedback: '',
       content: false,
-      gasPrice: 3,
+      gasPrice: 30,
       moreInfo: false,
     }
   },

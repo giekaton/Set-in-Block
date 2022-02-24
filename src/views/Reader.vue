@@ -1,33 +1,34 @@
 <template>
   <div class="reader">
 
-    <div class="read-content" style="margin-top:-20px;">
+    <div v-if="type == 'msg'" class="read-content" style="margin-top:-20px;">
 
-      <span v-if="type == 'msg'">
-        <span class="pre-formatted serif" v-html="tempstr"></span>
-
-        <div v-if="tempstr != 'Message is not available. Try a different tx hash.'">
-          <div style="border-top:1px solid #cccccc;width:100%;margin-top: 80px;padding-top:10px;"></div>
-            <div class="reader-tx-details sans-serif" style="line-height:18px;">
-              The above message is stored permanently on the blockchain. It cannot be edited or deleted.<br><br>
-              Message created: 
-              <span class="sans-serif" title="Link to Etherscan" style="color:#222;">{{ timestamp }}</span>
-            <br> 
-            <div class="overflow-dots">
-              Ethereum transaction hash: 
-              <a v-bind:href="'https://etherscan.io/tx/'+txHash" target="_blank" title="Link to Etherscan">{{ txHash }}</a>
-            </div>
-            <br><br>
+      <span class="pre-formatted serif" v-html="tempstr"></span>
+      <div v-if="tempstr != 'Message is not available. Try a different tx hash.'">
+        <div style="border-top:1px solid #cccccc;width:100%;margin-top: 80px;padding-top:10px;"></div>
+          <div class="reader-tx-details sans-serif" style="line-height:18px;">
+            The above message is stored permanently on the blockchain. It cannot be edited or deleted.<br><br>
+            Message created: 
+            <span class="sans-serif" title="Link to Etherscan" style="color:#222;">{{ timestamp }}</span>
+          <br> 
+          <div class="overflow-dots">
+            Ethereum transaction hash: 
+            <a v-bind:href="'https://etherscan.io/tx/'+txHash" target="_blank" title="Link to Etherscan">{{ txHash }}</a>
           </div>
+          <br><br>
         </div>
-      </span>
-      <div v-else style="margin-top:-30px;">
+      </div>
+
+    </div>
+
+    <div v-else class="read-content-nft overflow-dots">
         <span v-if="loaded && nftImageSrc">
-          <span style="font-size:22px;font-weight:bold;">Non-Fungible Token (NFT)</span>
-          <div style="height:30px;"></div>
-          <div style="width:100%;min-height: 55px; margin: 0px auto; box-shadow: rgb(233, 233, 233) 0px 4px 8px 3px;padding: 30px;">
+          <div style="margin: 0px auto; box-shadow: rgb(233, 233, 233) 0px 4px 8px 3px;padding: 30px;">
             <img v-bind:src="nftImageSrc" style="width:100%;height:100%;">
           </div>
+          <div style="height:30px;"></div>
+          <div style="font-size:22px;font-weight:bold;">Non-Fungible Token (NFT)</div>
+          <div style="font-size:22px;line-height:160%;">{{ nftJson.name }}</div>
           <div style="height:30px;"></div>
           Token ID: <a :href="'https://'+netLink+'etherscan.io/token/'+nftAddress+'?a='+nftId" target="_blank">{{ nftId }}</a>
           <span v-if="nftJson.name">
@@ -36,9 +37,10 @@
           </span>
           <span v-if="nftJson.description">
             <br>
-            Description: {{ nftJson.name }}
+            Description: {{ nftJson.description }}
           </span>
           <span v-if="nftJson.owner">
+            <br>
             <br>
             Owner: <a :href="'https://'+netLink+'etherscan.io/address/'+nftJson.owner.address" target="_blank">{{ nftJson.owner.address }}</a>
           </span>
@@ -57,6 +59,8 @@
             <br>
             Network: <span style="text-transform:capitalize;">{{ net }}</span>
           </span>
+          <br><br>
+          More data: <a :href="nftJson.permalink" target="_blank">OpenSea</a>
           <br>
           <!-- <br>
           Image: <a :href="nftImageSrc" target="_blank">{{ nftImageSrc }}</a> -->
@@ -64,9 +68,10 @@
           <!-- <div style="width:100%;min-height: 55px; margin: 0px auto; box-shadow: rgb(233, 233, 233) 0px 4px 8px 3px;padding: 30px;">
             <img v-bind:src="nftImageSrc" style="width:100%;height:100%;">
           </div> -->
-          <div style="height:20px;"></div>
+          <div style="height:10px;"></div>
         </span>
         <span v-else-if="loaded && !nftImageSrc">
+          <div style="height:50px;"></div>
           <b>NFT data is not available, or the token is based not on the Ethereum ERC-721 standard.</b>
           <div style="height:30px;"></div>
           Token ID: {{ nftId }}
@@ -75,11 +80,10 @@
           <!-- Token ID: <a target="_blank" :href="'https://'+netLink+'etherscan.io/token/'+nftAddress+'?a='+nftId">{{ nftId }}</a> -->
         </span>
         <span v-else-if="!loaded">
+          <div style="height:30px;"></div>
           Loading...
         </span>
       </div>
-
-    </div>
 
 
   </div>
@@ -155,6 +159,8 @@ export default {
     let self = this;
     
     if (this.type == 'msg') {
+        readerType = 'msg';
+      txHash = this.txHash;
       axios.get(etherscan + '/api?module=proxy&action=eth_getTransactionByHash&txhash=' + this.txHash + '&apikey=' + this.apiKey)
       .then(
         function (response) {
@@ -193,6 +199,9 @@ export default {
         );
       }
       else if (this.type == 'nft') {
+        nftId = this.nftId;
+        nftContract = this.nftAddress;
+        readerType = 'nft';
         console.log('read nft');
         let net = 'main';
         if (typeof(this.net) != 'undefined') {
@@ -257,10 +266,23 @@ export default {
   padding-right:20px;
 }
 
+.read-content-nft {
+  max-width:660px;
+  padding-bottom:90px;  
+  margin: 0 auto;
+  margin-top:40px;
+  clear:both;
+  padding-left:20px;
+  padding-right:20px;
+}
+
 @media only screen and (max-width: 600px) {
   .read-content {
     padding-top:100px;
     padding-bottom:80px;
+  }
+  .read-content-nft {
+    margin-top: 30px;
   }
 }
 
