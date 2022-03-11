@@ -1,25 +1,15 @@
-.DS_Store
-node_modules
-/dist
-/dist-backup
-/public/php-metamask-user-login
-/public/backend/env.php
-
-# local env files
-.env.local
-.env.*.local
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
 .env
-
-# Log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Editor directories and files
-.idea
-.vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw*
+.env.backup
+.phpunit.result.cache
+docker-compose.override.yml
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+/.idea
+/.vscode

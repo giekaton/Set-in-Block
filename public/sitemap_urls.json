@@ -1,0 +1,266 @@
+{
+  "pages": [
+    "/",
+    "/php-metamask-user-login/",
+    "/about",
+    "/new",
+    "/copyright-protection",
+    "/cease-and-desist-letter-template",
+    "/new-message",
+    "/mint-nft"
+  ],
+  "txHashArray": [
+    "0x52fcfb8b25daa9a6ea2c99a26cba4a4104ba21cb83fe670a3d296a317b98f097",
+    "0x35dbf0e5c933db547022fbb61ed06458e028d34e388d253ab14a2b686582dd6c",
+    "0x2d6a7b0f6adeff38423d4c62cd8b6ccb708ddad85da5d3d06756ad4d8a04a6a2",
+    "0x8006d703a45663cab96a85a4ef3e6ab94a1410d6e70119139eea807a63ecb79e",
+    "0xddfa3b28394d52d0e2c168c42d0f853179b3e482ee4bf507851c95da6d68d1c1",
+    "0x77ed505f790493db0e47a0379e8455843bb5ecac9d03ba88602696e346d84828",
+    "0xeff50e090d8490266b9b122c75fb661b5967bc5789a51540875ca7d2554f7e01",
+    "0x3ce1ef698a5fe2e505014d5468f80b10e10a150929b9ea52ce79d466ba158b62",
+    "0x6361ac23362b8761490addad58636f1f3d5748451fcc9b4f8182b9776809e710",
+    "0xcc1f5ee8e08b38adee27f397565690fdd882f295492ded96fb6d9e6b81000a6a",
+    "0xcd98780f0f4d21835f24781eabffdfad3369c7e10ad4cf97cd81e14283a8c48e",
+    "0xca8836d2e9ac00053a4549b7f2dfa48c3c9eea60296b658e8bc95a3926ded010",
+    "0xd065be0f5777e4a16e2c9e2750bde15c27ab5a4ab866736f3cb6041b450f6ee6",
+    "0xc7377190e9c0b40d3e5e7d434430ffeff5df3394dd4e6b56581802ee125185de",
+    "0x98f619c174b21b28a5820f9be61cd4f86b51d7889b0eb38840028df34a6ac2c7",
+    "0xf750f5c105bc9692d065ebfb7f6abd483336682490106b409e15c295b34b217a",
+    "0x7975bf9cf6ce32b3f04cafcca60b1a7bb214d66c5c47ca8c6e65faab787079b6",
+    "0xa0904c7011c4195630b4fbffee67df687112a6bae9770fedc1d90179fa838cfb",
+    "0x2dc3fcc6a0a23e88a82def9c07248731d98e7178a9fd4cee9ca72fa7e1a28774",
+    "0xea8ffdabd3dc2a43b643640be59a93953fa25d273d5beaa34ed96b7fc5f3d033",
+    "0x87411bb61a6bf1cbc81a8f193906f0aeb331309696c1d5167053144d13332d49",
+    "0xa988c166bcbf94726180acd7bfa313319dcf85d9a5ad980af6b5db809f0ce338"
+  ],
+  "nftRandom": {
+    "CyberBrokers": {
+      "contract": "0x892848074ddea461a15f337250da3ce55580ca85",
+      "count": 9999
+    },
+    "Dippies": {
+      "contract": "0x82f5ef9ddc3d231962ba57a9c2ebb307dc8d26c2",
+      "count": 5000
+    },
+    "InvisibleFriends": {
+      "contract": "0x59468516a8259058bad1ca5f8f4bff190d30e066",
+      "count": 5000
+    },
+    "Azuki": {
+      "contract": "0xed5af388653567af2f388e6224dc7c4b3241c544",
+      "count": 9999
+    },
+    "WonderPals": {
+      "contract": "0x3acce66cd37518a6d77d9ea3039e00b3a2955460",
+      "count": 9999
+    },
+    "DourDarcels": {
+      "contract": "0x8d609bd201beaea7dccbfbd9c22851e23da68691",
+      "count": 9999
+    },
+    "VeeFriends": {
+      "contract": "0xa3aee8bce55beea1951ef834b99f3ac60d1abeeb",
+      "count": 9999
+    },
+    "TheSandbox": {
+      "contract": "0x5cc5b05a8a13e3fbdb0bb9fccd98d38e50f90c38",
+      "count": 4000
+    },
+    "3Landers": {
+      "contract": "0xb4d06d46a8285f4ec79fd294f78a881799d8ced9",
+      "count": 9999
+    },
+    "LoserClubOfficial": {
+      "contract": "0x709d30f1f60f03d85a0ef33142ef3259392dc9e1",
+      "count": 9999
+    },
+    "NFTWorlds": {
+      "contract": "0xbd4455da5929d5639ee098abfaa3241e9ae111af",
+      "count": 9999
+    },
+    "DEGENTOONZCOLLECTION": {
+      "contract": "0x19b86299c21505cdf59ce63740b240a9c822b5e4",
+      "count": 5000
+    },
+    "ClayFriends": {
+      "contract": "0xfde881c7b76ad10b59a82247e1cd3cbad0d739f3",
+      "count": 4000
+    },
+    "Metroverse": {
+      "contract": "0x0e9d6552b85be180d941f1ca73ae3e318d2d4f1f",
+      "count": 9999
+    },
+    "RaidPartyHeroes": {
+      "contract": "0x966731dfd9b9925dd105ff465687f5aa8f54ee9f",
+      "count": 5000
+    },
+    "Meebits": {
+      "contract": "0x7bd29408f11d2bfc23c34f18275bbf23bb716bc7",
+      "count": 9999
+    },
+    "RubberDuckBathParty": {
+      "contract": "0x7a4d1b54dd21dde804c18b7a830b5bc6e586a7f6",
+      "count": 9999
+    },
+    "DentedFeelsNFT": {
+      "contract": "0xc5e55e4bd5fef12831b5a666fc9e391538acdc45",
+      "count": 9999
+    },
+    "WabiSabiCollectiveGenesis": {
+      "contract": "0x0d3669c118330b1990bfb416691982f342e5e9f0",
+      "count": 5000
+    },
+    "SatoshiRunners": {
+      "contract": "0x080ce3620a3cfed6119d6c8db0f9a56e52451729",
+      "count": 5000
+    },
+    "CloneX": {
+      "contract": "0x49cf6f5d44e70224e2e23fdcdd2c053f30ada28b",
+      "count": 9999
+    },
+    "cryptoPunks": {
+      "contract": "0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB",
+      "count": 9999
+    },
+    "coolCats": {
+      "contract": "0x1a92f7381b9f03921564a437210bb9396471050c",
+      "count": 8888
+    },
+    "crypToadz": {
+      "contract": "0x1CB1A5e65610AEFF2551A50f76a87a7d3fB649C6",
+      "count": 5000
+    },
+    "mutantApes": {
+      "contract": "0x60e4d786628fea6478f785a6d7e704777c86a7c6",
+      "count": 9999
+    },
+    "boredApes": {
+      "contract": "0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D",
+      "count": 9999
+    },
+    "winterBears": {
+      "contract": "0xC8BcbE0E8ae36D8f9238cd320ef6dE88784B1734",
+      "count": 9999
+    },
+    "cryptoBulls": {
+      "contract": "0x469823c7b84264d1bafbcd6010e9cdf1cac305a3",
+      "count": 5000
+    },
+    "apeWives": {
+      "contract": "0xf1268733c6fb05ef6be9cf23d24436dcd6e0b35e",
+      "count": 5000
+    },
+    "voxCollectibles": {
+      "contract": "0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c",
+      "count": 5000
+    },
+    "cyberKongz": {
+      "contract": "0xad9fd7cb4fc7a0fbce08d64068f60cbde22ed34c",
+      "count": 3000
+    },
+    "doodles": {
+      "contract": "0x8a90cab2b38dba80c64b7734e58ee1db38b8992e",
+      "count": 5000
+    },
+    "thingdoms": {
+      "contract": "0x0aa7420c43b8c1a7b165d216948870c8ecfe1ee1",
+      "count": 5000
+    },
+    "flowerGirls": {
+      "contract": "0x2efa07cac3395599db83035d196f2a0e7263f766",
+      "count": 5000
+    },
+    "wodlfOfWomen": {
+      "contract": "0xe785e82358879f061bc3dcac6f0444462d4b5330",
+      "count": 9999
+    },
+    "apesInSpace": {
+      "contract": "0x7a3b97a7400e44dadd929431a3640e4fc47daebd",
+      "count": 9999
+    },
+    "zenApe": {
+      "contract": "0x838804a3dd7c717396a68f94e736eaf76b911632",
+      "count": 5000
+    },
+    "creatureWorld": {
+      "contract": "0xc92ceddfb8dd984a89fb494c376f9a48b999aafc",
+      "count": "9999"
+    },
+    "cryptoMories": {
+      "contract": "0x1a2f71468f656e97c2f86541e57189f59951efe7",
+      "count": "9999"
+    },
+    "theLittles": {
+      "contract": "0xc6ec80029cd2aa4b0021ceb11248c07b25d2de34",
+      "count": 9999
+    },
+    "littleLemon": {
+      "contract": "0x0b22fe0a2995c5389ac093400e52471dca8bb48a",
+      "count": 5000
+    },
+    "cryptoCoven": {
+      "contract": "0x5180db8f5c931aae63c74266b211f580155ecac8",
+      "count": 5000
+    },
+    "theHumanoids": {
+      "contract": "0x3a5051566b2241285be871f650c445a88a970edd",
+      "count": 9999
+    },
+    "humansMetaverse": {
+      "contract": "0x8a9ece9d8806eb0cde56ac89ccb23a36e2c718cf",
+      "count": 5000
+    },
+    "gutterCatGang": {
+      "contract": "0xedb61f74b0d09b2558f1eeb79b247c1f363ae452",
+      "count": 3000
+    },
+    "swampVerse": {
+      "contract": "0x95784f7b5c8849b0104eaf5d13d6341d8cc40750",
+      "count": 5000
+    },
+    "deadFellaz": {
+      "contract": "0x2acab3dea77832c09420663b0e1cb386031ba17b",
+      "count": 9999
+    },
+    "mfers": {
+      "contract": "0x79fcdef22feed20eddacbb2587640e45491b757f",
+      "count": 9999
+    },
+    "theShiboshis": {
+      "contract": "0x11450058d796b02eb53e65374be59cff65d3fe7f",
+      "count": 9999
+    },
+    "boonjiProject": {
+      "contract": "0x4cd0ea8b1bdb5ab9249d96ccf3d8a0d3ada2bc76",
+      "count": 9999
+    },
+    "alphaGirl": {
+      "contract": "0x8c5029957bf42c61d19a29075dc4e00b626e5022",
+      "count": 5000
+    },
+    "asmBrains": {
+      "contract": "0xd0318da435dbce0b347cc6faa330b5a9889e3585",
+      "count": 3000
+    },
+    "mutantCats": {
+      "contract": "0xaadba140ae5e4c8a9ef0cc86ea3124b446e3e46a",
+      "count": 9999
+    },
+    "galacticApes": {
+      "contract": "0x12d2d1bed91c24f878f37e66bd829ce7197e4d14",
+      "count": 5000
+    },
+    "robotos": {
+      "contract": "0x099689220846644f87d1137665cded7bf3422747",
+      "count": 5000
+    },
+    "hashMasks": {
+      "contract": "0xc2c747e0f7004f9e8817db2ca4997657a7746928",
+      "count": 9999
+    },
+    "slimHoods": {
+      "contract": "0x2931b181ae9dc8f8109ec41c42480933f411ef94",
+      "count": 5000
+    }
+  }
+}
