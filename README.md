@@ -1,4 +1,4 @@
-<p align="center"><a href="https://setinblock.com" target="_blank"><img src="https://setinblock.com/img/logo-github.png" width="100"></a></p>
+<a href="https://setinblock.com" target="_blank"><img src="https://setinblock.com/img/logo-github.png" width="100"></a>
 
 ## About Set in Block
 
