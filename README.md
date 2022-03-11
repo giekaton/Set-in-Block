@@ -22,9 +22,9 @@ The Writer uses [web3](https://github.com/ChainSafe/web3.js), [web3Modal](https:
 ## Quicklaunch
 
 - Git clone the repository
+- Rename and update file `env.example` to `env`
 - Run `composer install`
 - Run `npm install`
-- Rename and update file `env.example` to `env`
 - To start local environment, run `npm run watch`
 - To build for production, run `npm run prod`
 
