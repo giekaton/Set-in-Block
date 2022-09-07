@@ -1,9 +1,5 @@
 import Home from './components/Home.vue';
 
-import NewMessage from './components/NewMessage.vue'
-import MintNFT from './components/NewMintNFT.vue'
-import CopyrightProtection from './components/NewCopyrightProtection.vue'
-import CeaseAndDesistLetter from './components/CeaseAndDesistLetter.vue'
 import Reader from './components/Reader.vue'
 import About from './components/About.vue'
 import New from './components/New.vue'
@@ -19,7 +15,7 @@ export default {
         metaTags: [
           {
             property: 'og:description',
-            content: 'Write and read everlasting messages in the Ethereum blockchain. Make a permanent promise, create a proof of fact, protect content copyrights, mint NFTs.'
+            content: 'Write and read immutable messages in the Ethereum blockchain. Make a permanent promise, create a proof of existence, protect content copyrights.'
           }
         ]
       }
@@ -29,11 +25,11 @@ export default {
       name: 'about',
       component: About,
       meta: {
-        title: 'Decentralized Publishing and Content Protection Tools - Set in Block',
+        title: 'Decentralized Web3 Publishing and Blockchain-based Content Protection - Set in Block',
         metaTags: [
           {
             property: 'og:description',
-            content: 'Immutable and Indestructible Proof of Existence on the Ethereum Blockchain. Create and read everlasting messages on the blockchain. Make a permanent promise, create a proof of fact, protect copyrights, mint NFT tokens.'
+            content: 'Write and read everlasting Web3 messages on the Ethereum blockchain. Create immutable and indestructible proof of existence.'
           }
         ]
       }
@@ -43,57 +39,13 @@ export default {
       name: 'new',
       component: New,
       meta: {
-        title: 'Web3 Interfaces - Set in Block Writer',
-      }
-    },
-    {
-      path: '/new-message',
-      name: 'NewMessage',
-      component: NewMessage,
-      meta: {
-        title: 'Create New Permanent Record, Proof of Existence - Set in Block Writer',
+        title: 'New Permanent Record, Copyright Protection with Ethereum - Set in Block',
         metaTags: [
           {
             property: 'og:description',
-            content: 'Create a new permanent, everlasting, indestructible blockchain record.'
+            content: 'Create new permanent message. Intellectual property protection with the Ethereum blockchain.'
           }
-        ],
-      }
-    },
-    {
-      path: '/copyright-protection',
-      name: 'CopyrightProtection',
-      component: CopyrightProtection,
-      meta: {
-        title: 'Decentralized Content Protection with Ethereum Blockchain - Set in Block Writer',
-        metaTags: [
-          {
-            property: 'og:description',
-            content: 'Intellectual property protection on the Ethereum blockchain.'
-          }
-        ],
-      }
-    },
-    {
-      path: '/mint-nft',
-      name: 'MintNFT',
-      component: MintNFT,
-      meta: {
-        title: 'Mint a New Non-Fungible Token (NFT) ERC-721 - Set in Block Writer',
-        metaTags: [
-          {
-            property: 'og:description',
-            content: 'Create a new non-fungible token on the Ethereum blockchain.'
-          }
-        ],
-      }
-    },
-    {
-      path: '/cease-and-desist-letter-template',
-      name: 'CeaseAndDesistLetter',
-      component: CeaseAndDesistLetter,
-      meta: {
-        title: 'Cease and Desist Letter Generator, Template - Set in Block',
+        ]
       }
     },
 

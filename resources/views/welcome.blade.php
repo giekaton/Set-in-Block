@@ -5,32 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
 
-
     <!-- Custom Backend SEO Metadata -->
     <?php
       $title_home = "Set in Block - NFT Reader, Immutable Messages, Permanent Records";
-      $description_home = "Write and read everlasting messages in the Ethereum blockchain. Make a permanent promise, create a proof of fact, protect content copyrights, mint NFTs.";
+      $description_home = "Write and read immutable messages in the Ethereum blockchain. Make a permanent promise, create a proof of existence, protect content copyrights.";
 
-      $title_about = "Decentralized Publishing and Content Protection Tools - Set in Block";
-      $description_about = "Immutable and Indestructible Proof of Existence on the Ethereum Blockchain. Create and read everlasting messages on the blockchain. Make a permanent promise, create a proof of fact, protect copyrights, mint NFT tokens.";
+      $title_about = "Decentralized Web3 Publishing and Blockchain-based Content Protection - Set in Block";
+      $description_about = "Write and read everlasting Web3 messages on the Ethereum blockchain. Create immutable and indestructible proof of existence.";
 
-      $title_new_message = "Create New Permanent Record, Proof of Existence - Set in Block Writer";
-      $description_new_message = "Create a new permanent, everlasting, indestructible blockchain record.";
-
-      $title_mint_nft = "Mint a New Non-Fungible Token (NFT) ERC-721 - Set in Block Writer";
-      $description_mint_nft = "Create a new non-fungible token on the Ethereum blockchain.";
-
-      $title_copyright_protection = "Decentralized Content Protection with Ethereum Blockchain - Set in Block Writer";
-      $description_copyright_protection = "Intellectual property protection with the Ethereum blockchain.";
-
-      $title_copyright_protection_faq = "Intellectual Property Protection with Blockchain - Set in Block";
-      $description_copyright_protection_faq = "Protect content copyright with the Ethereum blockchain.";
-
-      $title_cease_desist = "Cease and Desist Letter Generator, Template - Set in Block";
-      $description_cease_desist = "Generate a cease and desist letter to use in case of copyright infringement.";
-
-      $title_new = "Web3 Interfaces - Set in Block Writer";
-      $description_new = "Decentralized digital publishing and content copyright protection tools";
+      $title_new = "New Permanent Record, Copyright Protection with Ethereum - Set in Block";
+      $description_new = "Create new permanent message. Intellectual property protection with the Ethereum blockchain.";
 
       $thumb_social = "https://setinblock.com/img/social.png?v=001";
       $thumb_social_fb = "https://setinblock.com/img/social_fb.png?v=001";
@@ -138,61 +122,6 @@
       <meta property="og:image" content="<?php echo ($thumb_social_fb); ?>">
       <meta itemprop="image" content="<?php echo ($thumb_social); ?>">
       <meta name="image" content="<?php echo ($thumb_social); ?>">
-    @elseif (Route::currentRouteName() == 'new-message')
-      <title><?php echo ($title_new_message); ?></title>
-      <meta itemprop="name" content="<?php echo ($title_new_message); ?>">
-      <meta name="twitter:title" content="<?php echo ($title_new_message); ?>">
-      <meta name="twitter:description" content="<?php echo ($description_new_message); ?>">
-      <meta property="og:title" content="<?php echo ($title_new_message); ?>">
-      <meta property="og:description" content="<?php echo ($description_new_message); ?>">
-      <meta name="twitter:image:src" content="<?php echo ($thumb_social); ?>">
-      <meta property="og:image" content="<?php echo ($thumb_social_fb); ?>">
-      <meta itemprop="image" content="<?php echo ($thumb_social); ?>">
-      <meta name="image" content="<?php echo ($thumb_social); ?>">
-    @elseif (Route::currentRouteName() == 'copyright-protection')
-      <title><?php echo ($title_copyright_protection); ?></title>
-      <meta itemprop="name" content="<?php echo ($title_copyright_protection); ?>">
-      <meta name="twitter:title" content="<?php echo ($title_copyright_protection); ?>">
-      <meta name="twitter:description" content="<?php echo ($description_copyright_protection); ?>">
-      <meta property="og:title" content="<?php echo ($title_copyright_protection); ?>">
-      <meta property="og:description" content="<?php echo ($description_copyright_protection); ?>">
-      <meta name="twitter:image:src" content="<?php echo ($thumb_social); ?>">
-      <meta property="og:image" content="<?php echo ($thumb_social_fb); ?>">
-      <meta itemprop="image" content="<?php echo ($thumb_social); ?>">
-      <meta name="image" content="<?php echo ($thumb_social); ?>">
-    @elseif (Route::currentRouteName() == 'mint-nft')
-      <title><?php echo ($title_mint_nft); ?></title>
-      <meta itemprop="name" content="<?php echo ($title_mint_nft); ?>">
-      <meta name="twitter:title" content="<?php echo ($title_mint_nft); ?>">
-      <meta name="twitter:description" content="<?php echo ($description_mint_nft); ?>">
-      <meta property="og:title" content="<?php echo ($title_mint_nft); ?>">
-      <meta property="og:description" content="<?php echo ($description_mint_nft); ?>">
-      <meta name="twitter:image:src" content="<?php echo ($thumb_social); ?>">
-      <meta property="og:image" content="<?php echo ($thumb_social_fb); ?>">
-      <meta itemprop="image" content="<?php echo ($thumb_social); ?>">
-      <meta name="image" content="<?php echo ($thumb_social); ?>">
-    @elseif (Route::currentRouteName() == 'cease-and-desist-letter-template')
-      <title><?php echo ($title_cease_desist); ?></title>
-      <meta itemprop="name" content="<?php echo ($title_cease_desist); ?>">
-      <meta name="twitter:title" content="<?php echo ($title_cease_desist); ?>">
-      <meta name="twitter:description" content="<?php echo ($description_cease_desist); ?>">
-      <meta property="og:title" content="<?php echo ($title_cease_desist); ?>">
-      <meta property="og:description" content="<?php echo ($description_cease_desist); ?>">
-      <meta name="twitter:image:src" content="<?php echo ($thumb_social); ?>">
-      <meta property="og:image" content="<?php echo ($thumb_social_fb); ?>">
-      <meta itemprop="image" content="<?php echo ($thumb_social); ?>">
-      <meta name="image" content="<?php echo ($thumb_social); ?>">
-    @elseif (Route::currentRouteName() == 'faq')
-      <title><?php echo ($title_copyright_protection_faq); ?></title>
-      <meta itemprop="name" content="<?php echo ($title_copyright_protection_faq); ?>">
-      <meta name="twitter:title" content="<?php echo ($title_copyright_protection_faq); ?>">
-      <meta name="twitter:description" content="<?php echo ($description_copyright_protection_faq); ?>">
-      <meta property="og:title" content="<?php echo ($title_copyright_protection_faq); ?>">
-      <meta property="og:description" content="<?php echo ($description_copyright_protection_faq); ?>">
-      <meta name="twitter:image:src" content="<?php echo ($thumb_social); ?>">
-      <meta property="og:image" content="<?php echo ($thumb_social_fb); ?>">
-      <meta itemprop="image" content="<?php echo ($thumb_social); ?>">
-      <meta name="image" content="<?php echo ($thumb_social); ?>">
     @endif
 
     <!-- For all -->
@@ -201,7 +130,6 @@
     <meta name="twitter:card" content="summary">
     <meta property="og:site_name" content="Set in Block">
     <meta property="og:type" content="website">
-
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="https://setinblock.com/img/favicon/apple-touch-icon.png?v=xQOzbvWeR2">
@@ -267,7 +195,6 @@
         var bytes = encodeURI(string).split(/%..|./).length - 1;
         return bytes * gasPerByte / 2;
       }
-
     </script>
 
     <script>
@@ -321,8 +248,8 @@
         </svg>
       </div>
 
+      <!-- Vue app -->
       <div id="app"></div>
-      <!-- built files will be auto injected -->
       
       <!-- To access Vue methods -->
       <script>vueVM = null;</script>
@@ -330,9 +257,9 @@
       <!-- Vue -->
       <script src="{{asset(mix('js/app.js'), true)}}" defer></script>
   
+      <!-- Libraries -->
       <script src="/lib/sha256.js"></script>
       <script src="/lib/lib-typedarrays-min.js"></script>
-
 
       <!-- Web3 -->
       <style>
@@ -347,6 +274,7 @@
       <script src="https://setinblock.com/php-metamask-user-login/js/web3-modal.js"></script>
 
       <script>
+          // Enable web3 connection
           const ethEnabled = async () => {
             if (window.ethereum) {
               // await window.ethereum.send('eth_requestAccounts');
@@ -360,19 +288,6 @@
             return false;
           }
 
-          // Enable web3 connection
-          // async function ethEnabled() {
-          //   if (window.ethereum) {
-          //     await window.ethereum.send('eth_requestAccounts');
-          //     window.web3 = new Web3(window.ethereum);
-              
-          //     // generate a random 'to' Ethereum address for a permanent message
-          //     address = web3.utils.keccak256(Math.random().toString()).substring(0, 42);
-
-          //     return true;
-          //   }
-          //   return false;
-          // }
           ethEnabled();
       </script>
 

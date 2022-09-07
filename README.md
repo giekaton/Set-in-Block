@@ -8,9 +8,7 @@ The data stored in the blockchain is permanent and cannot be modified, similarly
 
 Set in Block mission is to promote long-term thinking.
 
-You can use the Set in Block Writer to publish permanent messages, protect content copyrights, mint NFTs.
-
-Use the Set in Block Reader to read permanent messages and NFTs, stored in the Ethereum blockchain.
+With Set in Block, you can read and write data to the blockchain. Use the Reader to read permanent messages and NFTs, stored in the Ethereum blockchain. Use the Writer to publish permanent messages, protect content copyrights.
 
 ## Architecture
 

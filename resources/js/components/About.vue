@@ -1,6 +1,6 @@
 <template>
 
-  <div>
+  <div class="content">
 
     <h2 style="text-align:left;margin-bottom:30px;">About</h2>
 
@@ -10,19 +10,11 @@
     <br><br>
     Set in Block mission is to promote long-term thinking.
     <br><br>
-    You can use the Set in Block Writer to publish permanent messages, protect content copyrights, mint NFTs.
+    With Set in Block, you can read and write data to the blockchain. Use the Reader to read permanent messages and NFTs, stored in the Ethereum blockchain. Use the Writer to publish permanent messages, protect content copyrights.
     <br><br>
-    Use the Set in Block Reader to read permanent messages and NFTs, stored in the Ethereum blockchain.
-
-    <div style="height:40px;"></div>
-    
-    <h2 style="text-align:left;margin-bottom:30px;">How it works</h2>
-
-    You can use our Web3 visual interfaces to create Ethereum blockchain messages, protect copyrights, mint NFTs. The submission is done on the client-side, using your MetaMask wallet.
+    By having a message recorded on the blockchain, you have mathematically-based proof that the message is authentic, and that it existed prior to a specific date.
     <br><br>
-    By having a message recorded on the blockchain, you have mathematically-based proof that your message is authentic, and that it existed prior to a specific date.
-    <br><br>
-    The message submission is anonymous and for every message, a new random receiving Ethereum address is generated. Besides Google Analytics with IP anonymization, we do not use any trackers or cookies. We do not use a database and do not collect any information about the website users.
+    The message submission is anonymous and for every message, a new random receiving Ethereum address is generated. We do not use a database and do not store any information about the website users. Message submissions are done on the client-side, using the MetaMask wallet.
     <br><br>
     The options for setting things in block are endless. By recording a file's hash in the blockchain, you can <i>set in block</i> virtually anything. The thing represented in the file, no matter the format, receives an immutable and incorruptible timestamp, which works as a proof of existence. Such proof never expires, it cannot be edited or deleted, and it can always be independently verified.
     
@@ -40,34 +32,3 @@
   </div>
         
 </template>
-
-<script>
-
-export default {
-  components: {
-    
-  },
-
-  data: function() {
-    return {
-      
-    }
-  },
-
-  computed: {
-    
-  },
-
-  mounted () {
-    
-  },
-
-  methods: {
-
-  }
-}
-</script>
-
-<style>
-
-</style>
