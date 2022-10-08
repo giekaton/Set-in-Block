@@ -354,4 +354,11 @@ h3 {
   color: white;
   border: 1px solid grey;
 }
+
+@media screen and (max-width: 800px) {
+  .content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
 </style>
